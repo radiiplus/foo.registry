@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,73 +49,73 @@
           {
             "kind": "function",
             "name": "close",
-            "signature": "public use \"thread\" function close[T](resource of type pointer to T) of type fallible nothing.",
+            "declaration": "public use \"thread\" function close[T](resource of type pointer to T) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "condition",
-            "signature": "public use \"thread\" function condition() of type fallible pointer to Condition.",
+            "declaration": "public use \"thread\" function condition() of type fallible pointer to Condition.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "lock",
-            "signature": "public use \"thread\" function lock(mutex of type pointer to Mutex) of type fallible nothing.",
+            "declaration": "public use \"thread\" function lock(mutex of type pointer to Mutex) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "mutex",
-            "signature": "public use \"thread\" function mutex() of type fallible pointer to Mutex.",
+            "declaration": "public use \"thread\" function mutex() of type fallible pointer to Mutex.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "pause",
-            "signature": "public use \"thread\" function pause(condition of type pointer to Condition, mutex of type pointer to Mutex) of type fallible nothing.",
+            "declaration": "public use \"thread\" function pause(condition of type pointer to Condition, mutex of type pointer to Mutex) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "signal",
-            "signature": "public use \"thread\" function signal(condition of type pointer to Condition) of type fallible nothing.",
+            "declaration": "public use \"thread\" function signal(condition of type pointer to Condition) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "spawn",
-            "signature": "public use \"thread\" function spawn(task of type function taking () giving nothing) of type fallible pointer to Thread.",
+            "declaration": "public use \"thread\" function spawn(task of type function taking () giving nothing) of type fallible pointer to Thread.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "unlock",
-            "signature": "public use \"thread\" function unlock(mutex of type pointer to Mutex) of type fallible nothing.",
+            "declaration": "public use \"thread\" function unlock(mutex of type pointer to Mutex) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "wait",
-            "signature": "public use \"thread\" function wait(task of type pointer to Thread) of type fallible nothing.",
+            "declaration": "public use \"thread\" function wait(task of type pointer to Thread) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Condition",
-            "signature": "public define Condition as opaque.",
+            "declaration": "public define Condition as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Mutex",
-            "signature": "public define Mutex as opaque.",
+            "declaration": "public define Mutex as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Thread",
-            "signature": "public define Thread as opaque.",
+            "declaration": "public define Thread as opaque.",
             "documentation": "Runs function-valued tasks and coordinates shared work with locks and conditions."
           }
         ]

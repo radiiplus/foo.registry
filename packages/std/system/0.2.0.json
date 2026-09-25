@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,19 +49,19 @@
           {
             "kind": "function",
             "name": "cores",
-            "signature": "public use \"system\" function cores() of type fallible unsigned 32.",
+            "declaration": "public use \"system\" function cores() of type fallible unsigned 32.",
             "documentation": "Declares host system information."
           },
           {
             "kind": "function",
             "name": "host",
-            "signature": "public use \"system\" function host() of type fallible text.",
+            "declaration": "public use \"system\" function host() of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "page",
-            "signature": "public use \"system\" function page() of type unsigned 64.",
+            "declaration": "public use \"system\" function page() of type unsigned 64.",
             "documentation": ""
           }
         ]

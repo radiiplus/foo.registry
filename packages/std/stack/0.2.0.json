@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,43 +49,43 @@
           {
             "kind": "function",
             "name": "create",
-            "signature": "public function create[T]() of type Stack[T].",
+            "declaration": "public function create[T]() of type Stack[T].",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "length",
-            "signature": "public function length[T](collection of type Stack[T]) of type unsigned 64.",
+            "declaration": "public function length[T](collection of type Stack[T]) of type unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "push",
-            "signature": "public function push[T](collection of type Stack[T], value of type T) of type fallible Stack[T].",
+            "declaration": "public function push[T](collection of type Stack[T], value of type T) of type fallible Stack[T].",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "release",
-            "signature": "public function release[T](collection of type Stack[T]) of type fallible nothing.",
+            "declaration": "public function release[T](collection of type Stack[T]) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "remove",
-            "signature": "public function remove[T](collection of type Stack[T]) of type fallible Stack[T].",
+            "declaration": "public function remove[T](collection of type Stack[T]) of type fallible Stack[T].",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "top",
-            "signature": "public function top[T](collection of type Stack[T]) of type fallible T.",
+            "declaration": "public function top[T](collection of type Stack[T]) of type fallible T.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Stack",
-            "signature": "public define Stack[T] as record { values of type sequence of T. }.",
+            "declaration": "public define Stack[T] as record { values of type sequence of T. }.",
             "documentation": ""
           }
         ]

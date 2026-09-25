@@ -86,6 +86,7 @@ test("indexes every standard module and its public surface", async () => {
   const reference = JSON.parse(await readFile(join("repository", "indexes", "standard.json"), "utf8"));
   assert.equal(reference.schema, "foo.standard/v1");
   assert.equal(reference.count, sources.length);
+  assert.match(reference.packages[0].owner.signature, /^v1\.[A-Za-z0-9_-]{43}$/);
   assert.ok(reference.packages.some((entry) => entry.name === "std/json" && entry.api.modules[0].items.some((item) => item.name === "parse")));
 });
 
@@ -103,7 +104,7 @@ function fixture(name, category) {
     deprecated: "",
     platforms: ["linux"],
     updated: "2026-09-25",
-    owner: { id: 1, login: "radiiplus" },
+    owner: { signature: `v1.${"A".repeat(43)}`, login: "radiiplus" },
     repository: `https://github.com/radiiplus/${name}`,
     revision: "0123456789abcdef0123456789abcdef01234567",
     install: `foo add ${name}`,
@@ -120,7 +121,7 @@ function fixture(name, category) {
         name: "main",
         path: "src/main.iv",
         summary: "",
-        items: [{ kind: "constant", name: "name", signature: "public constant name.", documentation: "" }],
+        items: [{ kind: "constant", name: "name", declaration: "public constant name.", documentation: "" }],
       }],
     },
   };

@@ -43,9 +43,9 @@
     "owner": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "login"],
+      "required": ["signature", "login"],
       "properties": {
-        "id": { "type": "integer", "minimum": 1 },
+        "signature": { "type": "string", "pattern": "^v1\\.[A-Za-z0-9_-]{43}$" },
         "login": { "type": "string", "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$" }
       }
     },
@@ -105,11 +105,11 @@
                 "items": {
                   "type": "object",
                   "additionalProperties": false,
-                  "required": ["kind", "name", "signature", "documentation"],
+                  "required": ["kind", "name", "declaration", "documentation"],
                   "properties": {
                     "kind": { "enum": ["function", "type", "constant", "value"] },
                     "name": { "type": "string", "minLength": 1 },
-                    "signature": { "type": "string", "minLength": 1 },
+                    "declaration": { "type": "string", "minLength": 1 },
                     "documentation": { "type": "string" }
                   }
                 }

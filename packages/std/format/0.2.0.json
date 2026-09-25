@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,13 +49,13 @@
           {
             "kind": "function",
             "name": "format",
-            "signature": "public function format(buffer of type pointer to byte, size of type integer 64, template of type pointer to byte).",
+            "declaration": "public function format(buffer of type pointer to byte, size of type integer 64, template of type pointer to byte).",
             "documentation": "Provides text formatting. Formatting and parsing --- Type-safe string formatting ---"
           },
           {
             "kind": "function",
             "name": "parse",
-            "signature": "public function parse(content of type pointer to byte).",
+            "declaration": "public function parse(content of type pointer to byte).",
             "documentation": ""
           }
         ]

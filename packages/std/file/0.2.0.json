@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,55 +49,55 @@
           {
             "kind": "function",
             "name": "directory",
-            "signature": "public use \"fs\" function directory(path text) giving fallible nothing.",
+            "declaration": "public use \"fs\" function directory(path text) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "flush",
-            "signature": "public use \"fs\" function flush(stream pointer to streams.Stream) giving fallible nothing.",
+            "declaration": "public use \"fs\" function flush(stream pointer to streams.Stream) giving fallible nothing.",
             "documentation": "Advanced stream controls. Offsets are byte offsets; origin is start, current, or end."
           },
           {
             "kind": "function",
             "name": "join",
-            "signature": "public use \"fs\" function join(left text, right text) giving fallible text.",
+            "declaration": "public use \"fs\" function join(left text, right text) giving fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "open",
-            "signature": "public use \"fs\" function open(path text, mode text) giving fallible pointer to streams.Stream.",
+            "declaration": "public use \"fs\" function open(path text, mode text) giving fallible pointer to streams.Stream.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "position",
-            "signature": "public use \"fs\" function position(stream pointer to streams.Stream) giving fallible unsigned 64.",
+            "declaration": "public use \"fs\" function position(stream pointer to streams.Stream) giving fallible unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "read",
-            "signature": "public use \"fs\" function read(path text) giving fallible text.",
+            "declaration": "public use \"fs\" function read(path text) giving fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "seek",
-            "signature": "public use \"fs\" function seek(stream pointer to streams.Stream, offset integer 64, origin text) giving fallible nothing.",
+            "declaration": "public use \"fs\" function seek(stream pointer to streams.Stream, offset integer 64, origin text) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "size",
-            "signature": "public use \"fs\" function size(stream pointer to streams.Stream) giving fallible unsigned 64.",
+            "declaration": "public use \"fs\" function size(stream pointer to streams.Stream) giving fallible unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "write",
-            "signature": "public use \"fs\" function write(path text, content text) giving fallible nothing.",
+            "declaration": "public use \"fs\" function write(path text, content text) giving fallible nothing.",
             "documentation": ""
           }
         ]

@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,73 +49,73 @@
           {
             "kind": "function",
             "name": "allocate",
-            "signature": "public use \"memory\" function allocate(allocator of type pointer to Allocator, size of type unsigned 64) of type fallible pointer to byte.",
+            "declaration": "public use \"memory\" function allocate(allocator of type pointer to Allocator, size of type unsigned 64) of type fallible pointer to byte.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "arena",
-            "signature": "public use \"memory\" function arena() of type fallible pointer to Allocator.",
+            "declaration": "public use \"memory\" function arena() of type fallible pointer to Allocator.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "clear",
-            "signature": "public use \"memory\" function clear(buffer of type sequence of byte) of type nothing.",
+            "declaration": "public use \"memory\" function clear(buffer of type sequence of byte) of type nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "close",
-            "signature": "public use \"memory\" function close(allocator of type pointer to Allocator) of type fallible nothing.",
+            "declaration": "public use \"memory\" function close(allocator of type pointer to Allocator) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "compare",
-            "signature": "public use \"memory\" function compare(left of type sequence of constant byte, right of type sequence of constant byte) of type integer.",
+            "declaration": "public use \"memory\" function compare(left of type sequence of constant byte, right of type sequence of constant byte) of type integer.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "copy",
-            "signature": "public use \"memory\" function copy(allocator of type pointer to Allocator, buffer of type pointer to byte, content of type text) of type fallible nothing.",
+            "declaration": "public use \"memory\" function copy(allocator of type pointer to Allocator, buffer of type pointer to byte, content of type text) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "expand",
-            "signature": "public use \"memory\" function expand(allocator of type pointer to Allocator, buffer of type pointer to byte, size of type unsigned 64) of type fallible pointer to byte.",
+            "declaration": "public use \"memory\" function expand(allocator of type pointer to Allocator, buffer of type pointer to byte, size of type unsigned 64) of type fallible pointer to byte.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "release",
-            "signature": "public use \"memory\" function release(allocator of type pointer to Allocator, buffer of type pointer to byte) of type fallible nothing.",
+            "declaration": "public use \"memory\" function release(allocator of type pointer to Allocator, buffer of type pointer to byte) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "system",
-            "signature": "public use \"memory\" function system() of type pointer to Allocator.",
+            "declaration": "public use \"memory\" function system() of type pointer to Allocator.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "transfer",
-            "signature": "public use \"memory\" function transfer(source of type sequence of constant byte, destination of type sequence of byte) of type fallible nothing.",
+            "declaration": "public use \"memory\" function transfer(source of type sequence of constant byte, destination of type sequence of byte) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "view",
-            "signature": "public use \"memory\" function view(allocator of type pointer to Allocator, buffer of type pointer to byte, size of type unsigned 64) of type fallible text.",
+            "declaration": "public use \"memory\" function view(allocator of type pointer to Allocator, buffer of type pointer to byte, size of type unsigned 64) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Allocator",
-            "signature": "public define Allocator as opaque.",
+            "declaration": "public define Allocator as opaque.",
             "documentation": "Declares owned allocations and grouped arena lifetimes."
           }
         ]

@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,31 +49,31 @@
           {
             "kind": "function",
             "name": "absolute",
-            "signature": "public function absolute(path of type pointer to byte).",
+            "declaration": "public function absolute(path of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "merge",
-            "signature": "public function merge(first of type pointer to byte, second of type pointer to byte).",
+            "declaration": "public function merge(first of type pointer to byte, second of type pointer to byte).",
             "documentation": "Provides filesystem path operations."
           },
           {
             "kind": "function",
             "name": "name",
-            "signature": "public function name(path of type pointer to byte).",
+            "declaration": "public function name(path of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "parent",
-            "signature": "public function parent(path of type pointer to byte).",
+            "declaration": "public function parent(path of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "suffix",
-            "signature": "public function suffix(path of type pointer to byte).",
+            "declaration": "public function suffix(path of type pointer to byte).",
             "documentation": ""
           }
         ]

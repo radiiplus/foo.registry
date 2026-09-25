@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,55 +49,55 @@
           {
             "kind": "function",
             "name": "contains",
-            "signature": "public function contains[K, V](collection of type Map[K, V], key of type K) of type boolean where K is Equatable.",
+            "declaration": "public function contains[K, V](collection of type Map[K, V], key of type K) of type boolean where K is Equatable.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "create",
-            "signature": "public function create[K, V]() of type Map[K, V].",
+            "declaration": "public function create[K, V]() of type Map[K, V].",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "get",
-            "signature": "public function get[K, V](collection of type Map[K, V], key of type K) of type fallible V where K is Equatable.",
+            "declaration": "public function get[K, V](collection of type Map[K, V], key of type K) of type fallible V where K is Equatable.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "length",
-            "signature": "public function length[K, V](collection of type Map[K, V]) of type unsigned 64.",
+            "declaration": "public function length[K, V](collection of type Map[K, V]) of type unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "put",
-            "signature": "public function put[K, V](collection of type Map[K, V], key of type K, value of type V) of type fallible Map[K, V] where K is Equatable.",
+            "declaration": "public function put[K, V](collection of type Map[K, V], key of type K, value of type V) of type fallible Map[K, V] where K is Equatable.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "release",
-            "signature": "public function release[K, V](collection of type Map[K, V]) of type fallible nothing.",
+            "declaration": "public function release[K, V](collection of type Map[K, V]) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "remove",
-            "signature": "public function remove[K, V](collection of type Map[K, V], key of type K) of type fallible Map[K, V] where K is Equatable.",
+            "declaration": "public function remove[K, V](collection of type Map[K, V], key of type K) of type fallible Map[K, V] where K is Equatable.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Entry",
-            "signature": "public define Entry[K, V] as record { key of type K. value of type V. }.",
+            "declaration": "public define Entry[K, V] as record { key of type K. value of type V. }.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Map",
-            "signature": "public define Map[K, V] as record { entries of type sequence of Entry[K, V]. }.",
+            "declaration": "public define Map[K, V] as record { entries of type sequence of Entry[K, V]. }.",
             "documentation": ""
           }
         ]

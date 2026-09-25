@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,49 +49,49 @@
           {
             "kind": "function",
             "name": "narrow",
-            "signature": "public use \"unicode\" function narrow(value of type sequence of unsigned 16) of type fallible text.",
+            "declaration": "public use \"unicode\" function narrow(value of type sequence of unsigned 16) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "next",
-            "signature": "public use \"unicode\" function next(value of type pointer to Cursor) of type optional unsigned 32.",
+            "declaration": "public use \"unicode\" function next(value of type pointer to Cursor) of type optional unsigned 32.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "points",
-            "signature": "public use \"unicode\" function points(value of type text) of type fallible sequence of unsigned 32.",
+            "declaration": "public use \"unicode\" function points(value of type text) of type fallible sequence of unsigned 32.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "release",
-            "signature": "public use \"unicode\" function release(value of type pointer to Cursor) of type nothing.",
+            "declaration": "public use \"unicode\" function release(value of type pointer to Cursor) of type nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "scan",
-            "signature": "public use \"unicode\" function scan(value of type text) of type fallible pointer to Cursor.",
+            "declaration": "public use \"unicode\" function scan(value of type text) of type fallible pointer to Cursor.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "valid",
-            "signature": "public use \"unicode\" function valid(value of type text) of type boolean.",
+            "declaration": "public use \"unicode\" function valid(value of type text) of type boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "wide",
-            "signature": "public use \"unicode\" function wide(value of type text) of type fallible sequence of unsigned 16.",
+            "declaration": "public use \"unicode\" function wide(value of type text) of type fallible sequence of unsigned 16.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Cursor",
-            "signature": "public define Cursor as opaque.",
+            "declaration": "public define Cursor as opaque.",
             "documentation": "Declares Unicode validation and conversion."
           }
         ]

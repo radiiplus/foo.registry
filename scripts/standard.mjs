@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHash, createHmac } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join, relative, resolve, sep } from "node:path";
@@ -11,11 +11,14 @@ const standardRoot = resolve(process.argv[2] ?? join(workspace, "std"));
 const version = JSON.parse(await readFile(join(workspace, "package.json"), "utf8")).version;
 const revision = execFileSync("git", ["-C", workspace, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
 const updated = execFileSync("git", ["-C", workspace, "log", "-1", "--format=%cs", "--", "std"], { encoding: "utf8" }).trim();
+const ownershipSecret = process.env.OWNERSHIP_SECRET;
+if (!ownershipSecret || ownershipSecret.length < 32) throw new Error("OWNERSHIP_SECRET must contain at least 32 characters");
 
 for (const path of await jsonFiles(join(repository, "packages"))) {
   if (path.includes(`${sep}packages${sep}std${sep}`)) continue;
   const record = JSON.parse(await readFile(path, "utf8"));
   record.kind = "package";
+  if (Number.isSafeInteger(record.owner?.id)) record.owner = owner(record.owner.id, record.owner.login);
   record.api = api(record.source);
   await writeFile(path, `${JSON.stringify(record, null, 2)}\n`);
 }
@@ -41,7 +44,7 @@ for (const path of await sourceFiles(standardRoot)) {
     deprecated: "",
     platforms: module === "os/windows" ? ["windows"] : module === "os/unix" ? ["linux", "macos"] : ["all"],
     updated,
-    owner: { id: 152736140, login: "radiiplus" },
+    owner: owner(152736140, "radiiplus"),
     repository: "https://github.com/radiiplus/foo",
     revision,
     install: module.includes("/") ? `use "${module}".` : `use ${module}.`,
@@ -101,7 +104,7 @@ function declarations(source) {
     if (match) result.push({
       kind: match[1] === "define" ? "type" : match[1] === "dynamic" ? "value" : match[1],
       name: match[2],
-      signature: declaration,
+      declaration,
       documentation: comments.join(" "),
     });
     comments = [];
@@ -132,6 +135,11 @@ function bundle(files) {
   files.sort((left, right) => left.path.localeCompare(right.path));
   const canonical = files.map((file) => `${file.path}\0${file.content}\0`).join("");
   return { format: "foo.source/v1", digest: createHash("sha256").update(canonical).digest("hex"), files };
+}
+
+function owner(id, login) {
+  const digest = createHmac("sha256", ownershipSecret).update(`github:${id}`).digest("base64url");
+  return { signature: `v1.${digest}`, login };
 }
 
 async function sourceFiles(root) {

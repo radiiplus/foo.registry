@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,61 +49,61 @@
           {
             "kind": "function",
             "name": "close",
-            "signature": "public use \"io\" function close(stream of type pointer to Stream) of type fallible nothing.",
+            "declaration": "public use \"io\" function close(stream of type pointer to Stream) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "display",
-            "signature": "public function display(content text) giving fallible nothing.",
+            "declaration": "public function display(content text) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "input",
-            "signature": "public use \"io\" function input() of type pointer to Stream.",
+            "declaration": "public use \"io\" function input() of type pointer to Stream.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "line",
-            "signature": "public use \"io\" function line(stream of type pointer to Stream) of type fallible text.",
+            "declaration": "public use \"io\" function line(stream of type pointer to Stream) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "output",
-            "signature": "public use \"io\" function output() of type pointer to Stream.",
+            "declaration": "public use \"io\" function output() of type pointer to Stream.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "read",
-            "signature": "public use \"io\" function read(stream of type pointer to Stream, size of type unsigned 64) of type fallible text.",
+            "declaration": "public use \"io\" function read(stream of type pointer to Stream, size of type unsigned 64) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "report",
-            "signature": "public use \"io\" function report() of type pointer to Stream.",
+            "declaration": "public use \"io\" function report() of type pointer to Stream.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "show",
-            "signature": "public function show(content text) giving nothing.",
+            "declaration": "public function show(content text) giving nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "write",
-            "signature": "public use \"io\" function write(stream of type pointer to Stream, content of type text) of type fallible nothing.",
+            "declaration": "public use \"io\" function write(stream of type pointer to Stream, content of type text) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Stream",
-            "signature": "public define Stream as opaque.",
+            "declaration": "public define Stream as opaque.",
             "documentation": "Reads and writes text through standard streams and open files."
           }
         ]

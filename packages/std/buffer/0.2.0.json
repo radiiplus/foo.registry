@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,19 +49,19 @@
           {
             "kind": "function",
             "name": "free",
-            "signature": "public use \"buffer\" function free(value of type text) of type fallible nothing.",
+            "declaration": "public use \"buffer\" function free(value of type text) of type fallible nothing.",
             "documentation": "Declares owned byte buffers."
           },
           {
             "kind": "function",
             "name": "points",
-            "signature": "public use \"buffer\" function points(value of type sequence of unsigned 32) of type fallible nothing.",
+            "declaration": "public use \"buffer\" function points(value of type sequence of unsigned 32) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "words",
-            "signature": "public use \"buffer\" function words(value of type sequence of unsigned 16) of type fallible nothing.",
+            "declaration": "public use \"buffer\" function words(value of type sequence of unsigned 16) of type fallible nothing.",
             "documentation": ""
           }
         ]

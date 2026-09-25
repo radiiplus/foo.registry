@@ -18,7 +18,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -50,49 +50,49 @@
           {
             "kind": "function",
             "name": "handle",
-            "signature": "public function handle().",
+            "declaration": "public function handle().",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "process",
-            "signature": "public function process(command of type pointer to byte).",
+            "declaration": "public function process(command of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "registry",
-            "signature": "public function registry(path of type pointer to byte).",
+            "declaration": "public function registry(path of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "release",
-            "signature": "public function release(handle of type pointer to Handle).",
+            "declaration": "public function release(handle of type pointer to Handle).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "winrt",
-            "signature": "public function winrt(class of type pointer to byte).",
+            "declaration": "public function winrt(class of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Handle",
-            "signature": "public define Handle as opaque.",
+            "declaration": "public define Handle as opaque.",
             "documentation": "Declares Windows platform operations. Windows-only handles with portable FOO names. ---"
           },
           {
             "kind": "type",
             "name": "Registry",
-            "signature": "public define Registry as opaque.",
+            "declaration": "public define Registry as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Winrt",
-            "signature": "public define Winrt as opaque.",
+            "declaration": "public define Winrt as opaque.",
             "documentation": ""
           }
         ]

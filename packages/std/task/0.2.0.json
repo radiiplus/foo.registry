@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,163 +49,163 @@
           {
             "kind": "function",
             "name": "affinity",
-            "signature": "public use \"task\" function affinity(cpu of type integer 64) of type boolean.",
+            "declaration": "public use \"task\" function affinity(cpu of type integer 64) of type boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "backend",
-            "signature": "public use \"task\" function backend() of type integer 8.",
+            "declaration": "public use \"task\" function backend() of type integer 8.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "block",
-            "signature": "public use \"task\" function block(callback of type function() of type nothing for c) of type nothing.",
+            "declaration": "public use \"task\" function block(callback of type function() of type nothing for c) of type nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "channel",
-            "signature": "public use \"task\" function channel() of type fallible pointer to Channel.",
+            "declaration": "public use \"task\" function channel() of type fallible pointer to Channel.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "connect",
-            "signature": "public use \"task\" function connect(net of type pointer to Net, host of type pointer to byte, port of type integer 32) of type pointer to Socket.",
+            "declaration": "public use \"task\" function connect(net of type pointer to Net, host of type pointer to byte, port of type integer 32) of type pointer to Socket.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "executor",
-            "signature": "public use \"task\" function executor() of type fallible pointer to Executor.",
+            "declaration": "public use \"task\" function executor() of type fallible pointer to Executor.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "join",
-            "signature": "public use \"task\" function join(scope of type pointer to Scope) of type nothing.",
+            "declaration": "public use \"task\" function join(scope of type pointer to Scope) of type nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "kind",
-            "signature": "public use \"task\" function kind(net of type pointer to Net) of type integer 8.",
+            "declaration": "public use \"task\" function kind(net of type pointer to Net) of type integer 8.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "label",
-            "signature": "public use \"task\" function label(name text) giving boolean.",
+            "declaration": "public use \"task\" function label(name text) giving boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "launch",
-            "signature": "public use \"task\" function launch(scope of type pointer to Scope, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.",
+            "declaration": "public use \"task\" function launch(scope of type pointer to Scope, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "listen",
-            "signature": "public use \"task\" function listen(net of type pointer to Net, port of type integer 32) of type pointer to Socket.",
+            "declaration": "public use \"task\" function listen(net of type pointer to Net, port of type integer 32) of type pointer to Socket.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "net",
-            "signature": "public use \"task\" function net(executor of type pointer to Executor) of type pointer to Net.",
+            "declaration": "public use \"task\" function net(executor of type pointer to Executor) of type pointer to Net.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "pool",
-            "signature": "public use \"task\" function pool() of type fallible pointer to Pool.",
+            "declaration": "public use \"task\" function pool() of type fallible pointer to Pool.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "pull",
-            "signature": "public use \"task\" function pull(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type integer 64.",
+            "declaration": "public use \"task\" function pull(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type integer 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "push",
-            "signature": "public use \"task\" function push(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type boolean.",
+            "declaration": "public use \"task\" function push(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "receive",
-            "signature": "public use \"task\" function receive(channel of type pointer to Channel, output of type pointer to integer 64) of type boolean.",
+            "declaration": "public use \"task\" function receive(channel of type pointer to Channel, output of type pointer to integer 64) of type boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "scope",
-            "signature": "public use \"task\" function scope() of type fallible pointer to Scope.",
+            "declaration": "public use \"task\" function scope() of type fallible pointer to Scope.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "send",
-            "signature": "public use \"task\" function send(channel of type pointer to Channel, value of type integer 64) of type boolean.",
+            "declaration": "public use \"task\" function send(channel of type pointer to Channel, value of type integer 64) of type boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "submit",
-            "signature": "public use \"task\" function submit(pool of type pointer to Pool, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.",
+            "declaration": "public use \"task\" function submit(pool of type pointer to Pool, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "wait",
-            "signature": "public use \"task\" function wait(pool of type pointer to Pool) of type nothing.",
+            "declaration": "public use \"task\" function wait(pool of type pointer to Pool) of type nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "which",
-            "signature": "public use \"task\" function which() of type pointer to byte.",
+            "declaration": "public use \"task\" function which() of type pointer to byte.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Channel",
-            "signature": "public define Channel as opaque.",
+            "declaration": "public define Channel as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Executor",
-            "signature": "public define Executor as opaque.",
+            "declaration": "public define Executor as opaque.",
             "documentation": "Declares task execution and asynchronous networking. Runtime-selected concurrency without function coloring --- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---"
           },
           {
             "kind": "type",
             "name": "Net",
-            "signature": "public define Net as opaque.",
+            "declaration": "public define Net as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Pool",
-            "signature": "public define Pool as opaque.",
+            "declaration": "public define Pool as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Scope",
-            "signature": "public define Scope as opaque.",
+            "declaration": "public define Scope as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Socket",
-            "signature": "public define Socket as opaque.",
+            "declaration": "public define Socket as opaque.",
             "documentation": ""
           }
         ]

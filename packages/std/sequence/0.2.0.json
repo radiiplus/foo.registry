@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,73 +49,73 @@
           {
             "kind": "function",
             "name": "append",
-            "signature": "public use \"sequence\" function append[T](items of type sequence of T, value of type T) of type fallible sequence of T.",
+            "declaration": "public use \"sequence\" function append[T](items of type sequence of T, value of type T) of type fallible sequence of T.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "copy",
-            "signature": "public use \"sequence\" function copy[T](items of type sequence of T) of type fallible sequence of T.",
+            "declaration": "public use \"sequence\" function copy[T](items of type sequence of T) of type fallible sequence of T.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "create",
-            "signature": "public use \"sequence\" function create[T]() of type sequence of T.",
+            "declaration": "public use \"sequence\" function create[T]() of type sequence of T.",
             "documentation": "Builds typed sequences and applies ordering, searching, and transformations."
           },
           {
             "kind": "function",
             "name": "dedup",
-            "signature": "public function dedup[T](items sequence of T) giving fallible sequence of T where T is Equatable.",
+            "declaration": "public function dedup[T](items sequence of T) giving fallible sequence of T where T is Equatable.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "deduplicate",
-            "signature": "public function deduplicate[T](items sequence of T) giving fallible sequence of T where T is Equatable.",
+            "declaration": "public function deduplicate[T](items sequence of T) giving fallible sequence of T where T is Equatable.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "filter",
-            "signature": "public function filter[T](items of type sequence of T, predicate of type function taking (T) giving boolean) of type fallible sequence of T.",
+            "declaration": "public function filter[T](items of type sequence of T, predicate of type function taking (T) giving boolean) of type fallible sequence of T.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "find",
-            "signature": "public function find[T](items of type sequence of T, value of type T) of type optional unsigned 64 where T is Equatable.",
+            "declaration": "public function find[T](items of type sequence of T, value of type T) of type optional unsigned 64 where T is Equatable.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "length",
-            "signature": "public use \"sequence\" function length[T](items of type sequence of T) of type unsigned 64.",
+            "declaration": "public use \"sequence\" function length[T](items of type sequence of T) of type unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "map",
-            "signature": "public function map[T, U](items of type sequence of T, transform of type function taking (T) giving U) of type fallible sequence of U.",
+            "declaration": "public function map[T, U](items of type sequence of T, transform of type function taking (T) giving U) of type fallible sequence of U.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "release",
-            "signature": "public use \"sequence\" function release[T](items of type sequence of T) of type fallible nothing.",
+            "declaration": "public use \"sequence\" function release[T](items of type sequence of T) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "remove",
-            "signature": "public use \"sequence\" function remove[T](items of type sequence of T, index of type unsigned 64) of type fallible sequence of T.",
+            "declaration": "public use \"sequence\" function remove[T](items of type sequence of T, index of type unsigned 64) of type fallible sequence of T.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "sort",
-            "signature": "public function sort[T](items of type sequence of T) of type fallible sequence of T where T is Ord.",
+            "declaration": "public function sort[T](items of type sequence of T) of type fallible sequence of T where T is Ord.",
             "documentation": ""
           }
         ]

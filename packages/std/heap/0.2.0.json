@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,31 +49,31 @@
           {
             "kind": "function",
             "name": "create",
-            "signature": "public function create().",
+            "declaration": "public function create().",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "extract",
-            "signature": "public function extract(collection of type Heap).",
+            "declaration": "public function extract(collection of type Heap).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "insert",
-            "signature": "public function insert(collection of type Heap, value of type pointer to byte).",
+            "declaration": "public function insert(collection of type Heap, value of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "peek",
-            "signature": "public function peek(collection of type Heap).",
+            "declaration": "public function peek(collection of type Heap).",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Heap",
-            "signature": "public define Heap as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
+            "declaration": "public define Heap as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
             "documentation": "Provides heap allocation. Priority queue (heap) --- Efficient priority-based retrieval ---"
           }
         ]

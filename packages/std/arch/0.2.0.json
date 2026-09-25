@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,19 +49,19 @@
           {
             "kind": "function",
             "name": "count",
-            "signature": "public use \"arch\" function count(value of type unsigned 64) of type unsigned 32.",
+            "declaration": "public use \"arch\" function count(value of type unsigned 64) of type unsigned 32.",
             "documentation": "Declares guarded CPU intrinsics."
           },
           {
             "kind": "function",
             "name": "pause",
-            "signature": "public use \"arch\" function pause() of type nothing.",
+            "declaration": "public use \"arch\" function pause() of type nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "ticks",
-            "signature": "public use \"arch\" function ticks() of type unsigned 64.",
+            "declaration": "public use \"arch\" function ticks() of type unsigned 64.",
             "documentation": ""
           }
         ]

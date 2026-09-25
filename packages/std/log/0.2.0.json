@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,25 +49,25 @@
           {
             "kind": "function",
             "name": "error",
-            "signature": "public function error(content text) giving fallible nothing.",
+            "declaration": "public function error(content text) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "message",
-            "signature": "public function message(content text) giving fallible nothing.",
+            "declaration": "public function message(content text) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "showError",
-            "signature": "public function showError(content text) giving nothing.",
+            "declaration": "public function showError(content text) giving nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "showMessage",
-            "signature": "public function showMessage(content text) giving nothing.",
+            "declaration": "public function showMessage(content text) giving nothing.",
             "documentation": ""
           }
         ]

@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,55 +49,55 @@
           {
             "kind": "function",
             "name": "confirm",
-            "signature": "public use \"crypto\" function confirm(value of type text, encoded of type text) of type fallible boolean.",
+            "declaration": "public use \"crypto\" function confirm(value of type text, encoded of type text) of type fallible boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "hash",
-            "signature": "public use \"crypto\" function hash(value of type text) of type fallible text.",
+            "declaration": "public use \"crypto\" function hash(value of type text) of type fallible text.",
             "documentation": "Declares cryptography and secure random operations."
           },
           {
             "kind": "function",
             "name": "key",
-            "signature": "public use \"crypto\" function key(seed of type text) of type fallible text.",
+            "declaration": "public use \"crypto\" function key(seed of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "open",
-            "signature": "public use \"crypto\" function open(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.",
+            "declaration": "public use \"crypto\" function open(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "password",
-            "signature": "public use \"crypto\" function password(value of type text) of type fallible text.",
+            "declaration": "public use \"crypto\" function password(value of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "random",
-            "signature": "public use \"crypto\" function random(size of type unsigned 32) of type fallible text.",
+            "declaration": "public use \"crypto\" function random(size of type unsigned 32) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "seal",
-            "signature": "public use \"crypto\" function seal(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.",
+            "declaration": "public use \"crypto\" function seal(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "sign",
-            "signature": "public use \"crypto\" function sign(value of type text, seed of type text) of type fallible text.",
+            "declaration": "public use \"crypto\" function sign(value of type text, seed of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "verify",
-            "signature": "public use \"crypto\" function verify(value of type text, signature of type text, signer of type text) of type boolean.",
+            "declaration": "public use \"crypto\" function verify(value of type text, signature of type text, signer of type text) of type boolean.",
             "documentation": ""
           }
         ]

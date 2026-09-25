@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,37 +49,37 @@
           {
             "kind": "function",
             "name": "close",
-            "signature": "public use \"list\" function close(collection of type pointer to List) of type fallible nothing.",
+            "declaration": "public use \"list\" function close(collection of type pointer to List) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "create",
-            "signature": "public use \"list\" function create() of type fallible pointer to List.",
+            "declaration": "public use \"list\" function create() of type fallible pointer to List.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "get",
-            "signature": "public use \"list\" function get(collection of type pointer to List, index of type unsigned 64) of type fallible pointer to byte.",
+            "declaration": "public use \"list\" function get(collection of type pointer to List, index of type unsigned 64) of type fallible pointer to byte.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "length",
-            "signature": "public use \"list\" function length(collection of type pointer to List) of type fallible unsigned 64.",
+            "declaration": "public use \"list\" function length(collection of type pointer to List) of type fallible unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "push",
-            "signature": "public use \"list\" function push(collection of type pointer to List, item of type pointer to byte) of type fallible nothing.",
+            "declaration": "public use \"list\" function push(collection of type pointer to List, item of type pointer to byte) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "List",
-            "signature": "public define List as opaque.",
+            "declaration": "public define List as opaque.",
             "documentation": "Declares growable lists of borrowed byte pointers."
           }
         ]

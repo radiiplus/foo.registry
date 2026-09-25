@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,31 +49,31 @@
           {
             "kind": "function",
             "name": "create",
-            "signature": "public function create().",
+            "declaration": "public function create().",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "known",
-            "signature": "public function known(collection of type Index, key of type pointer to byte).",
+            "declaration": "public function known(collection of type Index, key of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "lookup",
-            "signature": "public function lookup(collection of type Index, key of type pointer to byte).",
+            "declaration": "public function lookup(collection of type Index, key of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "register",
-            "signature": "public function register(collection of type Index, key of type pointer to byte, value of type pointer to byte).",
+            "declaration": "public function register(collection of type Index, key of type pointer to byte, value of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Index",
-            "signature": "public define Index as record {\n  data of type pointer to byte.\n  size of type integer 64.\n}.",
+            "declaration": "public define Index as record {\n  data of type pointer to byte.\n  size of type integer 64.\n}.",
             "documentation": "Exports standard library modules. String-keyed map --- Fast text-based lookup ---"
           }
         ]

@@ -19,7 +19,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -51,37 +51,37 @@
           {
             "kind": "function",
             "name": "mmap",
-            "signature": "public function mmap(size of type integer 64).",
+            "declaration": "public function mmap(size of type integer 64).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "munmap",
-            "signature": "public function munmap(mapping of type pointer to Map).",
+            "declaration": "public function munmap(mapping of type pointer to Map).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "pipe",
-            "signature": "public function pipe().",
+            "declaration": "public function pipe().",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "signal",
-            "signature": "public function signal(number of type integer 32).",
+            "declaration": "public function signal(number of type integer 32).",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Map",
-            "signature": "public define Map as opaque.",
+            "declaration": "public define Map as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Pipe",
-            "signature": "public define Pipe as opaque.",
+            "declaration": "public define Pipe as opaque.",
             "documentation": "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles. ---"
           }
         ]

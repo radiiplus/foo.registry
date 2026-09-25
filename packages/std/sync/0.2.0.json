@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,49 +49,49 @@
           {
             "kind": "function",
             "name": "lock",
-            "signature": "public function lock(handle of type Mutex).",
+            "declaration": "public function lock(handle of type Mutex).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "mutex",
-            "signature": "public function mutex().",
+            "declaration": "public function mutex().",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "unlock",
-            "signature": "public function unlock(handle of type Mutex).",
+            "declaration": "public function unlock(handle of type Mutex).",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Condition",
-            "signature": "public define Condition as record {\n  handle of type pointer to byte.\n}.",
+            "declaration": "public define Condition as record {\n  handle of type pointer to byte.\n}.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Group",
-            "signature": "public define Group as record {\n  handle of type pointer to byte.\n}.",
+            "declaration": "public define Group as record {\n  handle of type pointer to byte.\n}.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Mutex",
-            "signature": "public define Mutex as record {\n  handle of type pointer to byte.\n}.",
+            "declaration": "public define Mutex as record {\n  handle of type pointer to byte.\n}.",
             "documentation": "Provides synchronization primitives. Synchronization primitives --- Mutexes, condition variables, semaphores ---"
           },
           {
             "kind": "type",
             "name": "Once",
-            "signature": "public define Once as record {\n  handle of type pointer to byte.\n}.",
+            "declaration": "public define Once as record {\n  handle of type pointer to byte.\n}.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Semaphore",
-            "signature": "public define Semaphore as record {\n  handle of type pointer to byte.\n}.",
+            "declaration": "public define Semaphore as record {\n  handle of type pointer to byte.\n}.",
             "documentation": ""
           }
         ]

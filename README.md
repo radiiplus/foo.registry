@@ -19,7 +19,7 @@ Categories and tags exist only as user-defined package metadata. They never crea
 
 Each expanded release record contains its formatted Foo source bundle and a SHA-256 digest. The repository URL and full 40-character commit SHA remain provenance metadata; installation reproduces the embedded immutable source without executing package code.
 
-Records also contain a `foo.api/v1` public surface: modules, functions, types, constants, values, canonical signatures, and documentation. `std/` is a reserved identity namespace generated from every `.iv` module in the compiler's standard library.
+Records also contain a `foo.api/v1` public surface: modules, functions, types, constants, values, canonical declarations, and documentation. Package ownership uses a versioned HMAC pseudonym derived by the write service; raw GitHub IDs never appear in records or indexes. `std/` is a reserved identity namespace generated from every `.iv` module in the compiler's standard library.
 
 ## Build
 
@@ -32,8 +32,7 @@ node scripts/index.mjs
 Regenerate standard-library records and then rebuild the index from the main Foo workspace:
 
 ```sh
-node scripts/standard.mjs
-node scripts/index.mjs
+npm run standard
 ```
 
 Or build from a JSON array of package releases into another local Git repository:

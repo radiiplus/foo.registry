@@ -20,7 +20,7 @@
   ],
   "updated": "2026-09-17",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -63,13 +63,13 @@
           {
             "kind": "constant",
             "name": "package_name",
-            "signature": "public constant package_name is \"foo-sqlite\".",
+            "declaration": "public constant package_name is \"foo-sqlite\".",
             "documentation": "A thin, safe binding for embedded SQLite databases."
           },
           {
             "kind": "constant",
             "name": "package_version",
-            "signature": "public constant package_version is \"0.8.1\".",
+            "declaration": "public constant package_version is \"0.8.1\".",
             "documentation": ""
           }
         ]

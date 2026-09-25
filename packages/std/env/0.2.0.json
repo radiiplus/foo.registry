@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,7 +49,7 @@
           {
             "kind": "function",
             "name": "variable",
-            "signature": "public function variable(key of type pointer to byte).",
+            "declaration": "public function variable(key of type pointer to byte).",
             "documentation": "Provides environment access. Environment variables --- Provides access to process environment ---"
           }
         ]

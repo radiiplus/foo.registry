@@ -47,10 +47,10 @@ export function normalizePackage(value) {
     throw new TypeError("updated must be an ISO date");
   }
   if (typeof value.compatible !== "boolean") throw new TypeError("compatible must be a boolean");
-  if (!object(value.owner) || !Number.isSafeInteger(value.owner.id) || value.owner.id <= 0) {
-    throw new TypeError("owner.id must be a positive integer");
+  if (!object(value.owner) || typeof value.owner.signature !== "string" || !/^v1\.[A-Za-z0-9_-]{43}$/.test(value.owner.signature)) {
+    throw new TypeError("owner.signature must be a v1 ownership signature");
   }
-  if (Object.keys(value.owner).some((key) => key !== "id" && key !== "login")) throw new TypeError("owner has unknown fields");
+  if (Object.keys(value.owner).some((key) => key !== "signature" && key !== "login")) throw new TypeError("owner has unknown fields");
   const login = requiredString(value.owner.login, "owner.login").trim();
   if (!/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$/.test(login)) throw new TypeError("invalid owner.login");
   const repository = requiredString(value.repository, "repository").trim();
@@ -83,7 +83,7 @@ export function normalizePackage(value) {
     deprecated: optionalString(value.deprecated, "deprecated"),
     platforms: tokens(value.platforms ?? [], "platforms"),
     updated,
-    owner: { id: value.owner.id, login },
+    owner: { signature: value.owner.signature, login },
     repository,
     revision,
     install: requiredString(value.install, "install").trim(),
@@ -188,13 +188,14 @@ export async function build(records, destination = root, size = limit) {
       name: release.name,
       version: release.version,
       description: release.description,
+      owner: release.owner,
       install: release.install,
       api: release.api,
     };
   });
   await writeJson(join(indexRoot, "standard.json"), {
     schema: "foo.standard/v1",
-    revision,
+    revision: createHash("sha256").update(JSON.stringify(standardPackages)).digest("hex"),
     count: standardPackages.length,
     packages: standardPackages,
   });
@@ -291,14 +292,14 @@ function normalizeApi(value, source) {
     const path = requiredString(module.path, `api.modules[${moduleIndex}].path`);
     if (!paths.has(path)) throw new TypeError(`api module is not in source: ${path}`);
     const items = module.items.map((item, itemIndex) => {
-      if (!object(item) || Object.keys(item).some((key) => !["kind", "name", "signature", "documentation"].includes(key))) {
+      if (!object(item) || Object.keys(item).some((key) => !["kind", "name", "declaration", "documentation"].includes(key))) {
         throw new TypeError(`invalid api item at ${moduleIndex}:${itemIndex}`);
       }
       if (!["function", "type", "constant", "value"].includes(item.kind)) throw new TypeError("invalid api item kind");
       return {
         kind: item.kind,
         name: requiredString(item.name, "api item name"),
-        signature: requiredString(item.signature, "api item signature"),
+        declaration: requiredString(item.declaration, "api item declaration"),
         documentation: optionalString(item.documentation, "api item documentation"),
       };
     }).sort((left, right) => compare(left.kind, right.kind) || compare(left.name, right.name));

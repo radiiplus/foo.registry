@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,49 +49,49 @@
           {
             "kind": "function",
             "name": "close",
-            "signature": "public use \"hashmap\" function close[V](collection pointer to HashMap) giving fallible nothing.",
+            "declaration": "public use \"hashmap\" function close[V](collection pointer to HashMap) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "contains",
-            "signature": "public use \"hashmap\" function contains[V](collection pointer to HashMap, key text) giving fallible boolean.",
+            "declaration": "public use \"hashmap\" function contains[V](collection pointer to HashMap, key text) giving fallible boolean.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "create",
-            "signature": "public use \"hashmap\" function create[V]() giving fallible pointer to HashMap.",
+            "declaration": "public use \"hashmap\" function create[V]() giving fallible pointer to HashMap.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "get",
-            "signature": "public use \"hashmap\" function get[V](collection pointer to HashMap, key text) giving fallible V.",
+            "declaration": "public use \"hashmap\" function get[V](collection pointer to HashMap, key text) giving fallible V.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "length",
-            "signature": "public use \"hashmap\" function length[V](collection pointer to HashMap) giving fallible unsigned 64.",
+            "declaration": "public use \"hashmap\" function length[V](collection pointer to HashMap) giving fallible unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "put",
-            "signature": "public use \"hashmap\" function put[V](collection pointer to HashMap, key text, value V) giving fallible nothing.",
+            "declaration": "public use \"hashmap\" function put[V](collection pointer to HashMap, key text, value V) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "remove",
-            "signature": "public use \"hashmap\" function remove[V](collection pointer to HashMap, key text) giving fallible boolean.",
+            "declaration": "public use \"hashmap\" function remove[V](collection pointer to HashMap, key text) giving fallible boolean.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "HashMap",
-            "signature": "public define HashMap as opaque.",
+            "declaration": "public define HashMap as opaque.",
             "documentation": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage."
           }
         ]

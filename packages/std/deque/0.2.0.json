@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,37 +49,37 @@
           {
             "kind": "function",
             "name": "back",
-            "signature": "public function back(collection of type Deque, value of type pointer to byte).",
+            "declaration": "public function back(collection of type Deque, value of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "create",
-            "signature": "public function create().",
+            "declaration": "public function create().",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "front",
-            "signature": "public function front(collection of type Deque, value of type pointer to byte).",
+            "declaration": "public function front(collection of type Deque, value of type pointer to byte).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "pop",
-            "signature": "public function pop(collection of type Deque).",
+            "declaration": "public function pop(collection of type Deque).",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "shift",
-            "signature": "public function shift(collection of type Deque).",
+            "declaration": "public function shift(collection of type Deque).",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Deque",
-            "signature": "public define Deque as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
+            "declaration": "public define Deque as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
             "documentation": "Defines double-ended collections. Double-ended queue --- Efficient insertion/removal at both ends ---"
           }
         ]

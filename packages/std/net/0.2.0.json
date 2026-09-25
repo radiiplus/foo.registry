@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,73 +49,73 @@
           {
             "kind": "function",
             "name": "accept",
-            "signature": "public use \"net\" function accept(listener of type pointer to Connection) of type fallible pointer to Connection.",
+            "declaration": "public use \"net\" function accept(listener of type pointer to Connection) of type fallible pointer to Connection.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "close",
-            "signature": "public use \"net\" function close(connection of type pointer to Connection) of type fallible nothing.",
+            "declaration": "public use \"net\" function close(connection of type pointer to Connection) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "connect",
-            "signature": "public use \"net\" function connect(host of type text, port of type unsigned 64) of type fallible pointer to Connection.",
+            "declaration": "public use \"net\" function connect(host of type text, port of type unsigned 64) of type fallible pointer to Connection.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "keepalive",
-            "signature": "public use \"net\" function keepalive(connection pointer to Connection, enabled boolean) giving fallible nothing.",
+            "declaration": "public use \"net\" function keepalive(connection pointer to Connection, enabled boolean) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "listen",
-            "signature": "public use \"net\" function listen(host of type text, port of type unsigned 64) of type fallible pointer to Connection.",
+            "declaration": "public use \"net\" function listen(host of type text, port of type unsigned 64) of type fallible pointer to Connection.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "nodelay",
-            "signature": "public use \"net\" function nodelay(connection pointer to Connection, enabled boolean) giving fallible nothing.",
+            "declaration": "public use \"net\" function nodelay(connection pointer to Connection, enabled boolean) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "port",
-            "signature": "public use \"net\" function port(listener of type pointer to Connection) of type fallible unsigned 64.",
+            "declaration": "public use \"net\" function port(listener of type pointer to Connection) of type fallible unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "receive",
-            "signature": "public use \"net\" function receive(connection of type pointer to Connection, size of type unsigned 64) of type fallible text.",
+            "declaration": "public use \"net\" function receive(connection of type pointer to Connection, size of type unsigned 64) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "send",
-            "signature": "public use \"net\" function send(connection of type pointer to Connection, content of type text) of type fallible unsigned 64.",
+            "declaration": "public use \"net\" function send(connection of type pointer to Connection, content of type text) of type fallible unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "sendSome",
-            "signature": "public use \"net\" function sendSome(connection pointer to Connection, content text) giving fallible unsigned 64.",
+            "declaration": "public use \"net\" function sendSome(connection pointer to Connection, content text) giving fallible unsigned 64.",
             "documentation": "Advanced socket controls. sendSome may write fewer bytes than requested."
           },
           {
             "kind": "function",
             "name": "shutdown",
-            "signature": "public use \"net\" function shutdown(connection pointer to Connection, direction text) giving fallible nothing.",
+            "declaration": "public use \"net\" function shutdown(connection pointer to Connection, direction text) giving fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Connection",
-            "signature": "public define Connection as opaque.",
+            "declaration": "public define Connection as opaque.",
             "documentation": "Opens TCP connections and transfers bytes with explicit connection lifetimes."
           }
         ]

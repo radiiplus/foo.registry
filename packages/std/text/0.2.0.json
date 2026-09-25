@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,37 +49,37 @@
           {
             "kind": "function",
             "name": "concatenate",
-            "signature": "public use \"text\" function concatenate(left of type text, right of type text) of type fallible text.",
+            "declaration": "public use \"text\" function concatenate(left of type text, right of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "length",
-            "signature": "public use \"text\" function length(content of type text) of type unsigned 64.",
+            "declaration": "public use \"text\" function length(content of type text) of type unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "release",
-            "signature": "public use \"text\" function release(content of type text) of type fallible nothing.",
+            "declaration": "public use \"text\" function release(content of type text) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "slice",
-            "signature": "public use \"text\" function slice(content of type text, first of type unsigned 64, last of type unsigned 64) of type fallible text.",
+            "declaration": "public use \"text\" function slice(content of type text, first of type unsigned 64, last of type unsigned 64) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "split",
-            "signature": "public function split(content of type text, separator of type text) of type fallible sequence of text.",
+            "declaration": "public function split(content of type text, separator of type text) of type fallible sequence of text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "trim",
-            "signature": "public use \"text\" function trim(content of type text) of type fallible text.",
+            "declaration": "public use \"text\" function trim(content of type text) of type fallible text.",
             "documentation": ""
           }
         ]

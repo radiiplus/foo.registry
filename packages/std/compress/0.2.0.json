@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,13 +49,13 @@
           {
             "kind": "function",
             "name": "pack",
-            "signature": "public use \"compress\" function pack(value of type text, format of type text) of type fallible text.",
+            "declaration": "public use \"compress\" function pack(value of type text, format of type text) of type fallible text.",
             "documentation": "Declares zlib and gzip compression."
           },
           {
             "kind": "function",
             "name": "unpack",
-            "signature": "public use \"compress\" function unpack(value of type text, format of type text, limit of type unsigned 32) of type fallible text.",
+            "declaration": "public use \"compress\" function unpack(value of type text, format of type text, limit of type unsigned 32) of type fallible text.",
             "documentation": ""
           }
         ]

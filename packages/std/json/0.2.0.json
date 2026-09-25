@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,103 +49,103 @@
           {
             "kind": "function",
             "name": "append",
-            "signature": "public use \"json\" function append(value of type pointer to Value, source of type text) of type fallible nothing.",
+            "declaration": "public use \"json\" function append(value of type pointer to Value, source of type text) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "close",
-            "signature": "public use \"json\" function close(value of type pointer to Stream) of type nothing.",
+            "declaration": "public use \"json\" function close(value of type pointer to Stream) of type nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "data",
-            "signature": "public use \"json\" function data(value of type pointer to Stream) of type fallible text.",
+            "declaration": "public use \"json\" function data(value of type pointer to Stream) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "feed",
-            "signature": "public use \"json\" function feed(value of type pointer to Stream, chunk of type text, final of type boolean) of type fallible nothing.",
+            "declaration": "public use \"json\" function feed(value of type pointer to Stream, chunk of type text, final of type boolean) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "field",
-            "signature": "public use \"json\" function field(value of type pointer to Value, name of type text) of type fallible text.",
+            "declaration": "public use \"json\" function field(value of type pointer to Value, name of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "item",
-            "signature": "public use \"json\" function item(value of type pointer to Value, index of type unsigned 32) of type fallible text.",
+            "declaration": "public use \"json\" function item(value of type pointer to Value, index of type unsigned 32) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "kind",
-            "signature": "public use \"json\" function kind(value of type pointer to Value) of type text.",
+            "declaration": "public use \"json\" function kind(value of type pointer to Value) of type text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "next",
-            "signature": "public use \"json\" function next(value of type pointer to Stream) of type fallible text.",
+            "declaration": "public use \"json\" function next(value of type pointer to Stream) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "parse",
-            "signature": "public use \"json\" function parse(source of type text) of type fallible pointer to Value.",
+            "declaration": "public use \"json\" function parse(source of type text) of type fallible pointer to Value.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "quote",
-            "signature": "public use \"json\" function quote(value of type text) of type fallible text.",
+            "declaration": "public use \"json\" function quote(value of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "release",
-            "signature": "public use \"json\" function release(value of type pointer to Value) of type nothing.",
+            "declaration": "public use \"json\" function release(value of type pointer to Value) of type nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "set",
-            "signature": "public use \"json\" function set(value of type pointer to Value, name of type text, source of type text) of type fallible nothing.",
+            "declaration": "public use \"json\" function set(value of type pointer to Value, name of type text, source of type text) of type fallible nothing.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "size",
-            "signature": "public use \"json\" function size(value of type pointer to Value) of type fallible unsigned 32.",
+            "declaration": "public use \"json\" function size(value of type pointer to Value) of type fallible unsigned 32.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "stream",
-            "signature": "public use \"json\" function stream() of type fallible pointer to Stream.",
+            "declaration": "public use \"json\" function stream() of type fallible pointer to Stream.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "write",
-            "signature": "public use \"json\" function write(value of type pointer to Value) of type fallible text.",
+            "declaration": "public use \"json\" function write(value of type pointer to Value) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Stream",
-            "signature": "public define Stream as opaque.",
+            "declaration": "public define Stream as opaque.",
             "documentation": ""
           },
           {
             "kind": "type",
             "name": "Value",
-            "signature": "public define Value as opaque.",
+            "declaration": "public define Value as opaque.",
             "documentation": "Declares JSON trees and streaming tokens."
           }
         ]

@@ -17,7 +17,7 @@
   ],
   "updated": "2026-09-21",
   "owner": {
-    "id": 152736140,
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
@@ -49,25 +49,25 @@
           {
             "kind": "function",
             "name": "argument",
-            "signature": "public use \"process\" function argument(index of type unsigned 64) of type fallible text.",
+            "declaration": "public use \"process\" function argument(index of type unsigned 64) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "count",
-            "signature": "public use \"process\" function count() of type unsigned 64.",
+            "declaration": "public use \"process\" function count() of type unsigned 64.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "environment",
-            "signature": "public use \"process\" function environment(name of type text) of type fallible text.",
+            "declaration": "public use \"process\" function environment(name of type text) of type fallible text.",
             "documentation": ""
           },
           {
             "kind": "function",
             "name": "run",
-            "signature": "public use \"process\" function run(command of type text) of type fallible unsigned 64.",
+            "declaration": "public use \"process\" function run(command of type text) of type fallible unsigned 64.",
             "documentation": "Runs shell commands and reads process arguments and environment values."
           }
         ]
