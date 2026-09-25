@@ -1,0 +1,102 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/os/windows",
+  "version": "0.2.0",
+  "description": "Declares Windows platform operations. Windows-only handles with portable FOO names. ---",
+  "category": "standard library",
+  "tags": [
+    "os",
+    "standard",
+    "windows"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "windows"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use \"os/windows\".",
+  "dependencies": [],
+  "readme": [
+    "Declares Windows platform operations. Windows-only handles with portable FOO names. ---",
+    "Import this module with use \"os/windows\"."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "07cceab480509af755270b6f997e93ba44b4a8326be03f1c1184f34fb2c20c81",
+    "files": [
+      {
+        "path": "std/os/windows.iv",
+        "content": "-- Declares Windows platform operations.\n--- Windows-only handles with portable FOO names. ---\npublic define Handle as opaque.\npublic define Registry as opaque.\npublic define Winrt as opaque.\n\npublic function handle() {\n  constant result of type pointer to Handle is uninitialized.\n  give result.\n}\n\npublic function process(command of type pointer to byte) {\n  constant result of type pointer to Handle is uninitialized.\n  give result.\n}\n\npublic function registry(path of type pointer to byte) {\n  constant result of type pointer to Registry is uninitialized.\n  give result.\n}\n\npublic function winrt(class of type pointer to byte) {\n  constant result of type pointer to Winrt is uninitialized.\n  give result.\n}\n\npublic function release(handle of type pointer to Handle) {\n  give.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/os/windows",
+        "path": "std/os/windows.iv",
+        "summary": "Declares Windows platform operations. Windows-only handles with portable FOO names. ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "handle",
+            "signature": "public function handle().",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "process",
+            "signature": "public function process(command of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "registry",
+            "signature": "public function registry(path of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "signature": "public function release(handle of type pointer to Handle).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "winrt",
+            "signature": "public function winrt(class of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Handle",
+            "signature": "public define Handle as opaque.",
+            "documentation": "Declares Windows platform operations. Windows-only handles with portable FOO names. ---"
+          },
+          {
+            "kind": "type",
+            "name": "Registry",
+            "signature": "public define Registry as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Winrt",
+            "signature": "public define Winrt as opaque.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

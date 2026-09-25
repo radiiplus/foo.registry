@@ -1,0 +1,77 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/dl",
+  "version": "0.2.0",
+  "description": "Declares dynamic library loading. Portable dynamic library handles. ---",
+  "category": "standard library",
+  "tags": [
+    "dl",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use dl.",
+  "dependencies": [],
+  "readme": [
+    "Declares dynamic library loading. Portable dynamic library handles. ---",
+    "Import this module with use dl."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "b259425f988af9015b2e15c5f7b701c47b2079af235523d8d07080b078cb4a2b",
+    "files": [
+      {
+        "path": "std/dl.iv",
+        "content": "-- Declares dynamic library loading.\n--- Portable dynamic library handles. ---\npublic define Library as opaque.\n\npublic function open(path of type pointer to byte) {\n  constant result of type pointer to Library is uninitialized.\n  give result.\n}\n\npublic function symbol(library of type pointer to Library, name of type pointer to byte) {\n  constant result of type pointer to byte is uninitialized.\n  give result.\n}\n\npublic function unload(library of type pointer to Library) {\n  give.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/dl",
+        "path": "std/dl.iv",
+        "summary": "Declares dynamic library loading. Portable dynamic library handles. ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "open",
+            "signature": "public function open(path of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "symbol",
+            "signature": "public function symbol(library of type pointer to Library, name of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "unload",
+            "signature": "public function unload(library of type pointer to Library).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Library",
+            "signature": "public define Library as opaque.",
+            "documentation": "Declares dynamic library loading. Portable dynamic library handles. ---"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 {
   "schema": "foo.package/v1",
+  "kind": "package",
   "name": "foo-json",
   "version": "1.2.6",
   "description": "Strict JSON parsing and serialization without reflection.",
@@ -42,6 +43,30 @@
       {
         "path": "src/library.iv",
         "content": "-- Strict JSON parsing and serialization without reflection.\npublic constant package_name is \"foo-json\".\npublic constant package_version is \"1.2.6\".\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "library",
+        "path": "src/library.iv",
+        "summary": "Strict JSON parsing and serialization without reflection.",
+        "items": [
+          {
+            "kind": "constant",
+            "name": "package_name",
+            "signature": "public constant package_name is \"foo-json\".",
+            "documentation": "Strict JSON parsing and serialization without reflection."
+          },
+          {
+            "kind": "constant",
+            "name": "package_version",
+            "signature": "public constant package_version is \"1.2.6\".",
+            "documentation": ""
+          }
+        ]
       }
     ]
   }

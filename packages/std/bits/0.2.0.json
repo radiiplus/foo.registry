@@ -1,0 +1,83 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/bits",
+  "version": "0.2.0",
+  "description": "Provides bit operations. Bitset collection --- Efficient bit-level storage ---",
+  "category": "standard library",
+  "tags": [
+    "bits",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use bits.",
+  "dependencies": [],
+  "readme": [
+    "Provides bit operations. Bitset collection --- Efficient bit-level storage ---",
+    "Import this module with use bits."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "0ede29504ae08b4a7ea7b05db80f9a1b1655b29936d641e666e0417c8b308ad4",
+    "files": [
+      {
+        "path": "std/bits.iv",
+        "content": "-- Provides bit operations.\n--- Bitset collection ---\n--- Efficient bit-level storage ---\n\npublic define Bits as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.\n\npublic function create(size of type integer 64) {\n  constant result of type Bits is uninitialized.\n  give result.\n}\n\npublic function enable(collection of type Bits, index of type integer 64) {\n  give.\n}\n\npublic function disable(collection of type Bits, index of type integer 64) {\n  give.\n}\n\npublic function enabled(collection of type Bits, index of type integer 64) {\n  constant result of type boolean is false.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/bits",
+        "path": "std/bits.iv",
+        "summary": "Provides bit operations. Bitset collection --- Efficient bit-level storage ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public function create(size of type integer 64).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "disable",
+            "signature": "public function disable(collection of type Bits, index of type integer 64).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "enable",
+            "signature": "public function enable(collection of type Bits, index of type integer 64).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "enabled",
+            "signature": "public function enabled(collection of type Bits, index of type integer 64).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Bits",
+            "signature": "public define Bits as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
+            "documentation": "Provides bit operations. Bitset collection --- Efficient bit-level storage ---"
+          }
+        ]
+      }
+    ]
+  }
+}

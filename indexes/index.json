@@ -1,7 +1,7 @@
 {
   "schema": "foo.registry/v1",
-  "revision": "02be3264078b460a88f43007d84a7b5b9e2412933beb8e6971838bc6ec1f84c7",
-  "count": 6,
+  "revision": "545b0115e3de40a03ab09c2e6b0229e656011ee229d5c01ff661fb030256308d",
+  "count": 47,
   "order": [
     "category",
     "name"
@@ -10,14 +10,14 @@
   "shards": [
     {
       "path": "indexes/index-000001.jsonl",
-      "count": 6,
+      "count": 47,
       "first": {
         "category": "data",
         "name": "foo-json"
       },
       "last": {
-        "category": "security",
-        "name": "foo-crypto"
+        "category": "standard library",
+        "name": "std/unicode"
       }
     }
   ]

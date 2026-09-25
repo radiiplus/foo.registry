@@ -1,0 +1,89 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/list",
+  "version": "0.2.0",
+  "description": "Declares growable lists of borrowed byte pointers.",
+  "category": "standard library",
+  "tags": [
+    "list",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use list.",
+  "dependencies": [],
+  "readme": [
+    "Declares growable lists of borrowed byte pointers.",
+    "Import this module with use list."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "f794d89781850a9e088697dd21f1ea30827b4d73745afc40b7671943d66c6345",
+    "files": [
+      {
+        "path": "std/list.iv",
+        "content": "-- Declares growable lists of borrowed byte pointers.\npublic define List as opaque.\npublic use \"list\" function create() of type fallible pointer to List.\npublic use \"list\" function push(collection of type pointer to List, item of type pointer to byte) of type fallible nothing.\npublic use \"list\" function get(collection of type pointer to List, index of type unsigned 64) of type fallible pointer to byte.\npublic use \"list\" function length(collection of type pointer to List) of type fallible unsigned 64.\npublic use \"list\" function close(collection of type pointer to List) of type fallible nothing.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/list",
+        "path": "std/list.iv",
+        "summary": "Declares growable lists of borrowed byte pointers.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "close",
+            "signature": "public use \"list\" function close(collection of type pointer to List) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public use \"list\" function create() of type fallible pointer to List.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "get",
+            "signature": "public use \"list\" function get(collection of type pointer to List, index of type unsigned 64) of type fallible pointer to byte.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "signature": "public use \"list\" function length(collection of type pointer to List) of type fallible unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "push",
+            "signature": "public use \"list\" function push(collection of type pointer to List, item of type pointer to byte) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "List",
+            "signature": "public define List as opaque.",
+            "documentation": "Declares growable lists of borrowed byte pointers."
+          }
+        ]
+      }
+    ]
+  }
+}

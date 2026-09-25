@@ -4,7 +4,7 @@
   "title": "Foo publication request",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "manifest", "documentation", "source"],
+  "required": ["schema", "manifest", "documentation", "source", "api"],
   "properties": {
     "schema": { "const": "foo.publish/v1" },
     "manifest": {
@@ -34,6 +34,7 @@
       "minItems": 100,
       "items": { "type": "string", "minLength": 1 }
     },
-    "source": { "$ref": "package.json#/$defs/source" }
+    "source": { "$ref": "package.json#/$defs/source" },
+    "api": { "$ref": "package.json#/$defs/api" }
   }
 }

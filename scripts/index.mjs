@@ -7,13 +7,13 @@ export const limit = 100_000;
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
-const packagePattern = /^(?:@[a-z0-9][a-z0-9-]{0,38}\/)?[a-z][a-z0-9-]{0,63}$/;
+const packagePattern = /^(?:@[a-z0-9][a-z0-9-]{0,38}\/[a-z][a-z0-9-]{0,63}|std\/[a-z][a-z0-9-]{0,63}(?:\/[a-z][a-z0-9-]{0,63})*|[a-z][a-z0-9-]{0,63})$/;
 const tokenPattern = /^[a-z0-9][a-z0-9-]{0,31}$/;
 const versionPattern = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z.-]+))?$/;
 const constraintPattern = /^(?:\^|~)?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)$/;
 const packageFields = new Set([
-  "schema", "name", "version", "description", "category", "tags", "license", "compatible",
-  "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme", "source",
+  "schema", "kind", "name", "version", "description", "category", "tags", "license", "compatible",
+  "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme", "source", "api",
 ]);
 
 export function normalizeCategory(value) {
@@ -32,6 +32,10 @@ export function normalizePackage(value) {
 
   const name = requiredString(value.name, "name").trim().toLowerCase();
   if (!packagePattern.test(name)) throw new TypeError("invalid package name");
+  const kind = value.kind ?? "package";
+  if (!new Set(["package", "standard"]).has(kind)) throw new TypeError("invalid package kind");
+  if (kind === "standard" && !name.startsWith("std/")) throw new TypeError("standard names must use the std/ namespace");
+  if (kind === "package" && name.startsWith("std/")) throw new TypeError("the std/ namespace is reserved");
   const version = requiredString(value.version, "version").trim();
   if (!versionPattern.test(version)) throw new TypeError("invalid package version");
   const description = requiredString(value.description, "description").trim();
@@ -64,9 +68,11 @@ export function normalizePackage(value) {
   const readme = array(value.readme, "readme").map((line, index) => requiredString(line, `readme[${index}]`));
   if (!readme.length) throw new TypeError("readme must contain at least one line");
   const source = normalizeSource(value.source);
+  const api = normalizeApi(value.api, source);
 
   return {
     schema: "foo.package/v1",
+    kind,
     name,
     version,
     description,
@@ -84,6 +90,7 @@ export function normalizePackage(value) {
     dependencies,
     readme,
     source,
+    api,
   };
 }
 
@@ -106,6 +113,7 @@ export function entries(records) {
     const latest = versions.find((release) => !release.version.includes("-")) ?? versions[0];
     indexed.push({
       schema: "foo.entry/v1",
+      kind: latest.kind,
       name: latest.name,
       version: latest.version,
       description: latest.description,
@@ -119,6 +127,7 @@ export function entries(records) {
       owner: latest.owner,
       repository: latest.repository,
       revision: latest.revision,
+      exports: [...new Set(latest.api.modules.flatMap((module) => module.items.map((item) => item.name)))].sort(compare),
       path: `packages/${name}/${latest.version}.json`,
       versions: versions.map((release) => ({
         version: release.version,
@@ -249,6 +258,41 @@ function normalizeSource(value) {
   }).sort((left, right) => compare(left.path, right.path));
   const bytes = files.reduce((content, file) => `${content}${file.path}\0${file.content}\0`, "");
   return { format: "foo.source/v1", digest: createHash("sha256").update(bytes).digest("hex"), files };
+}
+
+function normalizeApi(value, source) {
+  if (!object(value) || value.schema !== "foo.api/v1" || !Array.isArray(value.modules) ||
+      Object.keys(value).some((key) => !["schema", "modules"].includes(key))) {
+    throw new TypeError("api must be a foo.api/v1 index");
+  }
+  const paths = new Set(source.files.filter((file) => file.path.endsWith(".iv")).map((file) => file.path));
+  const modules = value.modules.map((module, moduleIndex) => {
+    if (!object(module) || !Array.isArray(module.items) ||
+        Object.keys(module).some((key) => !["name", "path", "summary", "items"].includes(key))) {
+      throw new TypeError(`invalid api module at index ${moduleIndex}`);
+    }
+    const path = requiredString(module.path, `api.modules[${moduleIndex}].path`);
+    if (!paths.has(path)) throw new TypeError(`api module is not in source: ${path}`);
+    const items = module.items.map((item, itemIndex) => {
+      if (!object(item) || Object.keys(item).some((key) => !["kind", "name", "signature", "documentation"].includes(key))) {
+        throw new TypeError(`invalid api item at ${moduleIndex}:${itemIndex}`);
+      }
+      if (!["function", "type", "constant", "value"].includes(item.kind)) throw new TypeError("invalid api item kind");
+      return {
+        kind: item.kind,
+        name: requiredString(item.name, "api item name"),
+        signature: requiredString(item.signature, "api item signature"),
+        documentation: optionalString(item.documentation, "api item documentation"),
+      };
+    }).sort((left, right) => compare(left.kind, right.kind) || compare(left.name, right.name));
+    return {
+      name: requiredString(module.name, "api module name"),
+      path,
+      summary: optionalString(module.summary, "api module summary"),
+      items,
+    };
+  }).sort((left, right) => compare(left.name, right.name));
+  return { schema: "foo.api/v1", modules };
 }
 
 function compareVersions(left, right) {

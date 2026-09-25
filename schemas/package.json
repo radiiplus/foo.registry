@@ -4,10 +4,11 @@
   "title": "Foo package release",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme", "source"],
+  "required": ["schema", "kind", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme", "source", "api"],
   "properties": {
     "schema": { "const": "foo.package/v1" },
-    "name": { "type": "string", "pattern": "^(?:@[a-z0-9][a-z0-9-]{0,38}/)?[a-z][a-z0-9-]{0,63}$" },
+    "kind": { "enum": ["package", "standard"] },
+    "name": { "type": "string", "pattern": "^(?:@[a-z0-9][a-z0-9-]{0,38}/[a-z][a-z0-9-]{0,63}|std/[a-z][a-z0-9-]{0,63}(?:/[a-z][a-z0-9-]{0,63})*|[a-z][a-z0-9-]{0,63})$" },
     "version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$" },
     "description": { "type": "string", "minLength": 1, "maxLength": 280 },
     "category": { "type": "string", "pattern": "^[a-z0-9][a-z0-9 -]{0,63}$" },
@@ -30,7 +31,8 @@
       "minItems": 1,
       "items": { "type": "string", "minLength": 1 }
     },
-    "source": { "$ref": "#/$defs/source" }
+    "source": { "$ref": "#/$defs/source" },
+    "api": { "$ref": "#/$defs/api" }
   },
   "$defs": {
     "tokens": {
@@ -76,6 +78,42 @@
             "properties": {
               "path": { "type": "string", "minLength": 1 },
               "content": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "api": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "modules"],
+      "properties": {
+        "schema": { "const": "foo.api/v1" },
+        "modules": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "path", "summary", "items"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "path": { "type": "string", "pattern": "^[^/].*\\.iv$" },
+              "summary": { "type": "string" },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["kind", "name", "signature", "documentation"],
+                  "properties": {
+                    "kind": { "enum": ["function", "type", "constant", "value"] },
+                    "name": { "type": "string", "minLength": 1 },
+                    "signature": { "type": "string", "minLength": 1 },
+                    "documentation": { "type": "string" }
+                  }
+                }
+              }
             }
           }
         }

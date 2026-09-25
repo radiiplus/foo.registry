@@ -67,9 +67,25 @@ test("writes canonical records and deterministic six-digit shards", async () => 
   assert.match(await readFile(join(destination, "packages", "alpha", "1.0.0.json"), "utf8"), /\n  "name"/);
 });
 
+test("indexes every standard module and its public surface", async () => {
+  const sources = await sourceNames(join("..", "std"));
+  const records = await sourceNames(join("repository", "packages", "std"), ".json");
+  assert.equal(records.length, sources.length);
+  let publicItems = 0;
+  for (const path of records) {
+    const record = JSON.parse(await readFile(path, "utf8"));
+    assert.equal(record.kind, "standard");
+    assert.match(record.name, /^std\//);
+    assert.equal(record.api.schema, "foo.api/v1");
+    publicItems += record.api.modules.flatMap((module) => module.items).length;
+  }
+  assert.ok(publicItems >= 300);
+});
+
 function fixture(name, category) {
   return {
     schema: "foo.package/v1",
+    kind: "package",
     name,
     version: "1.0.0",
     description: `${name} package`,
@@ -91,6 +107,15 @@ function fixture(name, category) {
       digest: "0".repeat(64),
       files: [{ path: "src/main.iv", content: `public constant name is "${name}".\n` }],
     },
+    api: {
+      schema: "foo.api/v1",
+      modules: [{
+        name: "main",
+        path: "src/main.iv",
+        summary: "",
+        items: [{ kind: "constant", name: "name", signature: "public constant name.", documentation: "" }],
+      }],
+    },
   };
 }
 
@@ -100,6 +125,16 @@ async function snapshot(destination) {
     for (const file of (await readdir(join(destination, directory))).sort()) {
       paths.push([`${directory}/${file}`, await readFile(join(destination, directory, file), "utf8")]);
     }
+  }
+  return paths;
+}
+
+async function sourceNames(directory, suffix = ".iv") {
+  const paths = [];
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) paths.push(...await sourceNames(path, suffix));
+    else if (entry.isFile() && entry.name.endsWith(suffix)) paths.push(path);
   }
   return paths;
 }

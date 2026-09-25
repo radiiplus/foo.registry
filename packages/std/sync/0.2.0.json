@@ -1,0 +1,101 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/sync",
+  "version": "0.2.0",
+  "description": "Provides synchronization primitives. Synchronization primitives --- Mutexes, condition variables, semaphores ---",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "sync"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use sync.",
+  "dependencies": [],
+  "readme": [
+    "Provides synchronization primitives. Synchronization primitives --- Mutexes, condition variables, semaphores ---",
+    "Import this module with use sync."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "d3ee7b6e6e1b76809d4aa801fb075b05a6c498cf9cd7307e81317d803475f6e6",
+    "files": [
+      {
+        "path": "std/sync.iv",
+        "content": "-- Provides synchronization primitives.\n--- Synchronization primitives ---\n--- Mutexes, condition variables, semaphores ---\n\npublic define Mutex as record {\n  handle of type pointer to byte.\n}.\n\npublic define Condition as record {\n  handle of type pointer to byte.\n}.\n\npublic define Semaphore as record {\n  handle of type pointer to byte.\n}.\n\npublic define Once as record {\n  handle of type pointer to byte.\n}.\n\npublic define Group as record {\n  handle of type pointer to byte.\n}.\n\npublic function mutex() {\n  constant result of type Mutex is uninitialized.\n  give result.\n}\n\npublic function lock(handle of type Mutex) {\n  give.\n}\n\npublic function unlock(handle of type Mutex) {\n  give.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/sync",
+        "path": "std/sync.iv",
+        "summary": "Provides synchronization primitives. Synchronization primitives --- Mutexes, condition variables, semaphores ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "lock",
+            "signature": "public function lock(handle of type Mutex).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "mutex",
+            "signature": "public function mutex().",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "unlock",
+            "signature": "public function unlock(handle of type Mutex).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Condition",
+            "signature": "public define Condition as record {\n  handle of type pointer to byte.\n}.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Group",
+            "signature": "public define Group as record {\n  handle of type pointer to byte.\n}.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Mutex",
+            "signature": "public define Mutex as record {\n  handle of type pointer to byte.\n}.",
+            "documentation": "Provides synchronization primitives. Synchronization primitives --- Mutexes, condition variables, semaphores ---"
+          },
+          {
+            "kind": "type",
+            "name": "Once",
+            "signature": "public define Once as record {\n  handle of type pointer to byte.\n}.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Semaphore",
+            "signature": "public define Semaphore as record {\n  handle of type pointer to byte.\n}.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

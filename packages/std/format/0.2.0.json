@@ -1,0 +1,65 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/format",
+  "version": "0.2.0",
+  "description": "Provides text formatting. Formatting and parsing --- Type-safe string formatting ---",
+  "category": "standard library",
+  "tags": [
+    "format",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use format.",
+  "dependencies": [],
+  "readme": [
+    "Provides text formatting. Formatting and parsing --- Type-safe string formatting ---",
+    "Import this module with use format."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "e033dad7000a2715196178ee5ab318d83edfcb8f7bc7caaa81c1db7a2ff8eec4",
+    "files": [
+      {
+        "path": "std/format.iv",
+        "content": "-- Provides text formatting.\n--- Formatting and parsing ---\n--- Type-safe string formatting ---\n\npublic function format(buffer of type pointer to byte, size of type integer 64, template of type pointer to byte) {\n  constant result of type integer 64 is 0.\n  give result.\n}\n\npublic function parse(content of type pointer to byte) {\n  constant result of type integer 64 is 0.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/format",
+        "path": "std/format.iv",
+        "summary": "Provides text formatting. Formatting and parsing --- Type-safe string formatting ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "format",
+            "signature": "public function format(buffer of type pointer to byte, size of type integer 64, template of type pointer to byte).",
+            "documentation": "Provides text formatting. Formatting and parsing --- Type-safe string formatting ---"
+          },
+          {
+            "kind": "function",
+            "name": "parse",
+            "signature": "public function parse(content of type pointer to byte).",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/crypto",
+  "version": "0.2.0",
+  "description": "Declares cryptography and secure random operations.",
+  "category": "standard library",
+  "tags": [
+    "crypto",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use crypto.",
+  "dependencies": [],
+  "readme": [
+    "Declares cryptography and secure random operations.",
+    "Import this module with use crypto."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "6716a34b3c7bd7f541279b6cc3e5e4f5b5d0962827e609602c1f230813dce300",
+    "files": [
+      {
+        "path": "std/crypto.iv",
+        "content": "-- Declares cryptography and secure random operations.\npublic use \"crypto\" function hash(value of type text) of type fallible text.\npublic use \"crypto\" function random(size of type unsigned 32) of type fallible text.\npublic use \"crypto\" function seal(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.\npublic use \"crypto\" function open(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.\npublic use \"crypto\" function key(seed of type text) of type fallible text.\npublic use \"crypto\" function sign(value of type text, seed of type text) of type fallible text.\npublic use \"crypto\" function verify(value of type text, signature of type text, signer of type text) of type boolean.\npublic use \"crypto\" function password(value of type text) of type fallible text.\npublic use \"crypto\" function confirm(value of type text, encoded of type text) of type fallible boolean.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/crypto",
+        "path": "std/crypto.iv",
+        "summary": "Declares cryptography and secure random operations.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "confirm",
+            "signature": "public use \"crypto\" function confirm(value of type text, encoded of type text) of type fallible boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "hash",
+            "signature": "public use \"crypto\" function hash(value of type text) of type fallible text.",
+            "documentation": "Declares cryptography and secure random operations."
+          },
+          {
+            "kind": "function",
+            "name": "key",
+            "signature": "public use \"crypto\" function key(seed of type text) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "open",
+            "signature": "public use \"crypto\" function open(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "password",
+            "signature": "public use \"crypto\" function password(value of type text) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "random",
+            "signature": "public use \"crypto\" function random(size of type unsigned 32) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "seal",
+            "signature": "public use \"crypto\" function seal(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "sign",
+            "signature": "public use \"crypto\" function sign(value of type text, seed of type text) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "verify",
+            "signature": "public use \"crypto\" function verify(value of type text, signature of type text, signer of type text) of type boolean.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

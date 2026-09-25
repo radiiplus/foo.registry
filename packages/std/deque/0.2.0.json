@@ -1,0 +1,89 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/deque",
+  "version": "0.2.0",
+  "description": "Defines double-ended collections. Double-ended queue --- Efficient insertion/removal at both ends ---",
+  "category": "standard library",
+  "tags": [
+    "deque",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use deque.",
+  "dependencies": [],
+  "readme": [
+    "Defines double-ended collections. Double-ended queue --- Efficient insertion/removal at both ends ---",
+    "Import this module with use deque."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "e515e6c3f78bb2866c173b65dd2022e5811d9abfe995252c22bf626387a3add5",
+    "files": [
+      {
+        "path": "std/deque.iv",
+        "content": "-- Defines double-ended collections.\n--- Double-ended queue ---\n--- Efficient insertion/removal at both ends ---\n\npublic define Deque as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.\n\npublic function create() {\n  constant result of type Deque is uninitialized.\n  give result.\n}\n\npublic function front(collection of type Deque, value of type pointer to byte) {\n  give.\n}\n\npublic function back(collection of type Deque, value of type pointer to byte) {\n  give.\n}\n\npublic function shift(collection of type Deque) {\n  constant result of type pointer to byte is uninitialized.\n  give result.\n}\n\npublic function pop(collection of type Deque) {\n  constant result of type pointer to byte is uninitialized.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/deque",
+        "path": "std/deque.iv",
+        "summary": "Defines double-ended collections. Double-ended queue --- Efficient insertion/removal at both ends ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "back",
+            "signature": "public function back(collection of type Deque, value of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public function create().",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "front",
+            "signature": "public function front(collection of type Deque, value of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "pop",
+            "signature": "public function pop(collection of type Deque).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "shift",
+            "signature": "public function shift(collection of type Deque).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Deque",
+            "signature": "public define Deque as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
+            "documentation": "Defines double-ended collections. Double-ended queue --- Efficient insertion/removal at both ends ---"
+          }
+        ]
+      }
+    ]
+  }
+}

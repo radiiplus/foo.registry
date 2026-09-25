@@ -1,0 +1,89 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/testing",
+  "version": "0.2.0",
+  "description": "Declares executable test assertions.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "testing"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use testing.",
+  "dependencies": [],
+  "readme": [
+    "Declares executable test assertions.",
+    "Import this module with use testing."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "5b845acc1176a71f77b61fa25eafc110173e6efd85ff625d3abb185aa3d645fa",
+    "files": [
+      {
+        "path": "std/testing.iv",
+        "content": "-- Declares executable test assertions.\npublic use \"testing\" function expect(value of type boolean) of type nothing.\npublic use \"testing\" function same(actual of type text, expected of type text) of type nothing.\npublic use \"testing\" function number(actual of type unsigned 64, expected of type unsigned 64) of type nothing.\npublic use \"testing\" function positive(value of type unsigned 64) of type nothing.\npublic use \"testing\" function real(actual of type decimal 64, expected of type decimal 64) of type nothing.\npublic use \"testing\" function point(actual of type optional unsigned 32, expected of type unsigned 32) of type nothing.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/testing",
+        "path": "std/testing.iv",
+        "summary": "Declares executable test assertions.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "expect",
+            "signature": "public use \"testing\" function expect(value of type boolean) of type nothing.",
+            "documentation": "Declares executable test assertions."
+          },
+          {
+            "kind": "function",
+            "name": "number",
+            "signature": "public use \"testing\" function number(actual of type unsigned 64, expected of type unsigned 64) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "point",
+            "signature": "public use \"testing\" function point(actual of type optional unsigned 32, expected of type unsigned 32) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "positive",
+            "signature": "public use \"testing\" function positive(value of type unsigned 64) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "real",
+            "signature": "public use \"testing\" function real(actual of type decimal 64, expected of type decimal 64) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "same",
+            "signature": "public use \"testing\" function same(actual of type text, expected of type text) of type nothing.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

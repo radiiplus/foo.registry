@@ -1,0 +1,101 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/hashmap",
+  "version": "0.2.0",
+  "description": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
+  "category": "standard library",
+  "tags": [
+    "hashmap",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use hashmap.",
+  "dependencies": [],
+  "readme": [
+    "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
+    "Import this module with use hashmap."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "9e2ea2d7b894b83185459282cd6798692addfb7678974ee87a0b9e08e25c2977",
+    "files": [
+      {
+        "path": "std/hashmap.iv",
+        "content": "-- Mutable open-addressed maps for hot text-keyed lookup paths.\n-- Values are shallow-copied into backend-owned storage.\npublic define HashMap as opaque.\npublic use \"hashmap\" function create[V]() giving fallible pointer to HashMap.\npublic use \"hashmap\" function put[V](collection pointer to HashMap, key text, value V) giving fallible nothing.\npublic use \"hashmap\" function get[V](collection pointer to HashMap, key text) giving fallible V.\npublic use \"hashmap\" function contains[V](collection pointer to HashMap, key text) giving fallible boolean.\npublic use \"hashmap\" function remove[V](collection pointer to HashMap, key text) giving fallible boolean.\npublic use \"hashmap\" function length[V](collection pointer to HashMap) giving fallible unsigned 64.\npublic use \"hashmap\" function close[V](collection pointer to HashMap) giving fallible nothing.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/hashmap",
+        "path": "std/hashmap.iv",
+        "summary": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "close",
+            "signature": "public use \"hashmap\" function close[V](collection pointer to HashMap) giving fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "contains",
+            "signature": "public use \"hashmap\" function contains[V](collection pointer to HashMap, key text) giving fallible boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public use \"hashmap\" function create[V]() giving fallible pointer to HashMap.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "get",
+            "signature": "public use \"hashmap\" function get[V](collection pointer to HashMap, key text) giving fallible V.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "signature": "public use \"hashmap\" function length[V](collection pointer to HashMap) giving fallible unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "put",
+            "signature": "public use \"hashmap\" function put[V](collection pointer to HashMap, key text, value V) giving fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "remove",
+            "signature": "public use \"hashmap\" function remove[V](collection pointer to HashMap, key text) giving fallible boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "HashMap",
+            "signature": "public define HashMap as opaque.",
+            "documentation": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage."
+          }
+        ]
+      }
+    ]
+  }
+}

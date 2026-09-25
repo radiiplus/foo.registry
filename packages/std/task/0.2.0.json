@@ -1,0 +1,215 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/task",
+  "version": "0.2.0",
+  "description": "Declares task execution and asynchronous networking. Runtime-selected concurrency without function coloring --- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "task"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use task.",
+  "dependencies": [],
+  "readme": [
+    "Declares task execution and asynchronous networking. Runtime-selected concurrency without function coloring --- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---",
+    "Import this module with use task."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "8f8f43da572780657a1f8ea1bc42c599c43aa8a4596b9053774e22ac5fa81780",
+    "files": [
+      {
+        "path": "std/task.iv",
+        "content": "-- Declares task execution and asynchronous networking.\n--- Runtime-selected concurrency without function coloring ---\n--- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---\n\npublic define Executor as opaque.\npublic define Channel as opaque.\npublic define Scope as opaque.\npublic define Pool as opaque.\npublic define Net as opaque.\npublic define Socket as opaque.\n\npublic use \"task\" function backend() of type integer 8.\npublic use \"task\" function which() of type pointer to byte.\npublic use \"task\" function executor() of type fallible pointer to Executor.\npublic use \"task\" function block(callback of type function() of type nothing for c) of type nothing.\n\npublic use \"task\" function channel() of type fallible pointer to Channel.\npublic use \"task\" function send(channel of type pointer to Channel, value of type integer 64) of type boolean.\npublic use \"task\" function receive(channel of type pointer to Channel, output of type pointer to integer 64) of type boolean.\n\npublic use \"task\" function scope() of type fallible pointer to Scope.\npublic use \"task\" function launch(scope of type pointer to Scope, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.\npublic use \"task\" function join(scope of type pointer to Scope) of type nothing.\n\npublic use \"task\" function pool() of type fallible pointer to Pool.\npublic use \"task\" function submit(pool of type pointer to Pool, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.\npublic use \"task\" function wait(pool of type pointer to Pool) of type nothing.\n\npublic use \"task\" function affinity(cpu of type integer 64) of type boolean.\npublic use \"task\" function label(name text) giving boolean.\n\npublic use \"task\" function net(executor of type pointer to Executor) of type pointer to Net.\npublic use \"task\" function kind(net of type pointer to Net) of type integer 8.\npublic use \"task\" function listen(net of type pointer to Net, port of type integer 32) of type pointer to Socket.\npublic use \"task\" function connect(net of type pointer to Net, host of type pointer to byte, port of type integer 32) of type pointer to Socket.\npublic use \"task\" function pull(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type integer 64.\npublic use \"task\" function push(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type boolean.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/task",
+        "path": "std/task.iv",
+        "summary": "Declares task execution and asynchronous networking. Runtime-selected concurrency without function coloring --- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "affinity",
+            "signature": "public use \"task\" function affinity(cpu of type integer 64) of type boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "backend",
+            "signature": "public use \"task\" function backend() of type integer 8.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "block",
+            "signature": "public use \"task\" function block(callback of type function() of type nothing for c) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "channel",
+            "signature": "public use \"task\" function channel() of type fallible pointer to Channel.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "connect",
+            "signature": "public use \"task\" function connect(net of type pointer to Net, host of type pointer to byte, port of type integer 32) of type pointer to Socket.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "executor",
+            "signature": "public use \"task\" function executor() of type fallible pointer to Executor.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "join",
+            "signature": "public use \"task\" function join(scope of type pointer to Scope) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "kind",
+            "signature": "public use \"task\" function kind(net of type pointer to Net) of type integer 8.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "label",
+            "signature": "public use \"task\" function label(name text) giving boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "launch",
+            "signature": "public use \"task\" function launch(scope of type pointer to Scope, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "listen",
+            "signature": "public use \"task\" function listen(net of type pointer to Net, port of type integer 32) of type pointer to Socket.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "net",
+            "signature": "public use \"task\" function net(executor of type pointer to Executor) of type pointer to Net.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "pool",
+            "signature": "public use \"task\" function pool() of type fallible pointer to Pool.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "pull",
+            "signature": "public use \"task\" function pull(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type integer 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "push",
+            "signature": "public use \"task\" function push(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "receive",
+            "signature": "public use \"task\" function receive(channel of type pointer to Channel, output of type pointer to integer 64) of type boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "scope",
+            "signature": "public use \"task\" function scope() of type fallible pointer to Scope.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "send",
+            "signature": "public use \"task\" function send(channel of type pointer to Channel, value of type integer 64) of type boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "submit",
+            "signature": "public use \"task\" function submit(pool of type pointer to Pool, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "wait",
+            "signature": "public use \"task\" function wait(pool of type pointer to Pool) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "which",
+            "signature": "public use \"task\" function which() of type pointer to byte.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Channel",
+            "signature": "public define Channel as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Executor",
+            "signature": "public define Executor as opaque.",
+            "documentation": "Declares task execution and asynchronous networking. Runtime-selected concurrency without function coloring --- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---"
+          },
+          {
+            "kind": "type",
+            "name": "Net",
+            "signature": "public define Net as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Pool",
+            "signature": "public define Pool as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Scope",
+            "signature": "public define Scope as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Socket",
+            "signature": "public define Socket as opaque.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

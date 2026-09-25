@@ -1,0 +1,71 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/time",
+  "version": "0.2.0",
+  "description": "Measures elapsed time using a monotonic nanosecond clock.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "time"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use time.",
+  "dependencies": [],
+  "readme": [
+    "Measures elapsed time using a monotonic nanosecond clock.",
+    "Import this module with use time."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "c2862ad9a533b309347c0324c89d3a621db8011bfffc074c1085ae3494dd0f6e",
+    "files": [
+      {
+        "path": "std/time.iv",
+        "content": "-- Measures elapsed time using a monotonic nanosecond clock.\npublic use \"time\" function current() of type fallible unsigned 64.\npublic use \"time\" function sleep(duration of type unsigned 64) of type fallible nothing.\npublic function measure(task of type function taking () giving nothing) of type fallible unsigned 64 {\n  constant first is try current().\n  task().\n  give (try current()) subtract first.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/time",
+        "path": "std/time.iv",
+        "summary": "Measures elapsed time using a monotonic nanosecond clock.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "current",
+            "signature": "public use \"time\" function current() of type fallible unsigned 64.",
+            "documentation": "Measures elapsed time using a monotonic nanosecond clock."
+          },
+          {
+            "kind": "function",
+            "name": "measure",
+            "signature": "public function measure(task of type function taking () giving nothing) of type fallible unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "sleep",
+            "signature": "public use \"time\" function sleep(duration of type unsigned 64) of type fallible nothing.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

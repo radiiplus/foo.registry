@@ -1,0 +1,91 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/os/unix",
+  "version": "0.2.0",
+  "description": "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles. ---",
+  "category": "standard library",
+  "tags": [
+    "os",
+    "standard",
+    "unix"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "linux",
+    "macos"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use \"os/unix\".",
+  "dependencies": [],
+  "readme": [
+    "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles. ---",
+    "Import this module with use \"os/unix\"."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "222ffdc4c0a0242509285c8c0f8ecfc6ef6c87a9928b4e1abf4b233cfa673ae9",
+    "files": [
+      {
+        "path": "std/os/unix.iv",
+        "content": "-- Declares Unix platform operations.\n--- Unix pipes, signals, and memory mapping handles. ---\npublic define Pipe as opaque.\npublic define Map as opaque.\n\npublic function pipe() {\n  constant result of type pointer to Pipe is uninitialized.\n  give result.\n}\n\npublic function signal(number of type integer 32) {\n  give.\n}\n\npublic function mmap(size of type integer 64) {\n  constant result of type pointer to Map is uninitialized.\n  give result.\n}\n\npublic function munmap(mapping of type pointer to Map) {\n  give.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/os/unix",
+        "path": "std/os/unix.iv",
+        "summary": "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles. ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "mmap",
+            "signature": "public function mmap(size of type integer 64).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "munmap",
+            "signature": "public function munmap(mapping of type pointer to Map).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "pipe",
+            "signature": "public function pipe().",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "signal",
+            "signature": "public function signal(number of type integer 32).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Map",
+            "signature": "public define Map as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Pipe",
+            "signature": "public define Pipe as opaque.",
+            "documentation": "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles. ---"
+          }
+        ]
+      }
+    ]
+  }
+}

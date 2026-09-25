@@ -1,0 +1,71 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/arch",
+  "version": "0.2.0",
+  "description": "Declares guarded CPU intrinsics.",
+  "category": "standard library",
+  "tags": [
+    "arch",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use arch.",
+  "dependencies": [],
+  "readme": [
+    "Declares guarded CPU intrinsics.",
+    "Import this module with use arch."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "9959c68aa155fe9b6e059ecb0eec4537c193ee3b71100430071831e55d82fc63",
+    "files": [
+      {
+        "path": "std/arch.iv",
+        "content": "-- Declares guarded CPU intrinsics.\npublic use \"arch\" function count(value of type unsigned 64) of type unsigned 32.\npublic use \"arch\" function pause() of type nothing.\npublic use \"arch\" function ticks() of type unsigned 64.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/arch",
+        "path": "std/arch.iv",
+        "summary": "Declares guarded CPU intrinsics.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "count",
+            "signature": "public use \"arch\" function count(value of type unsigned 64) of type unsigned 32.",
+            "documentation": "Declares guarded CPU intrinsics."
+          },
+          {
+            "kind": "function",
+            "name": "pause",
+            "signature": "public use \"arch\" function pause() of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "ticks",
+            "signature": "public use \"arch\" function ticks() of type unsigned 64.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

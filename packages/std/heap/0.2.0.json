@@ -1,0 +1,83 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/heap",
+  "version": "0.2.0",
+  "description": "Provides heap allocation. Priority queue (heap) --- Efficient priority-based retrieval ---",
+  "category": "standard library",
+  "tags": [
+    "heap",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use heap.",
+  "dependencies": [],
+  "readme": [
+    "Provides heap allocation. Priority queue (heap) --- Efficient priority-based retrieval ---",
+    "Import this module with use heap."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "668e4adee6bfeba595ef3be508853b356c55ee413cbcbe67fb7a465a13dc3df3",
+    "files": [
+      {
+        "path": "std/heap.iv",
+        "content": "-- Provides heap allocation.\n--- Priority queue (heap) ---\n--- Efficient priority-based retrieval ---\n\npublic define Heap as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.\n\npublic function create() {\n  constant result of type Heap is uninitialized.\n  give result.\n}\n\npublic function insert(collection of type Heap, value of type pointer to byte) {\n  give.\n}\n\npublic function extract(collection of type Heap) {\n  constant result of type pointer to byte is uninitialized.\n  give result.\n}\n\npublic function peek(collection of type Heap) {\n  constant result of type pointer to byte is uninitialized.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/heap",
+        "path": "std/heap.iv",
+        "summary": "Provides heap allocation. Priority queue (heap) --- Efficient priority-based retrieval ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public function create().",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "extract",
+            "signature": "public function extract(collection of type Heap).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "insert",
+            "signature": "public function insert(collection of type Heap, value of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "peek",
+            "signature": "public function peek(collection of type Heap).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Heap",
+            "signature": "public define Heap as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
+            "documentation": "Provides heap allocation. Priority queue (heap) --- Efficient priority-based retrieval ---"
+          }
+        ]
+      }
+    ]
+  }
+}

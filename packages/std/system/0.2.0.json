@@ -1,0 +1,71 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/system",
+  "version": "0.2.0",
+  "description": "Declares host system information.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "system"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use system.",
+  "dependencies": [],
+  "readme": [
+    "Declares host system information.",
+    "Import this module with use system."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "8e36f8a308168ac9b2f0236b7ff6f511c90b273b45c1e813b23ee019e311d45a",
+    "files": [
+      {
+        "path": "std/system.iv",
+        "content": "-- Declares host system information.\npublic use \"system\" function cores() of type fallible unsigned 32.\npublic use \"system\" function host() of type fallible text.\npublic use \"system\" function page() of type unsigned 64.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/system",
+        "path": "std/system.iv",
+        "summary": "Declares host system information.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "cores",
+            "signature": "public use \"system\" function cores() of type fallible unsigned 32.",
+            "documentation": "Declares host system information."
+          },
+          {
+            "kind": "function",
+            "name": "host",
+            "signature": "public use \"system\" function host() of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "page",
+            "signature": "public use \"system\" function page() of type unsigned 64.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

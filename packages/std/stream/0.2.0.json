@@ -1,0 +1,101 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/stream",
+  "version": "0.2.0",
+  "description": "Declares length-aware input, output and diagnostic streams.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "stream"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use stream.",
+  "dependencies": [],
+  "readme": [
+    "Declares length-aware input, output and diagnostic streams.",
+    "Import this module with use stream."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "ce4bfe97109b9116fd0e7bda2ca8559de2e266fdd988f19479f1b92e1d219a5c",
+    "files": [
+      {
+        "path": "std/stream.iv",
+        "content": "-- Declares length-aware input, output and diagnostic streams.\npublic define Stream as opaque.\npublic use \"stream\" function input() of type pointer to Stream.\npublic use \"stream\" function output() of type pointer to Stream.\npublic use \"stream\" function report() of type pointer to Stream.\npublic use \"stream\" function write(stream of type pointer to Stream, content of type text) of type fallible nothing.\npublic use \"stream\" function read(stream of type pointer to Stream, buffer of type pointer to byte, size of type unsigned 64) of type fallible unsigned 64.\npublic use \"stream\" function close(stream of type pointer to Stream) of type fallible nothing.\npublic use \"stream\" function print(stream of type pointer to Stream, content of type text) of type fallible nothing.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/stream",
+        "path": "std/stream.iv",
+        "summary": "Declares length-aware input, output and diagnostic streams.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "close",
+            "signature": "public use \"stream\" function close(stream of type pointer to Stream) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "input",
+            "signature": "public use \"stream\" function input() of type pointer to Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "output",
+            "signature": "public use \"stream\" function output() of type pointer to Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "print",
+            "signature": "public use \"stream\" function print(stream of type pointer to Stream, content of type text) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "read",
+            "signature": "public use \"stream\" function read(stream of type pointer to Stream, buffer of type pointer to byte, size of type unsigned 64) of type fallible unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "report",
+            "signature": "public use \"stream\" function report() of type pointer to Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "write",
+            "signature": "public use \"stream\" function write(stream of type pointer to Stream, content of type text) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Stream",
+            "signature": "public define Stream as opaque.",
+            "documentation": "Declares length-aware input, output and diagnostic streams."
+          }
+        ]
+      }
+    ]
+  }
+}

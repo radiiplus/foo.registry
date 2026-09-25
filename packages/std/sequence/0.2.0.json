@@ -1,0 +1,125 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/sequence",
+  "version": "0.2.0",
+  "description": "Builds typed sequences and applies ordering, searching, and transformations.",
+  "category": "standard library",
+  "tags": [
+    "sequence",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use sequence.",
+  "dependencies": [],
+  "readme": [
+    "Builds typed sequences and applies ordering, searching, and transformations.",
+    "Import this module with use sequence."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "1a8104f8ec69e934a10ac7cb851b7a41dbd057e536966d62211c6c6ebc51503e",
+    "files": [
+      {
+        "path": "std/sequence.iv",
+        "content": "-- Builds typed sequences and applies ordering, searching, and transformations.\npublic use \"sequence\" function create[T]() of type sequence of T.\npublic use \"sequence\" function append[T](items of type sequence of T, value of type T) of type fallible sequence of T.\npublic use \"sequence\" function remove[T](items of type sequence of T, index of type unsigned 64) of type fallible sequence of T.\npublic use \"sequence\" function copy[T](items of type sequence of T) of type fallible sequence of T.\npublic use \"sequence\" function length[T](items of type sequence of T) of type unsigned 64.\npublic use \"sequence\" function release[T](items of type sequence of T) of type fallible nothing.\nuse \"sequence\" function sized[T](length unsigned 64) giving fallible sequence of T.\nuse \"sequence\" function compact[T](items sequence of T, length unsigned 64) giving fallible sequence of T.\n\npublic function find[T](items of type sequence of T, value of type T) of type optional unsigned 64 where T is Equatable {\n  dynamic index of type unsigned 64 is 0.\n  for each item in items {\n    when item is value { give index. }\n    set index to index plus 1.\n  }\n  give nothing.\n}\n\npublic function sort[T](items of type sequence of T) of type fallible sequence of T where T is Ord {\n  dynamic result is try copy[T](items).\n  dynamic index of type unsigned 64 is 1.\n  while index less than length[T](result) {\n    constant value is result at index.\n    dynamic cursor is index.\n    while cursor greater than 0 {\n      when result at (cursor subtract 1) greater than value {\n        set result at cursor to result at (cursor subtract 1).\n        set cursor to cursor subtract 1.\n      } otherwise { stop. }\n    }\n    set result at cursor to value.\n    set index to index plus 1.\n  }\n  give result.\n}\n\npublic function filter[T](items of type sequence of T, predicate of type function taking (T) giving boolean) of type fallible sequence of T {\n  dynamic result is try sized[T](length[T](items)).\n  after error { release[T](result) fallback nothing. }\n  dynamic count of type unsigned 64 is 0.\n  for each item in items {\n    when predicate(item) {\n      set result at count to item.\n      set count to count plus 1.\n    }\n  }\n  give try compact[T](result, count).\n}\n\npublic function map[T, U](items of type sequence of T, transform of type function taking (T) giving U) of type fallible sequence of U {\n  dynamic result is try sized[U](length[T](items)).\n  after error { release[U](result) fallback nothing. }\n  dynamic index is 0.\n  for each item in items {\n    set result at index to transform(item).\n    set index to index plus 1.\n  }\n  give result.\n}\n\npublic function deduplicate[T](items sequence of T) giving fallible sequence of T where T is Equatable {\n  dynamic result is try sized[T](length[T](items)).\n  after error { release[T](result) fallback nothing. }\n  dynamic count of type unsigned 64 is 0.\n  for each item in items {\n    dynamic present is false.\n    dynamic cursor of type unsigned 64 is 0.\n    while cursor less than count {\n      when result at cursor is item {\n        set present to true.\n        stop.\n      }\n      set cursor to cursor plus 1.\n    }\n    when not present {\n      set result at count to item.\n      set count to count plus 1.\n    }\n  }\n  give try compact[T](result, count).\n}\n\npublic function dedup[T](items sequence of T) giving fallible sequence of T where T is Equatable {\n  give try deduplicate[T](items).\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/sequence",
+        "path": "std/sequence.iv",
+        "summary": "Builds typed sequences and applies ordering, searching, and transformations.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "append",
+            "signature": "public use \"sequence\" function append[T](items of type sequence of T, value of type T) of type fallible sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "copy",
+            "signature": "public use \"sequence\" function copy[T](items of type sequence of T) of type fallible sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public use \"sequence\" function create[T]() of type sequence of T.",
+            "documentation": "Builds typed sequences and applies ordering, searching, and transformations."
+          },
+          {
+            "kind": "function",
+            "name": "dedup",
+            "signature": "public function dedup[T](items sequence of T) giving fallible sequence of T where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "deduplicate",
+            "signature": "public function deduplicate[T](items sequence of T) giving fallible sequence of T where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "filter",
+            "signature": "public function filter[T](items of type sequence of T, predicate of type function taking (T) giving boolean) of type fallible sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "find",
+            "signature": "public function find[T](items of type sequence of T, value of type T) of type optional unsigned 64 where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "signature": "public use \"sequence\" function length[T](items of type sequence of T) of type unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "map",
+            "signature": "public function map[T, U](items of type sequence of T, transform of type function taking (T) giving U) of type fallible sequence of U.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "signature": "public use \"sequence\" function release[T](items of type sequence of T) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "remove",
+            "signature": "public use \"sequence\" function remove[T](items of type sequence of T, index of type unsigned 64) of type fallible sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "sort",
+            "signature": "public function sort[T](items of type sequence of T) of type fallible sequence of T where T is Ord.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

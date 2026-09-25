@@ -1,5 +1,6 @@
 {
   "schema": "foo.package/v1",
+  "kind": "package",
   "name": "foo-crypto",
   "version": "1.1.0",
   "description": "Audited hashing, signatures, and secure random bytes.",
@@ -48,6 +49,30 @@
       {
         "path": "src/library.iv",
         "content": "-- Audited hashing, signatures, and secure random bytes.\npublic constant package_name is \"foo-crypto\".\npublic constant package_version is \"1.1.0\".\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "library",
+        "path": "src/library.iv",
+        "summary": "Audited hashing, signatures, and secure random bytes.",
+        "items": [
+          {
+            "kind": "constant",
+            "name": "package_name",
+            "signature": "public constant package_name is \"foo-crypto\".",
+            "documentation": "Audited hashing, signatures, and secure random bytes."
+          },
+          {
+            "kind": "constant",
+            "name": "package_version",
+            "signature": "public constant package_version is \"1.1.0\".",
+            "documentation": ""
+          }
+        ]
       }
     ]
   }

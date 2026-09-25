@@ -1,0 +1,89 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/text",
+  "version": "0.2.0",
+  "description": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "text"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use text.",
+  "dependencies": [],
+  "readme": [
+    "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
+    "Import this module with use text."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "adb57b74cce4ecc1c9f9f547e006d587dec174a7799d6c755dc8f03805c495d8",
+    "files": [
+      {
+        "path": "std/text.iv",
+        "content": "-- Combines, trims, and splits text using byte offsets and ASCII whitespace.\nuse sequence as items.\nuse \"sequence\" function sized[T](length unsigned 64) giving fallible sequence of T.\npublic use \"text\" function concatenate(left of type text, right of type text) of type fallible text.\npublic use \"text\" function trim(content of type text) of type fallible text.\npublic use \"text\" function length(content of type text) of type unsigned 64.\npublic use \"text\" function slice(content of type text, first of type unsigned 64, last of type unsigned 64) of type fallible text.\npublic use \"text\" function release(content of type text) of type fallible nothing.\npublic function split(content of type text, separator of type text) of type fallible sequence of text {\n  constant separatorLength is length(separator).\n  constant contentLength is length(content).\n  when separatorLength is 0 { give fail(Error.EmptySeparator). }\n  dynamic count of type unsigned 64 is 1.\n  dynamic cursor of type unsigned 64 is 0.\n  while cursor plus separatorLength is at most contentLength {\n    dynamic matches is true.\n    dynamic index of type unsigned 64 is 0.\n    while index less than separatorLength {\n      when content at (cursor plus index) is not separator at index { set matches to false. stop. }\n      set index to index plus 1.\n    }\n    when matches {\n      set count to count plus 1.\n      set cursor to cursor plus separatorLength.\n    } otherwise { set cursor to cursor plus 1. }\n  }\n  dynamic result is try sized[text](count).\n  after error { for each part in result { release(part) fallback nothing. } items.release[text](result) fallback nothing. }\n  dynamic first of type unsigned 64 is 0.\n  set cursor to 0.\n  dynamic resultIndex of type unsigned 64 is 0.\n  while cursor plus separatorLength is at most contentLength {\n    dynamic matches is true.\n    dynamic index of type unsigned 64 is 0.\n    while index less than separatorLength {\n      when content at (cursor plus index) is not separator at index { set matches to false. stop. }\n      set index to index plus 1.\n    }\n    when matches {\n      constant part is try slice(content, first, cursor).\n      set result at resultIndex to part.\n      set resultIndex to resultIndex plus 1.\n      set cursor to cursor plus separatorLength.\n      set first to cursor.\n    } otherwise { set cursor to cursor plus 1. }\n  }\n  set result at resultIndex to try slice(content, first, contentLength).\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/text",
+        "path": "std/text.iv",
+        "summary": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "concatenate",
+            "signature": "public use \"text\" function concatenate(left of type text, right of type text) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "signature": "public use \"text\" function length(content of type text) of type unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "signature": "public use \"text\" function release(content of type text) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "slice",
+            "signature": "public use \"text\" function slice(content of type text, first of type unsigned 64, last of type unsigned 64) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "split",
+            "signature": "public function split(content of type text, separator of type text) of type fallible sequence of text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "trim",
+            "signature": "public use \"text\" function trim(content of type text) of type fallible text.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

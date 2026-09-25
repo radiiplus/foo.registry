@@ -1,0 +1,107 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/file",
+  "version": "0.2.0",
+  "description": "Opens files, transfers their contents, creates directories, and joins paths.",
+  "category": "standard library",
+  "tags": [
+    "file",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use file.",
+  "dependencies": [],
+  "readme": [
+    "Opens files, transfers their contents, creates directories, and joins paths.",
+    "Import this module with use file."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "e09360118d00cf6b04412d4a0a0f58cdae2703282ddb0cf166c56f621a558b95",
+    "files": [
+      {
+        "path": "std/file.iv",
+        "content": "-- Opens files, transfers their contents, creates directories, and joins paths.\nuse io as streams.\npublic use \"fs\" function open(path text, mode text) giving fallible pointer to streams.Stream.\npublic use \"fs\" function read(path text) giving fallible text.\npublic use \"fs\" function write(path text, content text) giving fallible nothing.\npublic use \"fs\" function directory(path text) giving fallible nothing.\npublic use \"fs\" function join(left text, right text) giving fallible text.\n-- Advanced stream controls. Offsets are byte offsets; origin is start, current, or end.\npublic use \"fs\" function flush(stream pointer to streams.Stream) giving fallible nothing.\npublic use \"fs\" function seek(stream pointer to streams.Stream, offset integer 64, origin text) giving fallible nothing.\npublic use \"fs\" function position(stream pointer to streams.Stream) giving fallible unsigned 64.\npublic use \"fs\" function size(stream pointer to streams.Stream) giving fallible unsigned 64.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/file",
+        "path": "std/file.iv",
+        "summary": "Opens files, transfers their contents, creates directories, and joins paths.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "directory",
+            "signature": "public use \"fs\" function directory(path text) giving fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "flush",
+            "signature": "public use \"fs\" function flush(stream pointer to streams.Stream) giving fallible nothing.",
+            "documentation": "Advanced stream controls. Offsets are byte offsets; origin is start, current, or end."
+          },
+          {
+            "kind": "function",
+            "name": "join",
+            "signature": "public use \"fs\" function join(left text, right text) giving fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "open",
+            "signature": "public use \"fs\" function open(path text, mode text) giving fallible pointer to streams.Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "position",
+            "signature": "public use \"fs\" function position(stream pointer to streams.Stream) giving fallible unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "read",
+            "signature": "public use \"fs\" function read(path text) giving fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "seek",
+            "signature": "public use \"fs\" function seek(stream pointer to streams.Stream, offset integer 64, origin text) giving fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "size",
+            "signature": "public use \"fs\" function size(stream pointer to streams.Stream) giving fallible unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "write",
+            "signature": "public use \"fs\" function write(path text, content text) giving fallible nothing.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

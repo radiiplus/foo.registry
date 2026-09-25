@@ -4,10 +4,11 @@
   "title": "Foo index entry",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "owner", "repository", "revision", "path", "versions"],
+  "required": ["schema", "kind", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "owner", "repository", "revision", "exports", "path", "versions"],
   "properties": {
     "schema": { "const": "foo.entry/v1" },
-    "name": { "type": "string", "pattern": "^(?:@[a-z0-9][a-z0-9-]{0,38}/)?[a-z][a-z0-9-]{0,63}$" },
+    "kind": { "enum": ["package", "standard"] },
+    "name": { "type": "string", "pattern": "^(?:@[a-z0-9][a-z0-9-]{0,38}/[a-z][a-z0-9-]{0,63}|std/[a-z][a-z0-9-]{0,63}(?:/[a-z][a-z0-9-]{0,63})*|[a-z][a-z0-9-]{0,63})$" },
     "version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$" },
     "description": { "type": "string", "minLength": 1, "maxLength": 280 },
     "category": { "type": "string", "pattern": "^[a-z0-9][a-z0-9 -]{0,63}$" },
@@ -20,7 +21,8 @@
     "owner": { "$ref": "package.json#/$defs/owner" },
     "repository": { "type": "string", "format": "uri", "pattern": "^https://" },
     "revision": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
-    "path": { "type": "string", "pattern": "^packages/(?:@[a-z0-9][a-z0-9-]{0,38}/)?[a-z][a-z0-9-]{0,63}/[^/]+\\.json$" },
+    "exports": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "path": { "type": "string", "pattern": "^packages/.+/[^/]+\\.json$" },
     "versions": {
       "type": "array",
       "minItems": 1,
@@ -32,7 +34,7 @@
           "version": { "type": "string" },
           "updated": { "type": "string", "format": "date" },
           "deprecated": { "type": "string" },
-          "path": { "type": "string", "pattern": "^packages/(?:@[a-z0-9][a-z0-9-]{0,38}/)?[a-z][a-z0-9-]{0,63}/[^/]+\\.json$" }
+          "path": { "type": "string", "pattern": "^packages/.+/[^/]+\\.json$" }
         }
       }
     }

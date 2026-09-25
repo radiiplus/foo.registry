@@ -1,5 +1,6 @@
 {
   "schema": "foo.package/v1",
+  "kind": "package",
   "name": "foo-http",
   "version": "1.3.0",
   "description": "HTTP and REST networking for Foo.",
@@ -50,6 +51,30 @@
       {
         "path": "src/library.iv",
         "content": "-- HTTP and REST networking for Foo.\npublic constant package_name is \"foo-http\".\npublic constant package_version is \"1.3.0\".\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "library",
+        "path": "src/library.iv",
+        "summary": "HTTP and REST networking for Foo.",
+        "items": [
+          {
+            "kind": "constant",
+            "name": "package_name",
+            "signature": "public constant package_name is \"foo-http\".",
+            "documentation": "HTTP and REST networking for Foo."
+          },
+          {
+            "kind": "constant",
+            "name": "package_version",
+            "signature": "public constant package_version is \"1.3.0\".",
+            "documentation": ""
+          }
+        ]
       }
     ]
   }

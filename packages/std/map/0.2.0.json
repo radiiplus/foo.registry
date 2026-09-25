@@ -1,0 +1,107 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/map",
+  "version": "0.2.0",
+  "description": "Stores typed key/value pairs with equality-based lookup.",
+  "category": "standard library",
+  "tags": [
+    "map",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use map.",
+  "dependencies": [],
+  "readme": [
+    "Stores typed key/value pairs with equality-based lookup.",
+    "Import this module with use map."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "67f18099f04624a93ec8c0542286fe3b049a9feff14da46185c97fa8e5c2634d",
+    "files": [
+      {
+        "path": "std/map.iv",
+        "content": "-- Stores typed key/value pairs with equality-based lookup.\nuse sequence as items.\npublic define Entry[K, V] as record { key of type K. value of type V. }.\npublic define Map[K, V] as record { entries of type sequence of Entry[K, V]. }.\npublic function create[K, V]() of type Map[K, V] { give Map[K, V](items.create[Entry[K, V]]()). }\npublic function length[K, V](collection of type Map[K, V]) of type unsigned 64 { give items.length[Entry[K, V]](collection.entries). }\npublic function get[K, V](collection of type Map[K, V], key of type K) of type fallible V where K is Equatable {\n  for each entry in collection.entries { when entry.key is key { give entry.value. } }\n  give fail(Error.MissingKey).\n}\npublic function contains[K, V](collection of type Map[K, V], key of type K) of type boolean where K is Equatable {\n  for each entry in collection.entries { when entry.key is key { give true. } }\n  give false.\n}\npublic function put[K, V](collection of type Map[K, V], key of type K, value of type V) of type fallible Map[K, V] where K is Equatable {\n  dynamic index of type unsigned 64 is 0.\n  for each entry in collection.entries {\n    when entry.key is key {\n      dynamic result is try items.copy[Entry[K, V]](collection.entries).\n      set result at index to Entry[K, V](key, value).\n      give Map[K, V](result).\n    }\n    set index to index plus 1.\n  }\n  give Map[K, V](try items.append[Entry[K, V]](collection.entries, Entry[K, V](key, value))).\n}\npublic function remove[K, V](collection of type Map[K, V], key of type K) of type fallible Map[K, V] where K is Equatable {\n  dynamic index of type unsigned 64 is 0.\n  for each entry in collection.entries {\n    when entry.key is key { give Map[K, V](try items.remove[Entry[K, V]](collection.entries, index)). }\n    set index to index plus 1.\n  }\n  give Map[K, V](try items.copy[Entry[K, V]](collection.entries)).\n}\npublic function release[K, V](collection of type Map[K, V]) of type fallible nothing { try items.release[Entry[K, V]](collection.entries). give. }\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/map",
+        "path": "std/map.iv",
+        "summary": "Stores typed key/value pairs with equality-based lookup.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "contains",
+            "signature": "public function contains[K, V](collection of type Map[K, V], key of type K) of type boolean where K is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public function create[K, V]() of type Map[K, V].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "get",
+            "signature": "public function get[K, V](collection of type Map[K, V], key of type K) of type fallible V where K is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "signature": "public function length[K, V](collection of type Map[K, V]) of type unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "put",
+            "signature": "public function put[K, V](collection of type Map[K, V], key of type K, value of type V) of type fallible Map[K, V] where K is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "signature": "public function release[K, V](collection of type Map[K, V]) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "remove",
+            "signature": "public function remove[K, V](collection of type Map[K, V], key of type K) of type fallible Map[K, V] where K is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Entry",
+            "signature": "public define Entry[K, V] as record { key of type K. value of type V. }.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Map",
+            "signature": "public define Map[K, V] as record { entries of type sequence of Entry[K, V]. }.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

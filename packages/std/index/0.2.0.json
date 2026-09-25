@@ -1,0 +1,83 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/index",
+  "version": "0.2.0",
+  "description": "Exports standard library modules. String-keyed map --- Fast text-based lookup ---",
+  "category": "standard library",
+  "tags": [
+    "index",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use index.",
+  "dependencies": [],
+  "readme": [
+    "Exports standard library modules. String-keyed map --- Fast text-based lookup ---",
+    "Import this module with use index."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "9f0646451722fe1cf9cad3363cb9b5bd40f3df61fb619dc5a18bc280b73b84ea",
+    "files": [
+      {
+        "path": "std/index.iv",
+        "content": "-- Exports standard library modules.\n--- String-keyed map ---\n--- Fast text-based lookup ---\n\npublic define Index as record {\n  data of type pointer to byte.\n  size of type integer 64.\n}.\n\npublic function create() {\n  constant result of type Index is uninitialized.\n  give result.\n}\n\npublic function register(collection of type Index, key of type pointer to byte, value of type pointer to byte) {\n  give.\n}\n\npublic function lookup(collection of type Index, key of type pointer to byte) {\n  constant result of type pointer to byte is uninitialized.\n  give result.\n}\n\npublic function known(collection of type Index, key of type pointer to byte) {\n  constant result of type boolean is false.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/index",
+        "path": "std/index.iv",
+        "summary": "Exports standard library modules. String-keyed map --- Fast text-based lookup ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public function create().",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "known",
+            "signature": "public function known(collection of type Index, key of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "lookup",
+            "signature": "public function lookup(collection of type Index, key of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "register",
+            "signature": "public function register(collection of type Index, key of type pointer to byte, value of type pointer to byte).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Index",
+            "signature": "public define Index as record {\n  data of type pointer to byte.\n  size of type integer 64.\n}.",
+            "documentation": "Exports standard library modules. String-keyed map --- Fast text-based lookup ---"
+          }
+        ]
+      }
+    ]
+  }
+}

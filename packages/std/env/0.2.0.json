@@ -1,0 +1,59 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/env",
+  "version": "0.2.0",
+  "description": "Provides environment access. Environment variables --- Provides access to process environment ---",
+  "category": "standard library",
+  "tags": [
+    "env",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use env.",
+  "dependencies": [],
+  "readme": [
+    "Provides environment access. Environment variables --- Provides access to process environment ---",
+    "Import this module with use env."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "daa0c6c694dbf130a0c0cbc75c41b937fe05916002e26494ddd775eb0cb1995e",
+    "files": [
+      {
+        "path": "std/env.iv",
+        "content": "-- Provides environment access.\n--- Environment variables ---\n--- Provides access to process environment ---\n\npublic function variable(key of type pointer to byte) {\n  constant result of type pointer to byte is uninitialized.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/env",
+        "path": "std/env.iv",
+        "summary": "Provides environment access. Environment variables --- Provides access to process environment ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "variable",
+            "signature": "public function variable(key of type pointer to byte).",
+            "documentation": "Provides environment access. Environment variables --- Provides access to process environment ---"
+          }
+        ]
+      }
+    ]
+  }
+}

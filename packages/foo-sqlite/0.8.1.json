@@ -1,5 +1,6 @@
 {
   "schema": "foo.package/v1",
+  "kind": "package",
   "name": "foo-sqlite",
   "version": "0.8.1",
   "description": "A thin, safe binding for embedded SQLite databases.",
@@ -48,6 +49,30 @@
       {
         "path": "src/library.iv",
         "content": "-- A thin, safe binding for embedded SQLite databases.\npublic constant package_name is \"foo-sqlite\".\npublic constant package_version is \"0.8.1\".\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "library",
+        "path": "src/library.iv",
+        "summary": "A thin, safe binding for embedded SQLite databases.",
+        "items": [
+          {
+            "kind": "constant",
+            "name": "package_name",
+            "signature": "public constant package_name is \"foo-sqlite\".",
+            "documentation": "A thin, safe binding for embedded SQLite databases."
+          },
+          {
+            "kind": "constant",
+            "name": "package_version",
+            "signature": "public constant package_version is \"0.8.1\".",
+            "documentation": ""
+          }
+        ]
       }
     ]
   }

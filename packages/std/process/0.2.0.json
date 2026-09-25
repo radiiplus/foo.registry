@@ -1,0 +1,77 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/process",
+  "version": "0.2.0",
+  "description": "Runs shell commands and reads process arguments and environment values.",
+  "category": "standard library",
+  "tags": [
+    "process",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use process.",
+  "dependencies": [],
+  "readme": [
+    "Runs shell commands and reads process arguments and environment values.",
+    "Import this module with use process."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "7940e8c24766ec434031e5f0541201fcb4e9e5eb33ce3503c32498c0b6e0d054",
+    "files": [
+      {
+        "path": "std/process.iv",
+        "content": "-- Runs shell commands and reads process arguments and environment values.\npublic use \"process\" function run(command of type text) of type fallible unsigned 64.\npublic use \"process\" function count() of type unsigned 64.\npublic use \"process\" function argument(index of type unsigned 64) of type fallible text.\npublic use \"process\" function environment(name of type text) of type fallible text.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/process",
+        "path": "std/process.iv",
+        "summary": "Runs shell commands and reads process arguments and environment values.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "argument",
+            "signature": "public use \"process\" function argument(index of type unsigned 64) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "count",
+            "signature": "public use \"process\" function count() of type unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "environment",
+            "signature": "public use \"process\" function environment(name of type text) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "run",
+            "signature": "public use \"process\" function run(command of type text) of type fallible unsigned 64.",
+            "documentation": "Runs shell commands and reads process arguments and environment values."
+          }
+        ]
+      }
+    ]
+  }
+}

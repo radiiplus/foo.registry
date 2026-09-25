@@ -1,0 +1,95 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/set",
+  "version": "0.2.0",
+  "description": "Keeps each typed value once using equality-based membership.",
+  "category": "standard library",
+  "tags": [
+    "set",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use set.",
+  "dependencies": [],
+  "readme": [
+    "Keeps each typed value once using equality-based membership.",
+    "Import this module with use set."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "56ec97394394745e01912d7f0d5286878cd14df6dab99d14eeab8f509a4bd80d",
+    "files": [
+      {
+        "path": "std/set.iv",
+        "content": "-- Keeps each typed value once using equality-based membership.\nuse sequence as items.\npublic define Set[T] as record { values of type sequence of T. }.\npublic function create[T]() of type Set[T] { give Set[T](items.create[T]()). }\npublic function length[T](collection of type Set[T]) of type unsigned 64 { give items.length[T](collection.values). }\npublic function contains[T](collection of type Set[T], value of type T) of type boolean where T is Equatable {\n  for each item in collection.values { when item is value { give true. } }\n  give false.\n}\npublic function insert[T](collection of type Set[T], value of type T) of type fallible Set[T] where T is Equatable {\n  when contains[T](collection, value) { give Set[T](try items.copy[T](collection.values)). }\n  give Set[T](try items.append[T](collection.values, value)).\n}\npublic function remove[T](collection of type Set[T], value of type T) of type fallible Set[T] where T is Equatable {\n  dynamic index of type unsigned 64 is 0.\n  for each item in collection.values {\n    when item is value { give Set[T](try items.remove[T](collection.values, index)). }\n    set index to index plus 1.\n  }\n  give Set[T](try items.copy[T](collection.values)).\n}\npublic function release[T](collection of type Set[T]) of type fallible nothing { try items.release[T](collection.values). give. }\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/set",
+        "path": "std/set.iv",
+        "summary": "Keeps each typed value once using equality-based membership.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "contains",
+            "signature": "public function contains[T](collection of type Set[T], value of type T) of type boolean where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "signature": "public function create[T]() of type Set[T].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "insert",
+            "signature": "public function insert[T](collection of type Set[T], value of type T) of type fallible Set[T] where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "signature": "public function length[T](collection of type Set[T]) of type unsigned 64.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "signature": "public function release[T](collection of type Set[T]) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "remove",
+            "signature": "public function remove[T](collection of type Set[T], value of type T) of type fallible Set[T] where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Set",
+            "signature": "public define Set[T] as record { values of type sequence of T. }.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/io",
+  "version": "0.2.0",
+  "description": "Reads and writes text through standard streams and open files.",
+  "category": "standard library",
+  "tags": [
+    "io",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use io.",
+  "dependencies": [],
+  "readme": [
+    "Reads and writes text through standard streams and open files.",
+    "Import this module with use io."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "ed792c90d2fcb15fa6faa0d2d001d777c9e43a304e8e9d50b1b06ef926ca4ca9",
+    "files": [
+      {
+        "path": "std/io.iv",
+        "content": "-- Reads and writes text through standard streams and open files.\npublic define Stream as opaque.\npublic use \"io\" function input() of type pointer to Stream.\npublic use \"io\" function output() of type pointer to Stream.\npublic use \"io\" function report() of type pointer to Stream.\npublic use \"io\" function read(stream of type pointer to Stream, size of type unsigned 64) of type fallible text.\npublic use \"io\" function line(stream of type pointer to Stream) of type fallible text.\npublic use \"io\" function write(stream of type pointer to Stream, content of type text) of type fallible nothing.\npublic use \"io\" function close(stream of type pointer to Stream) of type fallible nothing.\npublic function display(content text) giving fallible nothing { try write(output(), content). give. }\npublic function show(content text) giving nothing { write(output(), content) fallback nothing. }\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/io",
+        "path": "std/io.iv",
+        "summary": "Reads and writes text through standard streams and open files.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "close",
+            "signature": "public use \"io\" function close(stream of type pointer to Stream) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "display",
+            "signature": "public function display(content text) giving fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "input",
+            "signature": "public use \"io\" function input() of type pointer to Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "line",
+            "signature": "public use \"io\" function line(stream of type pointer to Stream) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "output",
+            "signature": "public use \"io\" function output() of type pointer to Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "read",
+            "signature": "public use \"io\" function read(stream of type pointer to Stream, size of type unsigned 64) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "report",
+            "signature": "public use \"io\" function report() of type pointer to Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "show",
+            "signature": "public function show(content text) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "write",
+            "signature": "public use \"io\" function write(stream of type pointer to Stream, content of type text) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Stream",
+            "signature": "public define Stream as opaque.",
+            "documentation": "Reads and writes text through standard streams and open files."
+          }
+        ]
+      }
+    ]
+  }
+}

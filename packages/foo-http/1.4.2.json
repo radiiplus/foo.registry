@@ -1,5 +1,6 @@
 {
   "schema": "foo.package/v1",
+  "kind": "package",
   "name": "foo-http",
   "version": "1.4.2",
   "description": "HTTP, REST, and WebSocket networking for Foo.",
@@ -62,6 +63,30 @@
       {
         "path": "src/library.iv",
         "content": "-- HTTP, REST, and WebSocket networking for Foo.\npublic constant package_name is \"foo-http\".\npublic constant package_version is \"1.4.2\".\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "library",
+        "path": "src/library.iv",
+        "summary": "HTTP, REST, and WebSocket networking for Foo.",
+        "items": [
+          {
+            "kind": "constant",
+            "name": "package_name",
+            "signature": "public constant package_name is \"foo-http\".",
+            "documentation": "HTTP, REST, and WebSocket networking for Foo."
+          },
+          {
+            "kind": "constant",
+            "name": "package_version",
+            "signature": "public constant package_version is \"1.4.2\".",
+            "documentation": ""
+          }
+        ]
       }
     ]
   }

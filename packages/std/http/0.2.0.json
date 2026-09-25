@@ -1,0 +1,203 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/http",
+  "version": "0.2.0",
+  "description": "Declares HTTP clients and servers.",
+  "category": "standard library",
+  "tags": [
+    "http",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use http.",
+  "dependencies": [],
+  "readme": [
+    "Declares HTTP clients and servers.",
+    "Import this module with use http."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "99cb6e61806de484068f1353b9ae85ec90fcf7bd62804e6e0384b63d0e68556d",
+    "files": [
+      {
+        "path": "std/http.iv",
+        "content": "-- Declares HTTP clients and servers.\npublic define Client as opaque.\npublic define Response as opaque.\npublic define Server as opaque.\npublic define Peer as opaque.\npublic use \"http\" function client() of type fallible pointer to Client.\npublic use \"http\" function trust(value of type pointer to Client, certificate of type text) of type fallible nothing.\n-- Advanced client controls. Added headers persist until clearHeaders is called.\npublic use \"http\" function addHeader(value pointer to Client, name text, content text) giving fallible nothing.\npublic use \"http\" function clearHeaders(value pointer to Client) giving nothing.\npublic use \"http\" function redirects(value pointer to Client, limit unsigned 16) giving fallible nothing.\npublic use \"http\" function reuse(value pointer to Client, enabled boolean) giving nothing.\npublic use \"http\" function request(value of type pointer to Client, url of type text, method of type text, content of type text, limit of type unsigned 32) of type fallible pointer to Response.\npublic use \"http\" function status(value of type pointer to Response) of type unsigned 16.\npublic use \"http\" function body(value of type pointer to Response) of type fallible text.\npublic use \"http\" function release(value of type pointer to Response) of type nothing.\npublic use \"http\" function close(value of type pointer to Client) of type nothing.\npublic use \"http\" function listen(host of type text, port of type unsigned 16) of type fallible pointer to Server.\npublic use \"http\" function port(value of type pointer to Server) of type unsigned 16.\npublic use \"http\" function closeServer(value pointer to Server) giving nothing.\npublic use \"http\" function accept(value of type pointer to Server) of type fallible pointer to Peer.\npublic use \"http\" function receive(value of type pointer to Peer) of type fallible text.\npublic use \"http\" function method(value of type pointer to Peer) of type fallible text.\npublic use \"http\" function header(value of type pointer to Peer, name of type text) of type fallible text.\npublic use \"http\" function read(value of type pointer to Peer, limit of type unsigned 32) of type fallible text.\npublic use \"http\" function reply(value of type pointer to Peer, status of type unsigned 16, content of type text, reuse of type boolean) of type fallible nothing.\npublic use \"http\" function disconnect(value of type pointer to Peer) of type nothing.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/http",
+        "path": "std/http.iv",
+        "summary": "Declares HTTP clients and servers.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "accept",
+            "signature": "public use \"http\" function accept(value of type pointer to Server) of type fallible pointer to Peer.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "addHeader",
+            "signature": "public use \"http\" function addHeader(value pointer to Client, name text, content text) giving fallible nothing.",
+            "documentation": "Advanced client controls. Added headers persist until clearHeaders is called."
+          },
+          {
+            "kind": "function",
+            "name": "body",
+            "signature": "public use \"http\" function body(value of type pointer to Response) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "clearHeaders",
+            "signature": "public use \"http\" function clearHeaders(value pointer to Client) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "client",
+            "signature": "public use \"http\" function client() of type fallible pointer to Client.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "close",
+            "signature": "public use \"http\" function close(value of type pointer to Client) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "closeServer",
+            "signature": "public use \"http\" function closeServer(value pointer to Server) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "disconnect",
+            "signature": "public use \"http\" function disconnect(value of type pointer to Peer) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "header",
+            "signature": "public use \"http\" function header(value of type pointer to Peer, name of type text) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "listen",
+            "signature": "public use \"http\" function listen(host of type text, port of type unsigned 16) of type fallible pointer to Server.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "method",
+            "signature": "public use \"http\" function method(value of type pointer to Peer) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "port",
+            "signature": "public use \"http\" function port(value of type pointer to Server) of type unsigned 16.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "read",
+            "signature": "public use \"http\" function read(value of type pointer to Peer, limit of type unsigned 32) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "receive",
+            "signature": "public use \"http\" function receive(value of type pointer to Peer) of type fallible text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "redirects",
+            "signature": "public use \"http\" function redirects(value pointer to Client, limit unsigned 16) giving fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "signature": "public use \"http\" function release(value of type pointer to Response) of type nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "reply",
+            "signature": "public use \"http\" function reply(value of type pointer to Peer, status of type unsigned 16, content of type text, reuse of type boolean) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "request",
+            "signature": "public use \"http\" function request(value of type pointer to Client, url of type text, method of type text, content of type text, limit of type unsigned 32) of type fallible pointer to Response.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "reuse",
+            "signature": "public use \"http\" function reuse(value pointer to Client, enabled boolean) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "status",
+            "signature": "public use \"http\" function status(value of type pointer to Response) of type unsigned 16.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "trust",
+            "signature": "public use \"http\" function trust(value of type pointer to Client, certificate of type text) of type fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Client",
+            "signature": "public define Client as opaque.",
+            "documentation": "Declares HTTP clients and servers."
+          },
+          {
+            "kind": "type",
+            "name": "Peer",
+            "signature": "public define Peer as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Response",
+            "signature": "public define Response as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Server",
+            "signature": "public define Server as opaque.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

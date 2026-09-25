@@ -1,5 +1,6 @@
 {
   "schema": "foo.package/v1",
+  "kind": "package",
   "name": "foo-test",
   "version": "1.0.3",
   "description": "Fast native tests with snapshots and focused assertions.",
@@ -48,6 +49,30 @@
       {
         "path": "src/library.iv",
         "content": "-- Fast native tests with snapshots and focused assertions.\npublic constant package_name is \"foo-test\".\npublic constant package_version is \"1.0.3\".\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "library",
+        "path": "src/library.iv",
+        "summary": "Fast native tests with snapshots and focused assertions.",
+        "items": [
+          {
+            "kind": "constant",
+            "name": "package_name",
+            "signature": "public constant package_name is \"foo-test\".",
+            "documentation": "Fast native tests with snapshots and focused assertions."
+          },
+          {
+            "kind": "constant",
+            "name": "package_version",
+            "signature": "public constant package_version is \"1.0.3\".",
+            "documentation": ""
+          }
+        ]
       }
     ]
   }

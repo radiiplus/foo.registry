@@ -1,0 +1,65 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/compress",
+  "version": "0.2.0",
+  "description": "Declares zlib and gzip compression.",
+  "category": "standard library",
+  "tags": [
+    "compress",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use compress.",
+  "dependencies": [],
+  "readme": [
+    "Declares zlib and gzip compression.",
+    "Import this module with use compress."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "b47c012cd0b8a8e210a32b3c0b8d57f9497a3177498a085719d4224a769f9d39",
+    "files": [
+      {
+        "path": "std/compress.iv",
+        "content": "-- Declares zlib and gzip compression.\npublic use \"compress\" function pack(value of type text, format of type text) of type fallible text.\npublic use \"compress\" function unpack(value of type text, format of type text, limit of type unsigned 32) of type fallible text.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/compress",
+        "path": "std/compress.iv",
+        "summary": "Declares zlib and gzip compression.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "pack",
+            "signature": "public use \"compress\" function pack(value of type text, format of type text) of type fallible text.",
+            "documentation": "Declares zlib and gzip compression."
+          },
+          {
+            "kind": "function",
+            "name": "unpack",
+            "signature": "public use \"compress\" function unpack(value of type text, format of type text, limit of type unsigned 32) of type fallible text.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

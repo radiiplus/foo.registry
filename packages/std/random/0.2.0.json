@@ -1,0 +1,77 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/random",
+  "version": "0.2.0",
+  "description": "Provides random values. Random number generation --- OS-backed and PRNG implementations ---",
+  "category": "standard library",
+  "tags": [
+    "random",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use random.",
+  "dependencies": [],
+  "readme": [
+    "Provides random values. Random number generation --- OS-backed and PRNG implementations ---",
+    "Import this module with use random."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "d4d643da3e43b893d3bcdfd2e3a12d9ed4fd996ecd14bf6ea49438d12e74e4f4",
+    "files": [
+      {
+        "path": "std/random.iv",
+        "content": "-- Provides random values.\n--- Random number generation ---\n--- OS-backed and PRNG implementations ---\n\npublic define Random as record {\n  state of type pointer to byte.\n}.\n\npublic function default() {\n  constant result of type Random is uninitialized.\n  give result.\n}\n\npublic function bytes(rng of type Random, buffer of type pointer to byte, size of type integer 64) {\n  give.\n}\n\npublic function number(rng of type Random, minimum of type integer 64, maximum of type integer 64) {\n  constant result of type integer 64 is 0.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/random",
+        "path": "std/random.iv",
+        "summary": "Provides random values. Random number generation --- OS-backed and PRNG implementations ---",
+        "items": [
+          {
+            "kind": "function",
+            "name": "bytes",
+            "signature": "public function bytes(rng of type Random, buffer of type pointer to byte, size of type integer 64).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "default",
+            "signature": "public function default().",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "number",
+            "signature": "public function number(rng of type Random, minimum of type integer 64, maximum of type integer 64).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Random",
+            "signature": "public define Random as record {\n  state of type pointer to byte.\n}.",
+            "documentation": "Provides random values. Random number generation --- OS-backed and PRNG implementations ---"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/log",
+  "version": "0.2.0",
+  "description": "Writes application messages and errors to the diagnostic stream.",
+  "category": "standard library",
+  "tags": [
+    "log",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-21",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "use log.",
+  "dependencies": [],
+  "readme": [
+    "Writes application messages and errors to the diagnostic stream.",
+    "Import this module with use log."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "d23eb505338ab363f285106348e867a8389c7f4ce5eff9a1ea9e2de473de50ec",
+    "files": [
+      {
+        "path": "std/log.iv",
+        "content": "-- Writes application messages and errors to the diagnostic stream.\nuse io as output.\npublic function message(content text) giving fallible nothing { try output.write(output.report(), \"INFO  \" plus content plus newline). give. }\npublic function error(content text) giving fallible nothing { try output.write(output.report(), \"ERROR \" plus content plus newline). give. }\npublic function showMessage(content text) giving nothing { output.write(output.report(), \"INFO  \" plus content plus newline) fallback nothing. }\npublic function showError(content text) giving nothing { output.write(output.report(), \"ERROR \" plus content plus newline) fallback nothing. }\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/log",
+        "path": "std/log.iv",
+        "summary": "Writes application messages and errors to the diagnostic stream.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "error",
+            "signature": "public function error(content text) giving fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "message",
+            "signature": "public function message(content text) giving fallible nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "showError",
+            "signature": "public function showError(content text) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "showMessage",
+            "signature": "public function showMessage(content text) giving nothing.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}
