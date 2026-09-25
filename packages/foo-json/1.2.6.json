@@ -1,0 +1,33 @@
+{
+  "schema": "foo.package/v1",
+  "name": "foo-json",
+  "version": "1.2.6",
+  "description": "Strict JSON parsing and serialization without reflection.",
+  "category": "data",
+  "tags": [
+    "json",
+    "parser",
+    "serialization"
+  ],
+  "license": "MIT",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "linux",
+    "macos",
+    "wasm",
+    "windows"
+  ],
+  "updated": "2026-09-20",
+  "owner": {
+    "id": 18724032,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "install": "foo install foo-json",
+  "dependencies": [],
+  "readme": [
+    "Parse and write JSON through explicit value types and predictable allocation.",
+    "The decoder reports source locations for invalid input and supports streaming documents."
+  ]
+}

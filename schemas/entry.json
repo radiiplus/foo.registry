@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/radiiplus/foo.registry/main/schemas/entry.json",
+  "title": "Foo index entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "owner", "repository", "path", "versions"],
+  "properties": {
+    "schema": { "const": "foo.entry/v1" },
+    "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" },
+    "version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$" },
+    "description": { "type": "string", "minLength": 1, "maxLength": 280 },
+    "category": { "type": "string", "pattern": "^[a-z0-9][a-z0-9 -]{0,63}$" },
+    "tags": { "$ref": "package.json#/$defs/tokens" },
+    "license": { "type": "string", "minLength": 1 },
+    "compatible": { "type": "boolean" },
+    "deprecated": { "type": "string" },
+    "platforms": { "$ref": "package.json#/$defs/tokens" },
+    "updated": { "type": "string", "format": "date" },
+    "owner": { "$ref": "package.json#/$defs/owner" },
+    "repository": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "path": { "type": "string", "pattern": "^packages/[a-z][a-z0-9-]{0,63}/[^/]+\\.json$" },
+    "versions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["version", "updated", "deprecated", "path"],
+        "properties": {
+          "version": { "type": "string" },
+          "updated": { "type": "string", "format": "date" },
+          "deprecated": { "type": "string" },
+          "path": { "type": "string", "pattern": "^packages/[a-z][a-z0-9-]{0,63}/[^/]+\\.json$" }
+        }
+      }
+    }
+  }
+}

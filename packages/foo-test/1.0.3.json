@@ -1,0 +1,39 @@
+{
+  "schema": "foo.package/v1",
+  "name": "foo-test",
+  "version": "1.0.3",
+  "description": "Fast native tests with snapshots and focused assertions.",
+  "category": "developer tools",
+  "tags": [
+    "assertions",
+    "snapshots",
+    "testing"
+  ],
+  "license": "MIT",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "updated": "2026-09-15",
+  "owner": {
+    "id": 18724032,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "install": "foo install foo-test",
+  "dependencies": [
+    {
+      "name": "foo-diff",
+      "version": "0.6.0",
+      "kind": "runtime",
+      "platforms": []
+    }
+  ],
+  "readme": [
+    "Write tests next to Foo source and execute them with the native toolchain.",
+    "Includes table-driven cases, snapshot updates, filtering, and machine-readable reports."
+  ]
+}

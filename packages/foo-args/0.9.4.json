@@ -1,0 +1,32 @@
+{
+  "schema": "foo.package/v1",
+  "name": "foo-args",
+  "version": "0.9.4",
+  "description": "Small, typed command-line argument parsing.",
+  "category": "developer tools",
+  "tags": [
+    "arguments",
+    "cli",
+    "parser"
+  ],
+  "license": "MIT",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "updated": "2026-09-18",
+  "owner": {
+    "id": 18724032,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "install": "foo install foo-args",
+  "dependencies": [],
+  "readme": [
+    "Define flags and positional arguments with compact, typed declarations.",
+    "The parser reports precise errors, generates help output, and has no runtime dependencies."
+  ]
+}

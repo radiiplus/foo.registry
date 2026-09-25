@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/radiiplus/foo.registry/main/schemas/registry.json",
+  "title": "Foo registry manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "revision", "count", "order", "limit", "shards"],
+  "properties": {
+    "schema": { "const": "foo.registry/v1" },
+    "revision": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "count": { "type": "integer", "minimum": 0 },
+    "order": { "const": ["category", "name"] },
+    "limit": { "const": 100000 },
+    "shards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "count", "first", "last"],
+        "properties": {
+          "path": { "type": "string", "pattern": "^indexes/index-[0-9]{6}\\.json$" },
+          "count": { "type": "integer", "minimum": 1, "maximum": 100000 },
+          "first": { "$ref": "#/$defs/boundary" },
+          "last": { "$ref": "#/$defs/boundary" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "name"],
+      "properties": {
+        "category": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    }
+  }
+}

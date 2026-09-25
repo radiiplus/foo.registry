@@ -1,0 +1,24 @@
+{
+  "schema": "foo.registry/v1",
+  "revision": "be7c4aaaf913443140b673df9ebd2ec2c6a0147905d496fc326426f6d5f7e50d",
+  "count": 6,
+  "order": [
+    "category",
+    "name"
+  ],
+  "limit": 100000,
+  "shards": [
+    {
+      "path": "indexes/index-000001.json",
+      "count": 6,
+      "first": {
+        "category": "data",
+        "name": "foo-json"
+      },
+      "last": {
+        "category": "security",
+        "name": "foo-crypto"
+      }
+    }
+  ]
+}

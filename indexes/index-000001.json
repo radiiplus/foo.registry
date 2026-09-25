@@ -1,0 +1,224 @@
+{
+  "schema": "foo.index/v1",
+  "count": 6,
+  "entries": [
+    {
+      "schema": "foo.entry/v1",
+      "name": "foo-json",
+      "version": "1.2.6",
+      "description": "Strict JSON parsing and serialization without reflection.",
+      "category": "data",
+      "tags": [
+        "json",
+        "parser",
+        "serialization"
+      ],
+      "license": "MIT",
+      "compatible": true,
+      "deprecated": "",
+      "platforms": [
+        "linux",
+        "macos",
+        "wasm",
+        "windows"
+      ],
+      "updated": "2026-09-20",
+      "owner": {
+        "id": 18724032,
+        "login": "radiiplus"
+      },
+      "repository": "https://github.com/radiiplus/foo",
+      "path": "packages/foo-json/1.2.6.json",
+      "versions": [
+        {
+          "version": "1.2.6",
+          "updated": "2026-09-20",
+          "deprecated": "",
+          "path": "packages/foo-json/1.2.6.json"
+        }
+      ]
+    },
+    {
+      "schema": "foo.entry/v1",
+      "name": "foo-sqlite",
+      "version": "0.8.1",
+      "description": "A thin, safe binding for embedded SQLite databases.",
+      "category": "database",
+      "tags": [
+        "database",
+        "sqlite",
+        "storage"
+      ],
+      "license": "MIT",
+      "compatible": true,
+      "deprecated": "",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "updated": "2026-09-17",
+      "owner": {
+        "id": 18724032,
+        "login": "radiiplus"
+      },
+      "repository": "https://github.com/radiiplus/foo",
+      "path": "packages/foo-sqlite/0.8.1.json",
+      "versions": [
+        {
+          "version": "0.8.1",
+          "updated": "2026-09-17",
+          "deprecated": "",
+          "path": "packages/foo-sqlite/0.8.1.json"
+        }
+      ]
+    },
+    {
+      "schema": "foo.entry/v1",
+      "name": "foo-args",
+      "version": "0.9.4",
+      "description": "Small, typed command-line argument parsing.",
+      "category": "developer tools",
+      "tags": [
+        "arguments",
+        "cli",
+        "parser"
+      ],
+      "license": "MIT",
+      "compatible": true,
+      "deprecated": "",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "updated": "2026-09-18",
+      "owner": {
+        "id": 18724032,
+        "login": "radiiplus"
+      },
+      "repository": "https://github.com/radiiplus/foo",
+      "path": "packages/foo-args/0.9.4.json",
+      "versions": [
+        {
+          "version": "0.9.4",
+          "updated": "2026-09-18",
+          "deprecated": "",
+          "path": "packages/foo-args/0.9.4.json"
+        }
+      ]
+    },
+    {
+      "schema": "foo.entry/v1",
+      "name": "foo-test",
+      "version": "1.0.3",
+      "description": "Fast native tests with snapshots and focused assertions.",
+      "category": "developer tools",
+      "tags": [
+        "assertions",
+        "snapshots",
+        "testing"
+      ],
+      "license": "MIT",
+      "compatible": true,
+      "deprecated": "",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "updated": "2026-09-15",
+      "owner": {
+        "id": 18724032,
+        "login": "radiiplus"
+      },
+      "repository": "https://github.com/radiiplus/foo",
+      "path": "packages/foo-test/1.0.3.json",
+      "versions": [
+        {
+          "version": "1.0.3",
+          "updated": "2026-09-15",
+          "deprecated": "",
+          "path": "packages/foo-test/1.0.3.json"
+        }
+      ]
+    },
+    {
+      "schema": "foo.entry/v1",
+      "name": "foo-http",
+      "version": "1.4.2",
+      "description": "HTTP, REST, and WebSocket networking for Foo.",
+      "category": "networking",
+      "tags": [
+        "http",
+        "networking",
+        "rest",
+        "websocket"
+      ],
+      "license": "MIT",
+      "compatible": true,
+      "deprecated": "",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "updated": "2026-09-23",
+      "owner": {
+        "id": 18724032,
+        "login": "radiiplus"
+      },
+      "repository": "https://github.com/radiiplus/foo",
+      "path": "packages/foo-http/1.4.2.json",
+      "versions": [
+        {
+          "version": "1.4.2",
+          "updated": "2026-09-23",
+          "deprecated": "",
+          "path": "packages/foo-http/1.4.2.json"
+        },
+        {
+          "version": "1.3.0",
+          "updated": "2026-07-11",
+          "deprecated": "Use 1.4.x for WebSocket support and current TLS fixes.",
+          "path": "packages/foo-http/1.3.0.json"
+        }
+      ]
+    },
+    {
+      "schema": "foo.entry/v1",
+      "name": "foo-crypto",
+      "version": "1.1.0",
+      "description": "Audited hashing, signatures, and secure random bytes.",
+      "category": "security",
+      "tags": [
+        "crypto",
+        "hash",
+        "security"
+      ],
+      "license": "Apache-2.0",
+      "compatible": true,
+      "deprecated": "",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "updated": "2026-09-21",
+      "owner": {
+        "id": 18724032,
+        "login": "radiiplus"
+      },
+      "repository": "https://github.com/radiiplus/foo",
+      "path": "packages/foo-crypto/1.1.0.json",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "updated": "2026-09-21",
+          "deprecated": "",
+          "path": "packages/foo-crypto/1.1.0.json"
+        }
+      ]
+    }
+  ]
+}
