@@ -1,1 +1,24 @@
-{"schema":"foo.registry/v1","revision":"02be3264078b460a88f43007d84a7b5b9e2412933beb8e6971838bc6ec1f84c7","count":6,"order":["category","name"],"limit":100000,"shards":[{"path":"indexes/index-000001.json","count":6,"first":{"category":"data","name":"foo-json"},"last":{"category":"security","name":"foo-crypto"}}]}
+{
+  "schema": "foo.registry/v1",
+  "revision": "02be3264078b460a88f43007d84a7b5b9e2412933beb8e6971838bc6ec1f84c7",
+  "count": 6,
+  "order": [
+    "category",
+    "name"
+  ],
+  "limit": 100000,
+  "shards": [
+    {
+      "path": "indexes/index-000001.jsonl",
+      "count": 6,
+      "first": {
+        "category": "data",
+        "name": "foo-json"
+      },
+      "last": {
+        "category": "security",
+        "name": "foo-crypto"
+      }
+    }
+  ]
+}

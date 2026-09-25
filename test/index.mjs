@@ -58,13 +58,13 @@ test("writes canonical records and deterministic six-digit shards", async () => 
   assert.equal(first.limit, 100_000);
   assert.deepEqual(first.order, ["category", "name"]);
   assert.deepEqual(first.shards.map(({ path }) => path), [
-    "indexes/index-000001.json",
-    "indexes/index-000002.json",
+    "indexes/index-000001.jsonl",
+    "indexes/index-000002.jsonl",
   ]);
-  const shard = JSON.parse(await readFile(join(destination, "indexes", "index-000001.json"), "utf8"));
-  assert.equal(shard.schema, "foo.index/v1");
-  assert.deepEqual(shard.entries.map(({ name }) => name), ["alpha"]);
-  assert.equal((await readFile(join(destination, "indexes", "index-000001.json"), "utf8")).includes("\n  "), false);
+  const lines = (await readFile(join(destination, "indexes", "index-000001.jsonl"), "utf8")).trim().split("\n");
+  assert.deepEqual(lines.map((line) => JSON.parse(line).name), ["alpha"]);
+  assert.equal(lines.length, 1);
+  assert.match(await readFile(join(destination, "packages", "alpha", "1.0.0.json"), "utf8"), /\n  "name"/);
 });
 
 function fixture(name, category) {
@@ -83,9 +83,14 @@ function fixture(name, category) {
     owner: { id: 1, login: "radiiplus" },
     repository: `https://github.com/radiiplus/${name}`,
     revision: "0123456789abcdef0123456789abcdef01234567",
-    install: `foo install ${name}`,
+    install: `foo add ${name}`,
     dependencies: [],
     readme: ["Example documentation."],
+    source: {
+      format: "foo.source/v1",
+      digest: "0".repeat(64),
+      files: [{ path: "src/main.iv", content: `public constant name is "${name}".\n` }],
+    },
   };
 }
 

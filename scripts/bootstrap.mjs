@@ -30,6 +30,13 @@ const tree = await Promise.all(files.map(async (path) => {
   const blob = await request("/git/blobs", "POST", { content, encoding: "utf-8" });
   return { path, mode: "100644", type: "blob", sha: blob.sha };
 }));
+const retained = new Set(files);
+const previousTree = await request(`/git/trees/${commit.tree.sha}?recursive=1`, "GET");
+for (const item of previousTree.tree ?? []) {
+  if (typeof item.path === "string" && /^indexes\/index-\d{6}\.(?:json|jsonl)$/.test(item.path) && !retained.has(item.path)) {
+    tree.push({ path: item.path, mode: "100644", type: "blob", sha: null });
+  }
+}
 const createdTree = await request("/git/trees", "POST", { base_tree: commit.tree.sha, tree });
 const createdCommit = await request("/git/commits", "POST", {
   message: "add registry foundation",

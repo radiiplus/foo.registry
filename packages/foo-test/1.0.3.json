@@ -1,1 +1,54 @@
-{"schema":"foo.package/v1","name":"foo-test","version":"1.0.3","description":"Fast native tests with snapshots and focused assertions.","category":"developer tools","tags":["assertions","snapshots","testing"],"license":"MIT","compatible":true,"deprecated":"","platforms":["linux","macos","windows"],"updated":"2026-09-15","owner":{"id":152736140,"login":"radiiplus"},"repository":"https://github.com/radiiplus/foo","revision":"32e0cca979e07d6c1773c30cc6c09763f4cef547","install":"foo install foo-test","dependencies":[{"name":"foo-diff","version":"0.6.0","kind":"runtime","platforms":[]}],"readme":["Write tests next to Foo source and execute them with the native toolchain.","Includes table-driven cases, snapshot updates, filtering, and machine-readable reports."]}
+{
+  "schema": "foo.package/v1",
+  "name": "foo-test",
+  "version": "1.0.3",
+  "description": "Fast native tests with snapshots and focused assertions.",
+  "category": "developer tools",
+  "tags": [
+    "assertions",
+    "snapshots",
+    "testing"
+  ],
+  "license": "MIT",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "updated": "2026-09-15",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "foo add foo-test",
+  "dependencies": [
+    {
+      "name": "foo-diff",
+      "version": "0.6.0",
+      "kind": "runtime",
+      "platforms": []
+    }
+  ],
+  "readme": [
+    "Write tests next to Foo source and execute them with the native toolchain.",
+    "Includes table-driven cases, snapshot updates, filtering, and machine-readable reports."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "7c6de136969ec8ecd992e5602cda56ee52585dbebe65847c188ac9d941c5ded1",
+    "files": [
+      {
+        "path": "project.json",
+        "content": "{\n  \"name\": \"foo-test\",\n  \"version\": \"1.0.3\",\n  \"description\": \"Fast native tests with snapshots and focused assertions.\",\n  \"license\": \"MIT\",\n  \"source\": \"src\",\n  \"dependencies\": {\n    \"foo-diff\": \"0.6.0\"\n  }\n}\n"
+      },
+      {
+        "path": "src/library.iv",
+        "content": "-- Fast native tests with snapshots and focused assertions.\npublic constant package_name is \"foo-test\".\npublic constant package_version is \"1.0.3\".\n"
+      }
+    ]
+  }
+}

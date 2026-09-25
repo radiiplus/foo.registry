@@ -18,7 +18,7 @@
         "additionalProperties": false,
         "required": ["path", "count", "first", "last"],
         "properties": {
-          "path": { "type": "string", "pattern": "^indexes/index-[0-9]{6}\\.json$" },
+          "path": { "type": "string", "pattern": "^indexes/index-[0-9]{6}\\.jsonl$" },
           "count": { "type": "integer", "minimum": 1, "maximum": 100000 },
           "first": { "$ref": "#/$defs/boundary" },
           "last": { "$ref": "#/$defs/boundary" }

@@ -10,9 +10,10 @@ const root = join(here, "..");
 const packagePattern = /^(?:@[a-z0-9][a-z0-9-]{0,38}\/)?[a-z][a-z0-9-]{0,63}$/;
 const tokenPattern = /^[a-z0-9][a-z0-9-]{0,31}$/;
 const versionPattern = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z.-]+))?$/;
+const constraintPattern = /^(?:\^|~)?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)$/;
 const packageFields = new Set([
   "schema", "name", "version", "description", "category", "tags", "license", "compatible",
-  "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme",
+  "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme", "source",
 ]);
 
 export function normalizeCategory(value) {
@@ -62,6 +63,7 @@ export function normalizePackage(value) {
 
   const readme = array(value.readme, "readme").map((line, index) => requiredString(line, `readme[${index}]`));
   if (!readme.length) throw new TypeError("readme must contain at least one line");
+  const source = normalizeSource(value.source);
 
   return {
     schema: "foo.package/v1",
@@ -81,6 +83,7 @@ export function normalizePackage(value) {
     install: requiredString(value.install, "install").trim(),
     dependencies,
     readme,
+    source,
   };
 }
 
@@ -152,14 +155,14 @@ export async function build(records, destination = root, size = limit) {
   }
 
   for (const file of await readdir(indexRoot)) {
-    if (/^(?:index-\d{6}|packages-\d{3})\.json$/.test(file)) await rm(join(indexRoot, file));
+    if (/^(?:index-\d{6}\.jsonl|index-\d{6}\.json|packages-\d{3}\.json)$/.test(file)) await rm(join(indexRoot, file));
   }
 
   const descriptors = [];
   const groups = shards(indexed, size);
   for (const [position, group] of groups.entries()) {
-    const filename = `index-${String(position + 1).padStart(6, "0")}.json`;
-    await writeJson(join(indexRoot, filename), { schema: "foo.index/v1", count: group.length, entries: group });
+    const filename = `index-${String(position + 1).padStart(6, "0")}.jsonl`;
+    await writeFile(join(indexRoot, filename), `${group.map((entry) => JSON.stringify(entry)).join("\n")}\n`);
     descriptors.push({
       path: `indexes/${filename}`,
       count: group.length,
@@ -211,12 +214,41 @@ function normalizeDependency(value, index) {
   if (!packagePattern.test(name)) throw new TypeError(`invalid dependency name: ${name}`);
   const kind = value.kind ?? "runtime";
   if (!["runtime", "dev", "optional", "platform"].includes(kind)) throw new TypeError(`invalid dependency kind: ${kind}`);
+  const version = requiredString(value.version, `dependencies[${index}].version`).trim();
+  if (!constraintPattern.test(version)) throw new TypeError(`invalid dependency constraint: ${version}`);
   return {
     name,
-    version: requiredString(value.version, `dependencies[${index}].version`).trim(),
+    version,
     kind,
     platforms: tokens(value.platforms ?? [], `dependencies[${index}].platforms`),
   };
+}
+
+function normalizeSource(value) {
+  if (!object(value) || value.format !== "foo.source/v1" || !Array.isArray(value.files)) {
+    throw new TypeError("source must be a foo.source/v1 bundle");
+  }
+  if (Object.keys(value).some((key) => !["format", "digest", "files"].includes(key))) {
+    throw new TypeError("source has unknown fields");
+  }
+  if (value.files.length === 0 || value.files.length > 1000) throw new TypeError("source must contain between 1 and 1000 files");
+  const seen = new Set();
+  const files = value.files.map((file, index) => {
+    if (!object(file) || Object.keys(file).some((key) => !["path", "content"].includes(key))) {
+      throw new TypeError(`source.files[${index}] must contain path and content`);
+    }
+    const path = requiredString(file.path, `source.files[${index}].path`).replace(/\\/g, "/");
+    if (path.startsWith("/") || path.split("/").some((part) => !part || part === "." || part === "..")) {
+      throw new TypeError(`unsafe source path: ${path}`);
+    }
+    if (typeof file.content !== "string") throw new TypeError(`source.files[${index}].content must be a string`);
+    const key = path.toLowerCase();
+    if (seen.has(key)) throw new TypeError(`duplicate source path: ${path}`);
+    seen.add(key);
+    return { path, content: file.content.replace(/\r\n?/g, "\n") };
+  }).sort((left, right) => compare(left.path, right.path));
+  const bytes = files.reduce((content, file) => `${content}${file.path}\0${file.content}\0`, "");
+  return { format: "foo.source/v1", digest: createHash("sha256").update(bytes).digest("hex"), files };
 }
 
 function compareVersions(left, right) {
@@ -262,7 +294,7 @@ function compare(left, right) {
 }
 
 async function writeJson(path, value) {
-  await writeFile(path, `${JSON.stringify(value)}\n`);
+  await writeFile(path, `${JSON.stringify(value, null, 2)}\n`);
 }
 
 const invoked = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;

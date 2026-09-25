@@ -1,1 +1,48 @@
-{"schema":"foo.package/v1","name":"foo-json","version":"1.2.6","description":"Strict JSON parsing and serialization without reflection.","category":"data","tags":["json","parser","serialization"],"license":"MIT","compatible":true,"deprecated":"","platforms":["linux","macos","wasm","windows"],"updated":"2026-09-20","owner":{"id":152736140,"login":"radiiplus"},"repository":"https://github.com/radiiplus/foo","revision":"32e0cca979e07d6c1773c30cc6c09763f4cef547","install":"foo install foo-json","dependencies":[],"readme":["Parse and write JSON through explicit value types and predictable allocation.","The decoder reports source locations for invalid input and supports streaming documents."]}
+{
+  "schema": "foo.package/v1",
+  "name": "foo-json",
+  "version": "1.2.6",
+  "description": "Strict JSON parsing and serialization without reflection.",
+  "category": "data",
+  "tags": [
+    "json",
+    "parser",
+    "serialization"
+  ],
+  "license": "MIT",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "linux",
+    "macos",
+    "wasm",
+    "windows"
+  ],
+  "updated": "2026-09-20",
+  "owner": {
+    "id": 152736140,
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
+  "install": "foo add foo-json",
+  "dependencies": [],
+  "readme": [
+    "Parse and write JSON through explicit value types and predictable allocation.",
+    "The decoder reports source locations for invalid input and supports streaming documents."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "7f14698caa310260d5fd54c7dfba3a0c61b88414b8a09c0752e3db6109c02419",
+    "files": [
+      {
+        "path": "project.json",
+        "content": "{\n  \"name\": \"foo-json\",\n  \"version\": \"1.2.6\",\n  \"description\": \"Strict JSON parsing and serialization without reflection.\",\n  \"license\": \"MIT\",\n  \"source\": \"src\",\n  \"dependencies\": {}\n}\n"
+      },
+      {
+        "path": "src/library.iv",
+        "content": "-- Strict JSON parsing and serialization without reflection.\npublic constant package_name is \"foo-json\".\npublic constant package_version is \"1.2.6\".\n"
+      }
+    ]
+  }
+}
