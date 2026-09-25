@@ -1,7 +1,7 @@
 {
   "schema": "foo.registry/v1",
-  "revision": "c523e6c45234ceac23f48627ed314b814f03dcb3cfb0270245b433cda1120082",
-  "count": 47,
+  "revision": "8e857f22c643173d00e5f269c4ac456f1bb86b5b32edb17c30654e49d61d1bcb",
+  "count": 48,
   "order": [
     "category",
     "name"
@@ -10,7 +10,7 @@
   "shards": [
     {
       "path": "indexes/index-000001.jsonl",
-      "count": 47,
+      "count": 48,
       "first": {
         "category": "data",
         "name": "foo-json"
