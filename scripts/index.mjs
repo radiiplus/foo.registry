@@ -181,6 +181,23 @@ export async function build(records, destination = root, size = limit) {
   }
 
   const revision = createHash("sha256").update(JSON.stringify(indexed)).digest("hex");
+  const standardPackages = indexed.filter((entry) => entry.kind === "standard").map((entry) => {
+    const release = normalized.find((candidate) => candidate.name === entry.name && candidate.version === entry.version);
+    return {
+      kind: release.kind,
+      name: release.name,
+      version: release.version,
+      description: release.description,
+      install: release.install,
+      api: release.api,
+    };
+  });
+  await writeJson(join(indexRoot, "standard.json"), {
+    schema: "foo.standard/v1",
+    revision,
+    count: standardPackages.length,
+    packages: standardPackages,
+  });
   const manifest = {
     schema: "foo.registry/v1",
     revision,

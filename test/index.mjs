@@ -65,6 +65,9 @@ test("writes canonical records and deterministic six-digit shards", async () => 
   assert.deepEqual(lines.map((line) => JSON.parse(line).name), ["alpha"]);
   assert.equal(lines.length, 1);
   assert.match(await readFile(join(destination, "packages", "alpha", "1.0.0.json"), "utf8"), /\n  "name"/);
+  const standard = JSON.parse(await readFile(join(destination, "indexes", "standard.json"), "utf8"));
+  assert.equal(standard.schema, "foo.standard/v1");
+  assert.equal(standard.count, 0);
 });
 
 test("indexes every standard module and its public surface", async () => {
@@ -80,6 +83,10 @@ test("indexes every standard module and its public surface", async () => {
     publicItems += record.api.modules.flatMap((module) => module.items).length;
   }
   assert.ok(publicItems >= 300);
+  const reference = JSON.parse(await readFile(join("repository", "indexes", "standard.json"), "utf8"));
+  assert.equal(reference.schema, "foo.standard/v1");
+  assert.equal(reference.count, sources.length);
+  assert.ok(reference.packages.some((entry) => entry.name === "std/json" && entry.api.modules[0].items.some((item) => item.name === "parse")));
 });
 
 function fixture(name, category) {

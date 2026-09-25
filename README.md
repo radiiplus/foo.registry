@@ -44,4 +44,4 @@ node scripts/index.mjs packages.json ../foo.registry
 
 Shard names use six-digit sequence numbers and each shard is hard-limited to 100,000 entries. Shards use JSONL with one compact entry per line. Package records and the shard manifest use readable expanded JSON. The manifest revision is a SHA-256 digest of the canonical sorted index, so identical input produces identical files.
 
-The read-only API consumes these files from GitHub. Browsers consume the API and never parse registry storage directly.
+The compiler, registry website, and external tools consume these files directly from GitHub. Readers load the manifest, follow its immutable shard paths, and fetch canonical package records using the paths stored in each entry.

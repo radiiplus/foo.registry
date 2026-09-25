@@ -1,0 +1,2676 @@
+{
+  "schema": "foo.standard/v1",
+  "revision": "545b0115e3de40a03ab09c2e6b0229e656011ee229d5c01ff661fb030256308d",
+  "count": 41,
+  "packages": [
+    {
+      "kind": "standard",
+      "name": "std/arch",
+      "version": "0.2.0",
+      "description": "Declares guarded CPU intrinsics.",
+      "install": "use arch.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/arch",
+            "path": "std/arch.iv",
+            "summary": "Declares guarded CPU intrinsics.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "count",
+                "signature": "public use \"arch\" function count(value of type unsigned 64) of type unsigned 32.",
+                "documentation": "Declares guarded CPU intrinsics."
+              },
+              {
+                "kind": "function",
+                "name": "pause",
+                "signature": "public use \"arch\" function pause() of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "ticks",
+                "signature": "public use \"arch\" function ticks() of type unsigned 64.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/atomic",
+      "version": "0.2.0",
+      "description": "Declares atomic values and memory ordering operations.",
+      "install": "use atomic.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/atomic",
+            "path": "std/atomic.iv",
+            "summary": "Declares atomic values and memory ordering operations.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "add",
+                "signature": "public use \"atomic\" function add(value of type pointer to Atom, number of type unsigned 64, order of type text) of type fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public use \"atomic\" function create(value of type unsigned 64) of type fallible pointer to Atom.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "load",
+                "signature": "public use \"atomic\" function load(value of type pointer to Atom, order of type text) of type fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public use \"atomic\" function release(value of type pointer to Atom) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "replace",
+                "signature": "public use \"atomic\" function replace(value of type pointer to Atom, expected of type unsigned 64, number of type unsigned 64, order of type text) of type fallible boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "store",
+                "signature": "public use \"atomic\" function store(value of type pointer to Atom, number of type unsigned 64, order of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "swap",
+                "signature": "public use \"atomic\" function swap(value of type pointer to Atom, number of type unsigned 64, order of type text) of type fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Atom",
+                "signature": "public define Atom as opaque.",
+                "documentation": "Declares atomic values and memory ordering operations."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/bits",
+      "version": "0.2.0",
+      "description": "Provides bit operations. Bitset collection --- Efficient bit-level storage ---",
+      "install": "use bits.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/bits",
+            "path": "std/bits.iv",
+            "summary": "Provides bit operations. Bitset collection --- Efficient bit-level storage ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public function create(size of type integer 64).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "disable",
+                "signature": "public function disable(collection of type Bits, index of type integer 64).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "enable",
+                "signature": "public function enable(collection of type Bits, index of type integer 64).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "enabled",
+                "signature": "public function enabled(collection of type Bits, index of type integer 64).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Bits",
+                "signature": "public define Bits as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
+                "documentation": "Provides bit operations. Bitset collection --- Efficient bit-level storage ---"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/buffer",
+      "version": "0.2.0",
+      "description": "Declares owned byte buffers.",
+      "install": "use buffer.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/buffer",
+            "path": "std/buffer.iv",
+            "summary": "Declares owned byte buffers.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "free",
+                "signature": "public use \"buffer\" function free(value of type text) of type fallible nothing.",
+                "documentation": "Declares owned byte buffers."
+              },
+              {
+                "kind": "function",
+                "name": "points",
+                "signature": "public use \"buffer\" function points(value of type sequence of unsigned 32) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "words",
+                "signature": "public use \"buffer\" function words(value of type sequence of unsigned 16) of type fallible nothing.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/compress",
+      "version": "0.2.0",
+      "description": "Declares zlib and gzip compression.",
+      "install": "use compress.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/compress",
+            "path": "std/compress.iv",
+            "summary": "Declares zlib and gzip compression.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "pack",
+                "signature": "public use \"compress\" function pack(value of type text, format of type text) of type fallible text.",
+                "documentation": "Declares zlib and gzip compression."
+              },
+              {
+                "kind": "function",
+                "name": "unpack",
+                "signature": "public use \"compress\" function unpack(value of type text, format of type text, limit of type unsigned 32) of type fallible text.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/crypto",
+      "version": "0.2.0",
+      "description": "Declares cryptography and secure random operations.",
+      "install": "use crypto.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/crypto",
+            "path": "std/crypto.iv",
+            "summary": "Declares cryptography and secure random operations.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "confirm",
+                "signature": "public use \"crypto\" function confirm(value of type text, encoded of type text) of type fallible boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "hash",
+                "signature": "public use \"crypto\" function hash(value of type text) of type fallible text.",
+                "documentation": "Declares cryptography and secure random operations."
+              },
+              {
+                "kind": "function",
+                "name": "key",
+                "signature": "public use \"crypto\" function key(seed of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "open",
+                "signature": "public use \"crypto\" function open(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "password",
+                "signature": "public use \"crypto\" function password(value of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "random",
+                "signature": "public use \"crypto\" function random(size of type unsigned 32) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "seal",
+                "signature": "public use \"crypto\" function seal(value of type text, secret of type text, nonce of type text, extra of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "sign",
+                "signature": "public use \"crypto\" function sign(value of type text, seed of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "verify",
+                "signature": "public use \"crypto\" function verify(value of type text, signature of type text, signer of type text) of type boolean.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/deque",
+      "version": "0.2.0",
+      "description": "Defines double-ended collections. Double-ended queue --- Efficient insertion/removal at both ends ---",
+      "install": "use deque.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/deque",
+            "path": "std/deque.iv",
+            "summary": "Defines double-ended collections. Double-ended queue --- Efficient insertion/removal at both ends ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "back",
+                "signature": "public function back(collection of type Deque, value of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public function create().",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "front",
+                "signature": "public function front(collection of type Deque, value of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "pop",
+                "signature": "public function pop(collection of type Deque).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "shift",
+                "signature": "public function shift(collection of type Deque).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Deque",
+                "signature": "public define Deque as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
+                "documentation": "Defines double-ended collections. Double-ended queue --- Efficient insertion/removal at both ends ---"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/dl",
+      "version": "0.2.0",
+      "description": "Declares dynamic library loading. Portable dynamic library handles. ---",
+      "install": "use dl.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/dl",
+            "path": "std/dl.iv",
+            "summary": "Declares dynamic library loading. Portable dynamic library handles. ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "open",
+                "signature": "public function open(path of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "symbol",
+                "signature": "public function symbol(library of type pointer to Library, name of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "unload",
+                "signature": "public function unload(library of type pointer to Library).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Library",
+                "signature": "public define Library as opaque.",
+                "documentation": "Declares dynamic library loading. Portable dynamic library handles. ---"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/env",
+      "version": "0.2.0",
+      "description": "Provides environment access. Environment variables --- Provides access to process environment ---",
+      "install": "use env.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/env",
+            "path": "std/env.iv",
+            "summary": "Provides environment access. Environment variables --- Provides access to process environment ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "variable",
+                "signature": "public function variable(key of type pointer to byte).",
+                "documentation": "Provides environment access. Environment variables --- Provides access to process environment ---"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/file",
+      "version": "0.2.0",
+      "description": "Opens files, transfers their contents, creates directories, and joins paths.",
+      "install": "use file.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/file",
+            "path": "std/file.iv",
+            "summary": "Opens files, transfers their contents, creates directories, and joins paths.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "directory",
+                "signature": "public use \"fs\" function directory(path text) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "flush",
+                "signature": "public use \"fs\" function flush(stream pointer to streams.Stream) giving fallible nothing.",
+                "documentation": "Advanced stream controls. Offsets are byte offsets; origin is start, current, or end."
+              },
+              {
+                "kind": "function",
+                "name": "join",
+                "signature": "public use \"fs\" function join(left text, right text) giving fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "open",
+                "signature": "public use \"fs\" function open(path text, mode text) giving fallible pointer to streams.Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "position",
+                "signature": "public use \"fs\" function position(stream pointer to streams.Stream) giving fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "read",
+                "signature": "public use \"fs\" function read(path text) giving fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "seek",
+                "signature": "public use \"fs\" function seek(stream pointer to streams.Stream, offset integer 64, origin text) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "size",
+                "signature": "public use \"fs\" function size(stream pointer to streams.Stream) giving fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "write",
+                "signature": "public use \"fs\" function write(path text, content text) giving fallible nothing.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/format",
+      "version": "0.2.0",
+      "description": "Provides text formatting. Formatting and parsing --- Type-safe string formatting ---",
+      "install": "use format.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/format",
+            "path": "std/format.iv",
+            "summary": "Provides text formatting. Formatting and parsing --- Type-safe string formatting ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "format",
+                "signature": "public function format(buffer of type pointer to byte, size of type integer 64, template of type pointer to byte).",
+                "documentation": "Provides text formatting. Formatting and parsing --- Type-safe string formatting ---"
+              },
+              {
+                "kind": "function",
+                "name": "parse",
+                "signature": "public function parse(content of type pointer to byte).",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/fs",
+      "version": "0.2.0",
+      "description": "Opens files, transfers their contents, creates directories, and joins paths.",
+      "install": "use fs.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/fs",
+            "path": "std/fs.iv",
+            "summary": "Opens files, transfers their contents, creates directories, and joins paths.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "directory",
+                "signature": "public use \"fs\" function directory(path of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "flush",
+                "signature": "public use \"fs\" function flush(stream pointer to streams.Stream) giving fallible nothing.",
+                "documentation": "Compatibility module for file; new code should import file."
+              },
+              {
+                "kind": "function",
+                "name": "join",
+                "signature": "public use \"fs\" function join(left of type text, right of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "open",
+                "signature": "public use \"fs\" function open(path of type text, mode of type text) of type fallible pointer to streams.Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "position",
+                "signature": "public use \"fs\" function position(stream pointer to streams.Stream) giving fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "read",
+                "signature": "public use \"fs\" function read(path of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "seek",
+                "signature": "public use \"fs\" function seek(stream pointer to streams.Stream, offset integer 64, origin text) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "size",
+                "signature": "public use \"fs\" function size(stream pointer to streams.Stream) giving fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "write",
+                "signature": "public use \"fs\" function write(path of type text, content of type text) of type fallible nothing.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/hashmap",
+      "version": "0.2.0",
+      "description": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
+      "install": "use hashmap.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/hashmap",
+            "path": "std/hashmap.iv",
+            "summary": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"hashmap\" function close[V](collection pointer to HashMap) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "contains",
+                "signature": "public use \"hashmap\" function contains[V](collection pointer to HashMap, key text) giving fallible boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public use \"hashmap\" function create[V]() giving fallible pointer to HashMap.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "get",
+                "signature": "public use \"hashmap\" function get[V](collection pointer to HashMap, key text) giving fallible V.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "length",
+                "signature": "public use \"hashmap\" function length[V](collection pointer to HashMap) giving fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "put",
+                "signature": "public use \"hashmap\" function put[V](collection pointer to HashMap, key text, value V) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "remove",
+                "signature": "public use \"hashmap\" function remove[V](collection pointer to HashMap, key text) giving fallible boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "HashMap",
+                "signature": "public define HashMap as opaque.",
+                "documentation": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/heap",
+      "version": "0.2.0",
+      "description": "Provides heap allocation. Priority queue (heap) --- Efficient priority-based retrieval ---",
+      "install": "use heap.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/heap",
+            "path": "std/heap.iv",
+            "summary": "Provides heap allocation. Priority queue (heap) --- Efficient priority-based retrieval ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public function create().",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "extract",
+                "signature": "public function extract(collection of type Heap).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "insert",
+                "signature": "public function insert(collection of type Heap, value of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "peek",
+                "signature": "public function peek(collection of type Heap).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Heap",
+                "signature": "public define Heap as record {\n  data of type pointer to byte.\n  length of type integer 64.\n}.",
+                "documentation": "Provides heap allocation. Priority queue (heap) --- Efficient priority-based retrieval ---"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/http",
+      "version": "0.2.0",
+      "description": "Declares HTTP clients and servers.",
+      "install": "use http.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/http",
+            "path": "std/http.iv",
+            "summary": "Declares HTTP clients and servers.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "accept",
+                "signature": "public use \"http\" function accept(value of type pointer to Server) of type fallible pointer to Peer.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "addHeader",
+                "signature": "public use \"http\" function addHeader(value pointer to Client, name text, content text) giving fallible nothing.",
+                "documentation": "Advanced client controls. Added headers persist until clearHeaders is called."
+              },
+              {
+                "kind": "function",
+                "name": "body",
+                "signature": "public use \"http\" function body(value of type pointer to Response) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "clearHeaders",
+                "signature": "public use \"http\" function clearHeaders(value pointer to Client) giving nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "client",
+                "signature": "public use \"http\" function client() of type fallible pointer to Client.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"http\" function close(value of type pointer to Client) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "closeServer",
+                "signature": "public use \"http\" function closeServer(value pointer to Server) giving nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "disconnect",
+                "signature": "public use \"http\" function disconnect(value of type pointer to Peer) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "header",
+                "signature": "public use \"http\" function header(value of type pointer to Peer, name of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "listen",
+                "signature": "public use \"http\" function listen(host of type text, port of type unsigned 16) of type fallible pointer to Server.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "method",
+                "signature": "public use \"http\" function method(value of type pointer to Peer) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "port",
+                "signature": "public use \"http\" function port(value of type pointer to Server) of type unsigned 16.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "read",
+                "signature": "public use \"http\" function read(value of type pointer to Peer, limit of type unsigned 32) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "receive",
+                "signature": "public use \"http\" function receive(value of type pointer to Peer) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "redirects",
+                "signature": "public use \"http\" function redirects(value pointer to Client, limit unsigned 16) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public use \"http\" function release(value of type pointer to Response) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "reply",
+                "signature": "public use \"http\" function reply(value of type pointer to Peer, status of type unsigned 16, content of type text, reuse of type boolean) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "request",
+                "signature": "public use \"http\" function request(value of type pointer to Client, url of type text, method of type text, content of type text, limit of type unsigned 32) of type fallible pointer to Response.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "reuse",
+                "signature": "public use \"http\" function reuse(value pointer to Client, enabled boolean) giving nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "status",
+                "signature": "public use \"http\" function status(value of type pointer to Response) of type unsigned 16.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "trust",
+                "signature": "public use \"http\" function trust(value of type pointer to Client, certificate of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Client",
+                "signature": "public define Client as opaque.",
+                "documentation": "Declares HTTP clients and servers."
+              },
+              {
+                "kind": "type",
+                "name": "Peer",
+                "signature": "public define Peer as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Response",
+                "signature": "public define Response as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Server",
+                "signature": "public define Server as opaque.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/index",
+      "version": "0.2.0",
+      "description": "Exports standard library modules. String-keyed map --- Fast text-based lookup ---",
+      "install": "use index.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/index",
+            "path": "std/index.iv",
+            "summary": "Exports standard library modules. String-keyed map --- Fast text-based lookup ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public function create().",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "known",
+                "signature": "public function known(collection of type Index, key of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "lookup",
+                "signature": "public function lookup(collection of type Index, key of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "register",
+                "signature": "public function register(collection of type Index, key of type pointer to byte, value of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Index",
+                "signature": "public define Index as record {\n  data of type pointer to byte.\n  size of type integer 64.\n}.",
+                "documentation": "Exports standard library modules. String-keyed map --- Fast text-based lookup ---"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/io",
+      "version": "0.2.0",
+      "description": "Reads and writes text through standard streams and open files.",
+      "install": "use io.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/io",
+            "path": "std/io.iv",
+            "summary": "Reads and writes text through standard streams and open files.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"io\" function close(stream of type pointer to Stream) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "display",
+                "signature": "public function display(content text) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "input",
+                "signature": "public use \"io\" function input() of type pointer to Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "line",
+                "signature": "public use \"io\" function line(stream of type pointer to Stream) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "output",
+                "signature": "public use \"io\" function output() of type pointer to Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "read",
+                "signature": "public use \"io\" function read(stream of type pointer to Stream, size of type unsigned 64) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "report",
+                "signature": "public use \"io\" function report() of type pointer to Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "show",
+                "signature": "public function show(content text) giving nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "write",
+                "signature": "public use \"io\" function write(stream of type pointer to Stream, content of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Stream",
+                "signature": "public define Stream as opaque.",
+                "documentation": "Reads and writes text through standard streams and open files."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/json",
+      "version": "0.2.0",
+      "description": "Declares JSON trees and streaming tokens.",
+      "install": "use json.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/json",
+            "path": "std/json.iv",
+            "summary": "Declares JSON trees and streaming tokens.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "append",
+                "signature": "public use \"json\" function append(value of type pointer to Value, source of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"json\" function close(value of type pointer to Stream) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "data",
+                "signature": "public use \"json\" function data(value of type pointer to Stream) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "feed",
+                "signature": "public use \"json\" function feed(value of type pointer to Stream, chunk of type text, final of type boolean) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "field",
+                "signature": "public use \"json\" function field(value of type pointer to Value, name of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "item",
+                "signature": "public use \"json\" function item(value of type pointer to Value, index of type unsigned 32) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "kind",
+                "signature": "public use \"json\" function kind(value of type pointer to Value) of type text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "next",
+                "signature": "public use \"json\" function next(value of type pointer to Stream) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "parse",
+                "signature": "public use \"json\" function parse(source of type text) of type fallible pointer to Value.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "quote",
+                "signature": "public use \"json\" function quote(value of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public use \"json\" function release(value of type pointer to Value) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "set",
+                "signature": "public use \"json\" function set(value of type pointer to Value, name of type text, source of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "size",
+                "signature": "public use \"json\" function size(value of type pointer to Value) of type fallible unsigned 32.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "stream",
+                "signature": "public use \"json\" function stream() of type fallible pointer to Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "write",
+                "signature": "public use \"json\" function write(value of type pointer to Value) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Stream",
+                "signature": "public define Stream as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Value",
+                "signature": "public define Value as opaque.",
+                "documentation": "Declares JSON trees and streaming tokens."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/list",
+      "version": "0.2.0",
+      "description": "Declares growable lists of borrowed byte pointers.",
+      "install": "use list.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/list",
+            "path": "std/list.iv",
+            "summary": "Declares growable lists of borrowed byte pointers.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"list\" function close(collection of type pointer to List) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public use \"list\" function create() of type fallible pointer to List.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "get",
+                "signature": "public use \"list\" function get(collection of type pointer to List, index of type unsigned 64) of type fallible pointer to byte.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "length",
+                "signature": "public use \"list\" function length(collection of type pointer to List) of type fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "push",
+                "signature": "public use \"list\" function push(collection of type pointer to List, item of type pointer to byte) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "List",
+                "signature": "public define List as opaque.",
+                "documentation": "Declares growable lists of borrowed byte pointers."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/log",
+      "version": "0.2.0",
+      "description": "Writes application messages and errors to the diagnostic stream.",
+      "install": "use log.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/log",
+            "path": "std/log.iv",
+            "summary": "Writes application messages and errors to the diagnostic stream.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "error",
+                "signature": "public function error(content text) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "message",
+                "signature": "public function message(content text) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "showError",
+                "signature": "public function showError(content text) giving nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "showMessage",
+                "signature": "public function showMessage(content text) giving nothing.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/map",
+      "version": "0.2.0",
+      "description": "Stores typed key/value pairs with equality-based lookup.",
+      "install": "use map.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/map",
+            "path": "std/map.iv",
+            "summary": "Stores typed key/value pairs with equality-based lookup.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "contains",
+                "signature": "public function contains[K, V](collection of type Map[K, V], key of type K) of type boolean where K is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public function create[K, V]() of type Map[K, V].",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "get",
+                "signature": "public function get[K, V](collection of type Map[K, V], key of type K) of type fallible V where K is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "length",
+                "signature": "public function length[K, V](collection of type Map[K, V]) of type unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "put",
+                "signature": "public function put[K, V](collection of type Map[K, V], key of type K, value of type V) of type fallible Map[K, V] where K is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public function release[K, V](collection of type Map[K, V]) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "remove",
+                "signature": "public function remove[K, V](collection of type Map[K, V], key of type K) of type fallible Map[K, V] where K is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Entry",
+                "signature": "public define Entry[K, V] as record { key of type K. value of type V. }.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Map",
+                "signature": "public define Map[K, V] as record { entries of type sequence of Entry[K, V]. }.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/memory",
+      "version": "0.2.0",
+      "description": "Declares owned allocations and grouped arena lifetimes.",
+      "install": "use memory.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/memory",
+            "path": "std/memory.iv",
+            "summary": "Declares owned allocations and grouped arena lifetimes.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "allocate",
+                "signature": "public use \"memory\" function allocate(allocator of type pointer to Allocator, size of type unsigned 64) of type fallible pointer to byte.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "arena",
+                "signature": "public use \"memory\" function arena() of type fallible pointer to Allocator.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "clear",
+                "signature": "public use \"memory\" function clear(buffer of type sequence of byte) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"memory\" function close(allocator of type pointer to Allocator) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "compare",
+                "signature": "public use \"memory\" function compare(left of type sequence of constant byte, right of type sequence of constant byte) of type integer.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "copy",
+                "signature": "public use \"memory\" function copy(allocator of type pointer to Allocator, buffer of type pointer to byte, content of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "expand",
+                "signature": "public use \"memory\" function expand(allocator of type pointer to Allocator, buffer of type pointer to byte, size of type unsigned 64) of type fallible pointer to byte.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public use \"memory\" function release(allocator of type pointer to Allocator, buffer of type pointer to byte) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "system",
+                "signature": "public use \"memory\" function system() of type pointer to Allocator.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "transfer",
+                "signature": "public use \"memory\" function transfer(source of type sequence of constant byte, destination of type sequence of byte) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "view",
+                "signature": "public use \"memory\" function view(allocator of type pointer to Allocator, buffer of type pointer to byte, size of type unsigned 64) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Allocator",
+                "signature": "public define Allocator as opaque.",
+                "documentation": "Declares owned allocations and grouped arena lifetimes."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/net",
+      "version": "0.2.0",
+      "description": "Opens TCP connections and transfers bytes with explicit connection lifetimes.",
+      "install": "use net.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/net",
+            "path": "std/net.iv",
+            "summary": "Opens TCP connections and transfers bytes with explicit connection lifetimes.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "accept",
+                "signature": "public use \"net\" function accept(listener of type pointer to Connection) of type fallible pointer to Connection.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"net\" function close(connection of type pointer to Connection) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "connect",
+                "signature": "public use \"net\" function connect(host of type text, port of type unsigned 64) of type fallible pointer to Connection.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "keepalive",
+                "signature": "public use \"net\" function keepalive(connection pointer to Connection, enabled boolean) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "listen",
+                "signature": "public use \"net\" function listen(host of type text, port of type unsigned 64) of type fallible pointer to Connection.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "nodelay",
+                "signature": "public use \"net\" function nodelay(connection pointer to Connection, enabled boolean) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "port",
+                "signature": "public use \"net\" function port(listener of type pointer to Connection) of type fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "receive",
+                "signature": "public use \"net\" function receive(connection of type pointer to Connection, size of type unsigned 64) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "send",
+                "signature": "public use \"net\" function send(connection of type pointer to Connection, content of type text) of type fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "sendSome",
+                "signature": "public use \"net\" function sendSome(connection pointer to Connection, content text) giving fallible unsigned 64.",
+                "documentation": "Advanced socket controls. sendSome may write fewer bytes than requested."
+              },
+              {
+                "kind": "function",
+                "name": "shutdown",
+                "signature": "public use \"net\" function shutdown(connection pointer to Connection, direction text) giving fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Connection",
+                "signature": "public define Connection as opaque.",
+                "documentation": "Opens TCP connections and transfers bytes with explicit connection lifetimes."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/os/unix",
+      "version": "0.2.0",
+      "description": "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles. ---",
+      "install": "use \"os/unix\".",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/os/unix",
+            "path": "std/os/unix.iv",
+            "summary": "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles. ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "mmap",
+                "signature": "public function mmap(size of type integer 64).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "munmap",
+                "signature": "public function munmap(mapping of type pointer to Map).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "pipe",
+                "signature": "public function pipe().",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "signal",
+                "signature": "public function signal(number of type integer 32).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Map",
+                "signature": "public define Map as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Pipe",
+                "signature": "public define Pipe as opaque.",
+                "documentation": "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles. ---"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/os/windows",
+      "version": "0.2.0",
+      "description": "Declares Windows platform operations. Windows-only handles with portable FOO names. ---",
+      "install": "use \"os/windows\".",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/os/windows",
+            "path": "std/os/windows.iv",
+            "summary": "Declares Windows platform operations. Windows-only handles with portable FOO names. ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "handle",
+                "signature": "public function handle().",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "process",
+                "signature": "public function process(command of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "registry",
+                "signature": "public function registry(path of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public function release(handle of type pointer to Handle).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "winrt",
+                "signature": "public function winrt(class of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Handle",
+                "signature": "public define Handle as opaque.",
+                "documentation": "Declares Windows platform operations. Windows-only handles with portable FOO names. ---"
+              },
+              {
+                "kind": "type",
+                "name": "Registry",
+                "signature": "public define Registry as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Winrt",
+                "signature": "public define Winrt as opaque.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/path",
+      "version": "0.2.0",
+      "description": "Provides filesystem path operations.",
+      "install": "use path.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/path",
+            "path": "std/path.iv",
+            "summary": "Provides filesystem path operations.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "absolute",
+                "signature": "public function absolute(path of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "merge",
+                "signature": "public function merge(first of type pointer to byte, second of type pointer to byte).",
+                "documentation": "Provides filesystem path operations."
+              },
+              {
+                "kind": "function",
+                "name": "name",
+                "signature": "public function name(path of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "parent",
+                "signature": "public function parent(path of type pointer to byte).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "suffix",
+                "signature": "public function suffix(path of type pointer to byte).",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/process",
+      "version": "0.2.0",
+      "description": "Runs shell commands and reads process arguments and environment values.",
+      "install": "use process.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/process",
+            "path": "std/process.iv",
+            "summary": "Runs shell commands and reads process arguments and environment values.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "argument",
+                "signature": "public use \"process\" function argument(index of type unsigned 64) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "count",
+                "signature": "public use \"process\" function count() of type unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "environment",
+                "signature": "public use \"process\" function environment(name of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "run",
+                "signature": "public use \"process\" function run(command of type text) of type fallible unsigned 64.",
+                "documentation": "Runs shell commands and reads process arguments and environment values."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/queue",
+      "version": "0.2.0",
+      "description": "Stores typed values in first-in, first-out order.",
+      "install": "use queue.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/queue",
+            "path": "std/queue.iv",
+            "summary": "Stores typed values in first-in, first-out order.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "append",
+                "signature": "public function append[T](collection of type Queue[T], value of type T) of type fallible Queue[T].",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public function create[T]() of type Queue[T].",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "first",
+                "signature": "public function first[T](collection of type Queue[T]) of type fallible T.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "length",
+                "signature": "public function length[T](collection of type Queue[T]) of type unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public function release[T](collection of type Queue[T]) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "remove",
+                "signature": "public function remove[T](collection of type Queue[T]) of type fallible Queue[T].",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Queue",
+                "signature": "public define Queue[T] as record { values of type sequence of T. }.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/random",
+      "version": "0.2.0",
+      "description": "Provides random values. Random number generation --- OS-backed and PRNG implementations ---",
+      "install": "use random.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/random",
+            "path": "std/random.iv",
+            "summary": "Provides random values. Random number generation --- OS-backed and PRNG implementations ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "bytes",
+                "signature": "public function bytes(rng of type Random, buffer of type pointer to byte, size of type integer 64).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "default",
+                "signature": "public function default().",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "number",
+                "signature": "public function number(rng of type Random, minimum of type integer 64, maximum of type integer 64).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Random",
+                "signature": "public define Random as record {\n  state of type pointer to byte.\n}.",
+                "documentation": "Provides random values. Random number generation --- OS-backed and PRNG implementations ---"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/sequence",
+      "version": "0.2.0",
+      "description": "Builds typed sequences and applies ordering, searching, and transformations.",
+      "install": "use sequence.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/sequence",
+            "path": "std/sequence.iv",
+            "summary": "Builds typed sequences and applies ordering, searching, and transformations.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "append",
+                "signature": "public use \"sequence\" function append[T](items of type sequence of T, value of type T) of type fallible sequence of T.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "copy",
+                "signature": "public use \"sequence\" function copy[T](items of type sequence of T) of type fallible sequence of T.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public use \"sequence\" function create[T]() of type sequence of T.",
+                "documentation": "Builds typed sequences and applies ordering, searching, and transformations."
+              },
+              {
+                "kind": "function",
+                "name": "dedup",
+                "signature": "public function dedup[T](items sequence of T) giving fallible sequence of T where T is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "deduplicate",
+                "signature": "public function deduplicate[T](items sequence of T) giving fallible sequence of T where T is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "filter",
+                "signature": "public function filter[T](items of type sequence of T, predicate of type function taking (T) giving boolean) of type fallible sequence of T.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "find",
+                "signature": "public function find[T](items of type sequence of T, value of type T) of type optional unsigned 64 where T is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "length",
+                "signature": "public use \"sequence\" function length[T](items of type sequence of T) of type unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "map",
+                "signature": "public function map[T, U](items of type sequence of T, transform of type function taking (T) giving U) of type fallible sequence of U.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public use \"sequence\" function release[T](items of type sequence of T) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "remove",
+                "signature": "public use \"sequence\" function remove[T](items of type sequence of T, index of type unsigned 64) of type fallible sequence of T.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "sort",
+                "signature": "public function sort[T](items of type sequence of T) of type fallible sequence of T where T is Ord.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/set",
+      "version": "0.2.0",
+      "description": "Keeps each typed value once using equality-based membership.",
+      "install": "use set.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/set",
+            "path": "std/set.iv",
+            "summary": "Keeps each typed value once using equality-based membership.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "contains",
+                "signature": "public function contains[T](collection of type Set[T], value of type T) of type boolean where T is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public function create[T]() of type Set[T].",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "insert",
+                "signature": "public function insert[T](collection of type Set[T], value of type T) of type fallible Set[T] where T is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "length",
+                "signature": "public function length[T](collection of type Set[T]) of type unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public function release[T](collection of type Set[T]) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "remove",
+                "signature": "public function remove[T](collection of type Set[T], value of type T) of type fallible Set[T] where T is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Set",
+                "signature": "public define Set[T] as record { values of type sequence of T. }.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/stack",
+      "version": "0.2.0",
+      "description": "Stores typed values in last-in, first-out order.",
+      "install": "use stack.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/stack",
+            "path": "std/stack.iv",
+            "summary": "Stores typed values in last-in, first-out order.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "create",
+                "signature": "public function create[T]() of type Stack[T].",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "length",
+                "signature": "public function length[T](collection of type Stack[T]) of type unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "push",
+                "signature": "public function push[T](collection of type Stack[T], value of type T) of type fallible Stack[T].",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public function release[T](collection of type Stack[T]) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "remove",
+                "signature": "public function remove[T](collection of type Stack[T]) of type fallible Stack[T].",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "top",
+                "signature": "public function top[T](collection of type Stack[T]) of type fallible T.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Stack",
+                "signature": "public define Stack[T] as record { values of type sequence of T. }.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/stream",
+      "version": "0.2.0",
+      "description": "Declares length-aware input, output and diagnostic streams.",
+      "install": "use stream.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/stream",
+            "path": "std/stream.iv",
+            "summary": "Declares length-aware input, output and diagnostic streams.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"stream\" function close(stream of type pointer to Stream) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "input",
+                "signature": "public use \"stream\" function input() of type pointer to Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "output",
+                "signature": "public use \"stream\" function output() of type pointer to Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "print",
+                "signature": "public use \"stream\" function print(stream of type pointer to Stream, content of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "read",
+                "signature": "public use \"stream\" function read(stream of type pointer to Stream, buffer of type pointer to byte, size of type unsigned 64) of type fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "report",
+                "signature": "public use \"stream\" function report() of type pointer to Stream.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "write",
+                "signature": "public use \"stream\" function write(stream of type pointer to Stream, content of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Stream",
+                "signature": "public define Stream as opaque.",
+                "documentation": "Declares length-aware input, output and diagnostic streams."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/sync",
+      "version": "0.2.0",
+      "description": "Provides synchronization primitives. Synchronization primitives --- Mutexes, condition variables, semaphores ---",
+      "install": "use sync.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/sync",
+            "path": "std/sync.iv",
+            "summary": "Provides synchronization primitives. Synchronization primitives --- Mutexes, condition variables, semaphores ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "lock",
+                "signature": "public function lock(handle of type Mutex).",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "mutex",
+                "signature": "public function mutex().",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "unlock",
+                "signature": "public function unlock(handle of type Mutex).",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Condition",
+                "signature": "public define Condition as record {\n  handle of type pointer to byte.\n}.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Group",
+                "signature": "public define Group as record {\n  handle of type pointer to byte.\n}.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Mutex",
+                "signature": "public define Mutex as record {\n  handle of type pointer to byte.\n}.",
+                "documentation": "Provides synchronization primitives. Synchronization primitives --- Mutexes, condition variables, semaphores ---"
+              },
+              {
+                "kind": "type",
+                "name": "Once",
+                "signature": "public define Once as record {\n  handle of type pointer to byte.\n}.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Semaphore",
+                "signature": "public define Semaphore as record {\n  handle of type pointer to byte.\n}.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/system",
+      "version": "0.2.0",
+      "description": "Declares host system information.",
+      "install": "use system.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/system",
+            "path": "std/system.iv",
+            "summary": "Declares host system information.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "cores",
+                "signature": "public use \"system\" function cores() of type fallible unsigned 32.",
+                "documentation": "Declares host system information."
+              },
+              {
+                "kind": "function",
+                "name": "host",
+                "signature": "public use \"system\" function host() of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "page",
+                "signature": "public use \"system\" function page() of type unsigned 64.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/task",
+      "version": "0.2.0",
+      "description": "Declares task execution and asynchronous networking. Runtime-selected concurrency without function coloring --- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---",
+      "install": "use task.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/task",
+            "path": "std/task.iv",
+            "summary": "Declares task execution and asynchronous networking. Runtime-selected concurrency without function coloring --- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---",
+            "items": [
+              {
+                "kind": "function",
+                "name": "affinity",
+                "signature": "public use \"task\" function affinity(cpu of type integer 64) of type boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "backend",
+                "signature": "public use \"task\" function backend() of type integer 8.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "block",
+                "signature": "public use \"task\" function block(callback of type function() of type nothing for c) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "channel",
+                "signature": "public use \"task\" function channel() of type fallible pointer to Channel.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "connect",
+                "signature": "public use \"task\" function connect(net of type pointer to Net, host of type pointer to byte, port of type integer 32) of type pointer to Socket.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "executor",
+                "signature": "public use \"task\" function executor() of type fallible pointer to Executor.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "join",
+                "signature": "public use \"task\" function join(scope of type pointer to Scope) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "kind",
+                "signature": "public use \"task\" function kind(net of type pointer to Net) of type integer 8.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "label",
+                "signature": "public use \"task\" function label(name text) giving boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "launch",
+                "signature": "public use \"task\" function launch(scope of type pointer to Scope, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "listen",
+                "signature": "public use \"task\" function listen(net of type pointer to Net, port of type integer 32) of type pointer to Socket.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "net",
+                "signature": "public use \"task\" function net(executor of type pointer to Executor) of type pointer to Net.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "pool",
+                "signature": "public use \"task\" function pool() of type fallible pointer to Pool.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "pull",
+                "signature": "public use \"task\" function pull(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type integer 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "push",
+                "signature": "public use \"task\" function push(socket of type pointer to Socket, buffer of type pointer to byte, size of type integer 64) of type boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "receive",
+                "signature": "public use \"task\" function receive(channel of type pointer to Channel, output of type pointer to integer 64) of type boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "scope",
+                "signature": "public use \"task\" function scope() of type fallible pointer to Scope.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "send",
+                "signature": "public use \"task\" function send(channel of type pointer to Channel, value of type integer 64) of type boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "submit",
+                "signature": "public use \"task\" function submit(pool of type pointer to Pool, callback of type function(integer 64) of type nothing for c, argument of type integer 64) of type boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "wait",
+                "signature": "public use \"task\" function wait(pool of type pointer to Pool) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "which",
+                "signature": "public use \"task\" function which() of type pointer to byte.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Channel",
+                "signature": "public define Channel as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Executor",
+                "signature": "public define Executor as opaque.",
+                "documentation": "Declares task execution and asynchronous networking. Runtime-selected concurrency without function coloring --- The backend is epoll on Linux, kqueue on Darwin/BSD, and IOCP on Windows. ---"
+              },
+              {
+                "kind": "type",
+                "name": "Net",
+                "signature": "public define Net as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Pool",
+                "signature": "public define Pool as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Scope",
+                "signature": "public define Scope as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Socket",
+                "signature": "public define Socket as opaque.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/testing",
+      "version": "0.2.0",
+      "description": "Declares executable test assertions.",
+      "install": "use testing.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/testing",
+            "path": "std/testing.iv",
+            "summary": "Declares executable test assertions.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "expect",
+                "signature": "public use \"testing\" function expect(value of type boolean) of type nothing.",
+                "documentation": "Declares executable test assertions."
+              },
+              {
+                "kind": "function",
+                "name": "number",
+                "signature": "public use \"testing\" function number(actual of type unsigned 64, expected of type unsigned 64) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "point",
+                "signature": "public use \"testing\" function point(actual of type optional unsigned 32, expected of type unsigned 32) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "positive",
+                "signature": "public use \"testing\" function positive(value of type unsigned 64) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "real",
+                "signature": "public use \"testing\" function real(actual of type decimal 64, expected of type decimal 64) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "same",
+                "signature": "public use \"testing\" function same(actual of type text, expected of type text) of type nothing.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/text",
+      "version": "0.2.0",
+      "description": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
+      "install": "use text.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/text",
+            "path": "std/text.iv",
+            "summary": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "concatenate",
+                "signature": "public use \"text\" function concatenate(left of type text, right of type text) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "length",
+                "signature": "public use \"text\" function length(content of type text) of type unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public use \"text\" function release(content of type text) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "slice",
+                "signature": "public use \"text\" function slice(content of type text, first of type unsigned 64, last of type unsigned 64) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "split",
+                "signature": "public function split(content of type text, separator of type text) of type fallible sequence of text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "trim",
+                "signature": "public use \"text\" function trim(content of type text) of type fallible text.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/thread",
+      "version": "0.2.0",
+      "description": "Runs function-valued tasks and coordinates shared work with locks and conditions.",
+      "install": "use thread.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/thread",
+            "path": "std/thread.iv",
+            "summary": "Runs function-valued tasks and coordinates shared work with locks and conditions.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "close",
+                "signature": "public use \"thread\" function close[T](resource of type pointer to T) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "condition",
+                "signature": "public use \"thread\" function condition() of type fallible pointer to Condition.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "lock",
+                "signature": "public use \"thread\" function lock(mutex of type pointer to Mutex) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "mutex",
+                "signature": "public use \"thread\" function mutex() of type fallible pointer to Mutex.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "pause",
+                "signature": "public use \"thread\" function pause(condition of type pointer to Condition, mutex of type pointer to Mutex) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "signal",
+                "signature": "public use \"thread\" function signal(condition of type pointer to Condition) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "spawn",
+                "signature": "public use \"thread\" function spawn(task of type function taking () giving nothing) of type fallible pointer to Thread.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "unlock",
+                "signature": "public use \"thread\" function unlock(mutex of type pointer to Mutex) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "wait",
+                "signature": "public use \"thread\" function wait(task of type pointer to Thread) of type fallible nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Condition",
+                "signature": "public define Condition as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Mutex",
+                "signature": "public define Mutex as opaque.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Thread",
+                "signature": "public define Thread as opaque.",
+                "documentation": "Runs function-valued tasks and coordinates shared work with locks and conditions."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/time",
+      "version": "0.2.0",
+      "description": "Measures elapsed time using a monotonic nanosecond clock.",
+      "install": "use time.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/time",
+            "path": "std/time.iv",
+            "summary": "Measures elapsed time using a monotonic nanosecond clock.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "current",
+                "signature": "public use \"time\" function current() of type fallible unsigned 64.",
+                "documentation": "Measures elapsed time using a monotonic nanosecond clock."
+              },
+              {
+                "kind": "function",
+                "name": "measure",
+                "signature": "public function measure(task of type function taking () giving nothing) of type fallible unsigned 64.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "sleep",
+                "signature": "public use \"time\" function sleep(duration of type unsigned 64) of type fallible nothing.",
+                "documentation": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "standard",
+      "name": "std/unicode",
+      "version": "0.2.0",
+      "description": "Declares Unicode validation and conversion.",
+      "install": "use unicode.",
+      "api": {
+        "schema": "foo.api/v1",
+        "modules": [
+          {
+            "name": "std/unicode",
+            "path": "std/unicode.iv",
+            "summary": "Declares Unicode validation and conversion.",
+            "items": [
+              {
+                "kind": "function",
+                "name": "narrow",
+                "signature": "public use \"unicode\" function narrow(value of type sequence of unsigned 16) of type fallible text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "next",
+                "signature": "public use \"unicode\" function next(value of type pointer to Cursor) of type optional unsigned 32.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "points",
+                "signature": "public use \"unicode\" function points(value of type text) of type fallible sequence of unsigned 32.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "release",
+                "signature": "public use \"unicode\" function release(value of type pointer to Cursor) of type nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "scan",
+                "signature": "public use \"unicode\" function scan(value of type text) of type fallible pointer to Cursor.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "valid",
+                "signature": "public use \"unicode\" function valid(value of type text) of type boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "wide",
+                "signature": "public use \"unicode\" function wide(value of type text) of type fallible sequence of unsigned 16.",
+                "documentation": ""
+              },
+              {
+                "kind": "type",
+                "name": "Cursor",
+                "signature": "public define Cursor as opaque.",
+                "documentation": "Declares Unicode validation and conversion."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
