@@ -1,46 +1,40 @@
-# Foo registry data
+# FOO Registry
 
-This directory is the seed for the standalone [`radiiplus/foo.registry`](https://github.com/radiiplus/foo.registry) Git repository. Git is the database: the registry has no SQL store, cache, counters, or server-side state.
+The official package catalog for the [FOO programming language](https://github.com/radiiplus/foo).
 
-## Layout
+This repository is where FOO's standard library and published community packages are made available. Use it to discover libraries, review what they provide, and install them in your FOO projects.
 
-```text
-packages/<name>/<version>.json  canonical releases (scopes add @scope/)
-packages/std/<module>/<version>.json  generated standard-library records
-indexes/index.json             shard manifest
-indexes/index-000001.jsonl     generated discovery shard (one entry per line)
-schemas/*.json                 strict JSON schemas
-scripts/index.mjs              deterministic index builder
-scripts/standard.mjs           standard-library and public-API generator
-test/index.mjs                 data-layer tests
-```
+New to the language? Visit the [main FOO repository](https://github.com/radiiplus/foo) for installation, documentation, examples, and releases.
 
-Categories and tags exist only as user-defined package metadata. They never create filesystem directories. The builder normalizes categories by trimming whitespace, collapsing repeated spaces, and lowercasing them. Entries sort by category first and package name second.
+## Quick usage
 
-Each expanded release record contains its formatted Foo source bundle and a SHA-256 digest. The repository URL and full 40-character commit SHA remain provenance metadata; installation reproduces the embedded immutable source without executing package code.
-
-Records also contain a `foo.api/v1` public surface: modules, functions, types, constants, values, canonical declarations, and documentation. Package ownership uses a versioned HMAC pseudonym derived by the write service; raw GitHub IDs never appear in records or indexes. `std/` is a reserved identity namespace generated from every `.iv` module in the compiler's standard library.
-
-## Build
-
-Regenerate from the canonical `packages/` tree:
+Find a package:
 
 ```sh
-node scripts/index.mjs
+foo search http
+foo info std/json
+foo info package-name
 ```
 
-Regenerate standard-library records and then rebuild the index from the main Foo workspace:
+Add and install a package:
 
 ```sh
-npm run standard
+foo add package-name
+foo install
 ```
 
-Or build from a JSON array of package releases into another local Git repository:
+Check for and install compatible updates:
 
 ```sh
-node scripts/index.mjs packages.json ../foo.registry
+foo outdated
+foo update package-name
 ```
 
-Shard names use six-digit sequence numbers and each shard is hard-limited to 100,000 entries. Shards use JSONL with one compact entry per line. Package records and the shard manifest use readable expanded JSON. The manifest revision is a SHA-256 digest of the canonical sorted index, so identical input produces identical files.
+Create and publish a package:
 
-The compiler, registry website, and external tools consume these files directly from GitHub. Readers load the manifest, follow its immutable shard paths, and fetch canonical package records using the paths stored in each entry.
+```sh
+foo login
+foo init my-package
+cd my-package
+foo publish
+```
