@@ -75,6 +75,7 @@ function fixture(name, category) {
     updated: "2026-09-25",
     owner: { id: 1, login: "radiiplus" },
     repository: `https://github.com/radiiplus/${name}`,
+    revision: "0123456789abcdef0123456789abcdef01234567",
     install: `foo install ${name}`,
     dependencies: [],
     readme: ["Example documentation."],

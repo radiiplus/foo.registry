@@ -51,17 +51,27 @@ async function walk(directory) {
 }
 
 async function request(path, method, body, optional = false) {
-  const response = await fetch(`${api}${path}`, {
-    method,
-    headers: {
-      accept: "application/vnd.github+json",
-      authorization: `Bearer ${token}`,
-      "content-type": "application/json",
-      "user-agent": "foo-registry-bootstrap",
-      "x-github-api-version": "2026-03-10",
-    },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
+  let response;
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    try {
+      response = await fetch(`${api}${path}`, {
+        method,
+        headers: {
+          accept: "application/vnd.github+json",
+          authorization: `Bearer ${token}`,
+          "content-type": "application/json",
+          "user-agent": "foo-registry-bootstrap",
+          "x-github-api-version": "2026-03-10",
+        },
+        ...(body === undefined ? {} : { body: JSON.stringify(body) }),
+      });
+      if (response.status < 500) break;
+    } catch (error) {
+      if (attempt === 3) throw error;
+    }
+    if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, 500 * (attempt + 1)));
+  }
+  if (!response) throw new Error(`GitHub ${method} ${path} returned no response`);
   if (optional && (response.status === 404 || response.status === 409)) return undefined;
   if (!response.ok) {
     const error = await response.json().catch(() => ({}));

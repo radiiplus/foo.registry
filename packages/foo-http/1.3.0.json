@@ -23,6 +23,7 @@
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
   "install": "foo install foo-http@1.3.0",
   "dependencies": [
     {

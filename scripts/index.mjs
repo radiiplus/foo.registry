@@ -12,7 +12,7 @@ const tokenPattern = /^[a-z0-9][a-z0-9-]{0,31}$/;
 const versionPattern = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z.-]+))?$/;
 const packageFields = new Set([
   "schema", "name", "version", "description", "category", "tags", "license", "compatible",
-  "deprecated", "platforms", "updated", "owner", "repository", "install", "dependencies", "readme",
+  "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme",
 ]);
 
 export function normalizeCategory(value) {
@@ -55,6 +55,8 @@ export function normalizePackage(value) {
   } catch {
     throw new TypeError("repository must be an HTTPS URL");
   }
+  const revision = requiredString(value.revision, "revision").trim().toLowerCase();
+  if (!/^[a-f0-9]{40}$/.test(revision)) throw new TypeError("revision must be a full Git commit SHA");
   const dependencies = array(value.dependencies, "dependencies").map(normalizeDependency);
   dependencies.sort((left, right) => compare(left.name, right.name) || compare(left.kind, right.kind));
 
@@ -75,6 +77,7 @@ export function normalizePackage(value) {
     updated,
     owner: { id: value.owner.id, login },
     repository,
+    revision,
     install: requiredString(value.install, "install").trim(),
     dependencies,
     readme,
@@ -112,6 +115,7 @@ export function entries(records) {
       updated: latest.updated,
       owner: latest.owner,
       repository: latest.repository,
+      revision: latest.revision,
       path: `packages/${name}/${latest.version}.json`,
       versions: versions.map((release) => ({
         version: release.version,

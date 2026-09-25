@@ -24,11 +24,12 @@
     "login": "radiiplus"
   },
   "repository": "https://github.com/radiiplus/foo",
+  "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
   "install": "foo install foo-http",
   "dependencies": [
     {
       "name": "foo-json",
-      "version": "^1.2.0",
+      "version": "1.2.6",
       "kind": "runtime",
       "platforms": [
         "all"
@@ -36,7 +37,7 @@
     },
     {
       "name": "foo-tls",
-      "version": "~1.1.0",
+      "version": "1.1.0",
       "kind": "optional",
       "platforms": [
         "linux",

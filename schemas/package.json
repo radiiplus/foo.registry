@@ -4,7 +4,7 @@
   "title": "Foo package release",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "owner", "repository", "install", "dependencies", "readme"],
+  "required": ["schema", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme"],
   "properties": {
     "schema": { "const": "foo.package/v1" },
     "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" },
@@ -19,6 +19,7 @@
     "updated": { "type": "string", "format": "date" },
     "owner": { "$ref": "#/$defs/owner" },
     "repository": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "revision": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
     "install": { "type": "string", "minLength": 1 },
     "dependencies": {
       "type": "array",

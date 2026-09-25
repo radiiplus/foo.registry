@@ -1,6 +1,6 @@
 {
   "schema": "foo.registry/v1",
-  "revision": "da0e70a6253c7a5b53b284194c1d4732ec1e2446fde15339d953f0bdf9def3b5",
+  "revision": "02be3264078b460a88f43007d84a7b5b9e2412933beb8e6971838bc6ec1f84c7",
   "count": 6,
   "order": [
     "category",

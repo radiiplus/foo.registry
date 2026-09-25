@@ -10,7 +10,7 @@
     "manifest": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["schema", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "repository", "install", "dependencies"],
+      "required": ["schema", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "repository", "revision", "install", "dependencies"],
       "properties": {
         "schema": { "const": "foo.package/v1" },
         "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" },
@@ -24,6 +24,7 @@
         "platforms": { "$ref": "package.json#/$defs/tokens" },
         "updated": { "type": "string", "format": "date" },
         "repository": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "revision": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
         "install": { "type": "string", "minLength": 1 },
         "dependencies": { "type": "array", "items": { "$ref": "package.json#/$defs/dependency" } }
       }

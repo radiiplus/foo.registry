@@ -28,6 +28,7 @@
         "login": "radiiplus"
       },
       "repository": "https://github.com/radiiplus/foo",
+      "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
       "path": "packages/foo-json/1.2.6.json",
       "versions": [
         {
@@ -63,6 +64,7 @@
         "login": "radiiplus"
       },
       "repository": "https://github.com/radiiplus/foo",
+      "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
       "path": "packages/foo-sqlite/0.8.1.json",
       "versions": [
         {
@@ -98,6 +100,7 @@
         "login": "radiiplus"
       },
       "repository": "https://github.com/radiiplus/foo",
+      "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
       "path": "packages/foo-args/0.9.4.json",
       "versions": [
         {
@@ -133,6 +136,7 @@
         "login": "radiiplus"
       },
       "repository": "https://github.com/radiiplus/foo",
+      "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
       "path": "packages/foo-test/1.0.3.json",
       "versions": [
         {
@@ -169,6 +173,7 @@
         "login": "radiiplus"
       },
       "repository": "https://github.com/radiiplus/foo",
+      "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
       "path": "packages/foo-http/1.4.2.json",
       "versions": [
         {
@@ -210,6 +215,7 @@
         "login": "radiiplus"
       },
       "repository": "https://github.com/radiiplus/foo",
+      "revision": "32e0cca979e07d6c1773c30cc6c09763f4cef547",
       "path": "packages/foo-crypto/1.1.0.json",
       "versions": [
         {
