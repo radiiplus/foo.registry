@@ -15,6 +15,8 @@ test/index.mjs                 data-layer tests
 
 Categories and tags exist only as user-defined package metadata. They never create filesystem directories. The builder normalizes categories by trimming whitespace, collapsing repeated spaces, and lowercasing them. Entries sort by category first and package name second.
 
+Each release binds its repository to a full 40-character Git commit SHA. Clients fetch that immutable revision and record a source digest in `foo.lock`.
+
 ## Build
 
 Regenerate from the canonical `packages/` tree:
