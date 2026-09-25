@@ -7,7 +7,7 @@
   "required": ["schema", "name", "version", "description", "category", "tags", "license", "compatible", "deprecated", "platforms", "updated", "owner", "repository", "revision", "install", "dependencies", "readme"],
   "properties": {
     "schema": { "const": "foo.package/v1" },
-    "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" },
+    "name": { "type": "string", "pattern": "^(?:@[a-z0-9][a-z0-9-]{0,38}/)?[a-z][a-z0-9-]{0,63}$" },
     "version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$" },
     "description": { "type": "string", "minLength": 1, "maxLength": 280 },
     "category": { "type": "string", "pattern": "^[a-z0-9][a-z0-9 -]{0,63}$" },
@@ -51,7 +51,7 @@
       "additionalProperties": false,
       "required": ["name", "version", "kind", "platforms"],
       "properties": {
-        "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" },
+        "name": { "type": "string", "pattern": "^(?:@[a-z0-9][a-z0-9-]{0,38}/)?[a-z][a-z0-9-]{0,63}$" },
         "version": { "type": "string", "minLength": 1 },
         "kind": { "enum": ["runtime", "dev", "optional", "platform"] },
         "platforms": { "$ref": "#/$defs/tokens" }

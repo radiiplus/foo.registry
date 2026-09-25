@@ -5,7 +5,7 @@ This directory is the seed for the standalone [`radiiplus/foo.registry`](https:/
 ## Layout
 
 ```text
-packages/<name>/<version>.json  canonical releases
+packages/<name>/<version>.json  canonical releases (scopes add @scope/)
 indexes/index.json             shard manifest
 indexes/index-000001.json      generated discovery shard
 schemas/*.json                 strict JSON schemas
@@ -31,6 +31,6 @@ Or build from a JSON array of package releases into another local Git repository
 node scripts/index.mjs packages.json ../foo.registry
 ```
 
-Shard names use six-digit sequence numbers and each shard is hard-limited to 100,000 entries. The manifest revision is a SHA-256 digest of the canonical sorted index, so identical input produces identical files.
+Shard names use six-digit sequence numbers and each shard is hard-limited to 100,000 entries. Canonical records and generated indexes use compact one-line JSON. The manifest revision is a SHA-256 digest of the canonical sorted index, so identical input produces identical files.
 
-The UI reads these files directly from GitHub. Set `VITE_REGISTRY_URL` to the raw repository root when using a different source.
+The read-only API consumes these files from GitHub. Browsers consume the API and never parse registry storage directly.

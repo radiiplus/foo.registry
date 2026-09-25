@@ -32,6 +32,12 @@ test("rejects unknown fields including analytics counters", () => {
   assert.throws(() => normalizePackage({ ...fixture("alpha", "data"), readme: [] }), /readme must contain at least one line/);
 });
 
+test("accepts scoped identities without treating scopes as categories", () => {
+  const value = normalizePackage(fixture("@radiiplus/alpha", "Data"));
+  assert.equal(value.name, "@radiiplus/alpha");
+  assert.equal(value.category, "data");
+});
+
 test("enforces the hard shard limit", () => {
   const records = Array.from({ length: limit + 1 }, (_, index) => index);
   assert.deepEqual(shards(records).map((group) => group.length), [limit, 1]);
@@ -58,6 +64,7 @@ test("writes canonical records and deterministic six-digit shards", async () => 
   const shard = JSON.parse(await readFile(join(destination, "indexes", "index-000001.json"), "utf8"));
   assert.equal(shard.schema, "foo.index/v1");
   assert.deepEqual(shard.entries.map(({ name }) => name), ["alpha"]);
+  assert.equal((await readFile(join(destination, "indexes", "index-000001.json"), "utf8")).includes("\n  "), false);
 });
 
 function fixture(name, category) {

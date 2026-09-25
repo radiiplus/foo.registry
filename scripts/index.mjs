@@ -7,7 +7,7 @@ export const limit = 100_000;
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
-const packagePattern = /^[a-z][a-z0-9-]{0,63}$/;
+const packagePattern = /^(?:@[a-z0-9][a-z0-9-]{0,38}\/)?[a-z][a-z0-9-]{0,63}$/;
 const tokenPattern = /^[a-z0-9][a-z0-9-]{0,31}$/;
 const versionPattern = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z.-]+))?$/;
 const packageFields = new Set([
@@ -183,20 +183,24 @@ export async function build(records, destination = root, size = limit) {
 
 export async function readPackages(destination = root) {
   const packageRoot = join(destination, "packages");
-  let names;
+  let paths;
   try {
-    names = await readdir(packageRoot, { withFileTypes: true });
+    paths = await jsonFiles(packageRoot);
   } catch (error) {
     if (error?.code === "ENOENT") return [];
     throw error;
   }
-  const records = [];
-  for (const name of names.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort(compare)) {
-    const directory = join(packageRoot, name);
-    const files = (await readdir(directory)).filter((file) => file.endsWith(".json")).sort(compare);
-    for (const file of files) records.push(JSON.parse(await readFile(join(directory, file), "utf8")));
+  return Promise.all(paths.sort(compare).map(async (path) => JSON.parse(await readFile(path, "utf8"))));
+}
+
+async function jsonFiles(directory) {
+  const result = [];
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) result.push(...await jsonFiles(path));
+    else if (entry.isFile() && entry.name.endsWith(".json")) result.push(path);
   }
-  return records;
+  return result;
 }
 
 function normalizeDependency(value, index) {
@@ -258,7 +262,7 @@ function compare(left, right) {
 }
 
 async function writeJson(path, value) {
-  await writeFile(path, `${JSON.stringify(value, null, 2)}\n`);
+  await writeFile(path, `${JSON.stringify(value)}\n`);
 }
 
 const invoked = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
