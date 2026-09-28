@@ -1,0 +1,119 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/time",
+  "version": "0.5.0",
+  "description": "Measures elapsed time using a monotonic nanosecond clock.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "time"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use time.",
+  "dependencies": [],
+  "readme": [
+    "Measures elapsed time using a monotonic nanosecond clock.",
+    "Import this module with use time."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "7935f29214c80232598f94a37aeca4579e47f3d63ed933b1c2b24b482330dd88",
+    "files": [
+      {
+        "path": "std/time.iv",
+        "content": "-- Measures elapsed time using a monotonic nanosecond clock.\npublic define Instant as record {\n  nanoseconds of type unsigned.\n}.\npublic define Duration as record {\n  nanoseconds of type unsigned.\n}.\npublic use \"time\" function current() giving failable unsigned.\npublic use \"time\" function sleep(duration unsigned) giving failable nothing.\npublic function nanos(value unsigned) giving Duration {\n  give Duration(value).\n}\npublic function millis(value unsigned) giving Duration {\n  give Duration(value multiply 1000000).\n}\npublic function seconds(value unsigned) giving Duration {\n  give Duration(value multiply 1000000000).\n}\npublic function now() giving failable Instant {\n  give Instant(current() try).\n}\npublic function elapsed(first Instant, last Instant) giving Duration {\n  give Duration(last.nanoseconds subtract first.nanoseconds).\n}\npublic function wait(duration Duration) giving failable nothing {\n  sleep(duration.nanoseconds) try.\n}\npublic function measure(task function taking () giving nothing) giving failable unsigned {\n  constant first is current() try.\n  task().\n  give (current() try) subtract first.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/time",
+        "path": "std/time.iv",
+        "summary": "Measures elapsed time using a monotonic nanosecond clock.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "current",
+            "declaration": "public use \"time\" function current() giving failable unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "elapsed",
+            "declaration": "public function elapsed(first Instant, last Instant) giving Duration.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "measure",
+            "declaration": "public function measure(task function taking () giving nothing) giving failable unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "millis",
+            "declaration": "public function millis(value unsigned) giving Duration.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "nanos",
+            "declaration": "public function nanos(value unsigned) giving Duration.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "now",
+            "declaration": "public function now() giving failable Instant.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "seconds",
+            "declaration": "public function seconds(value unsigned) giving Duration.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "sleep",
+            "declaration": "public use \"time\" function sleep(duration unsigned) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "wait",
+            "declaration": "public function wait(duration Duration) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Duration",
+            "declaration": "public define Duration as record {\n  nanoseconds of type unsigned.\n}.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Instant",
+            "declaration": "public define Instant as record {\n  nanoseconds of type unsigned.\n}.",
+            "documentation": "Measures elapsed time using a monotonic nanosecond clock."
+          }
+        ]
+      }
+    ]
+  }
+}

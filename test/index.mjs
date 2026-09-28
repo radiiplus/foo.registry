@@ -1,12 +1,15 @@
 import assert from "node:assert/strict";
 import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { afterEach, test } from "node:test";
+import { fileURLToPath } from "node:url";
 
 import { build, entries, limit, normalizeCategory, normalizePackage, shards } from "../scripts/index.mjs";
 
 const temporary = [];
+const repository = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const standardRoot = resolve(process.argv[2] ?? join(repository, "..", "..", "std"));
 
 afterEach(async () => {
   await Promise.all(temporary.splice(0).map((path) => rm(path, { recursive: true, force: true })));
@@ -71,8 +74,8 @@ test("writes canonical records and deterministic six-digit shards", async () => 
 });
 
 test("indexes every standard module and its public surface", async () => {
-  const sources = await sourceNames(join("..", "std"));
-  const records = await sourceNames(join("repository", "packages", "std"), ".json");
+  const sources = await sourceNames(standardRoot);
+  const records = await sourceNames(join(repository, "packages", "std"), ".json");
   assert.equal(records.length, sources.length);
   let publicItems = 0;
   for (const path of records) {
@@ -83,7 +86,7 @@ test("indexes every standard module and its public surface", async () => {
     publicItems += record.api.modules.flatMap((module) => module.items).length;
   }
   assert.ok(publicItems >= 300);
-  const reference = JSON.parse(await readFile(join("repository", "indexes", "standard.json"), "utf8"));
+  const reference = JSON.parse(await readFile(join(repository, "indexes", "standard.json"), "utf8"));
   assert.equal(reference.schema, "foo.standard/v1");
   assert.equal(reference.count, sources.length);
   assert.match(reference.packages[0].owner.signature, /^v1\.[A-Za-z0-9_-]{43}$/);

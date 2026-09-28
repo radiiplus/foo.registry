@@ -1,0 +1,83 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/bits",
+  "version": "0.5.0",
+  "description": "Provides bit operations.",
+  "category": "standard library",
+  "tags": [
+    "bits",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use bits.",
+  "dependencies": [],
+  "readme": [
+    "Provides bit operations.",
+    "Import this module with use bits."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "c8a161b28bf657b69220e3e4f6f33dbd9313f43cc1f64d5140bedd5e263217bc",
+    "files": [
+      {
+        "path": "std/bits.iv",
+        "content": "-- Provides bit operations.\n--- Bitset collection ---\n--- Efficient bit-level storage ---\npublic define Bits as record {\n  data of type pointer to byte.\n  length of type integer.\n}.\npublic function create(size integer) {\n  constant result of type Bits is uninitialized.\n  give result.\n}\npublic function enable(collection Bits, index integer) {\n  give nothing.\n}\npublic function disable(collection Bits, index integer) {\n  give nothing.\n}\npublic function enabled(collection Bits, index integer) {\n  constant result of type boolean is false.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/bits",
+        "path": "std/bits.iv",
+        "summary": "Provides bit operations.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "create",
+            "declaration": "public function create(size integer).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "disable",
+            "declaration": "public function disable(collection Bits, index integer).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "enable",
+            "declaration": "public function enable(collection Bits, index integer).",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "enabled",
+            "declaration": "public function enabled(collection Bits, index integer).",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Bits",
+            "declaration": "public define Bits as record {\n  data of type pointer to byte.\n  length of type integer.\n}.",
+            "documentation": "Provides bit operations. Bitset collection Efficient bit-level storage"
+          }
+        ]
+      }
+    ]
+  }
+}

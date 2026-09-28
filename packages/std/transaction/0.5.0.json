@@ -1,0 +1,65 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/transaction",
+  "version": "0.5.0",
+  "description": "Coordinates one-process transactions with rollback on propagated failure.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "transaction"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use transaction.",
+  "dependencies": [],
+  "readme": [
+    "Coordinates one-process transactions with rollback on propagated failure.",
+    "Import this module with use transaction."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "19198af1b3a864dc86d9e9f8513e920c8701b6a29f04a00ef37b22bc2675d63e",
+    "files": [
+      {
+        "path": "std/transaction.iv",
+        "content": "-- Coordinates one-process transactions with rollback on propagated failure.\npublic define Participant as record {\n  prepare of type function taking () giving failable nothing.\n  commit of type function taking () giving failable nothing.\n  rollback of type function taking () giving nothing.\n}.\npublic function execute(participant Participant, work function taking () giving failable nothing) giving failable nothing {\n  constant Participant(prepare, commit, rollback) is participant.\n  prepare() try.\n  after error {\n    rollback().\n  }\n  work() try.\n  commit() try.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/transaction",
+        "path": "std/transaction.iv",
+        "summary": "Coordinates one-process transactions with rollback on propagated failure.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "execute",
+            "declaration": "public function execute(participant Participant, work function taking () giving failable nothing) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Participant",
+            "declaration": "public define Participant as record {\n  prepare of type function taking () giving failable nothing.\n  commit of type function taking () giving failable nothing.\n  rollback of type function taking () giving nothing.\n}.",
+            "documentation": "Coordinates one-process transactions with rollback on propagated failure."
+          }
+        ]
+      }
+    ]
+  }
+}

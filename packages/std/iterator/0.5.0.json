@@ -1,0 +1,95 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/iterator",
+  "version": "0.5.0",
+  "description": "Defines explicit, state-carrying iteration for user-defined sources.",
+  "category": "standard library",
+  "tags": [
+    "iterator",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use iterator.",
+  "dependencies": [],
+  "readme": [
+    "Defines explicit, state-carrying iteration for user-defined sources.",
+    "Import this module with use iterator."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "b3a46fc4cbfb702fda1a191ebd8ebd2a2e8aba74d5577f633d051983650bae32",
+    "files": [
+      {
+        "path": "std/iterator.iv",
+        "content": "-- Defines explicit, state-carrying iteration for user-defined sources.\npublic define Step[T, S] as record {\n  finished of type boolean.\n  value of type optional T.\n  state of type S.\n}.\npublic define Cursor[T, S] as record {\n  state of type S.\n  pull of type function taking (S) giving failable Step[T, S].\n}.\npublic function create[T, S](state S, pull function taking (S) giving failable Step[T, S]) giving Cursor[T, S] {\n  give Cursor[T, S](state, pull).\n}\npublic function next[T, S](cursor Cursor[T, S]) giving failable Step[T, S] {\n  constant pull is cursor.pull.\n  give pull(cursor.state) try.\n}\npublic function item[T, S](value T, state S) giving Step[T, S] {\n  give Step[T, S](false, value, state).\n}\npublic function done[T, S](state S) giving Step[T, S] {\n  give Step[T, S](true, null, state).\n}\npublic function move[T, S](cursor Cursor[T, S], state S) giving Cursor[T, S] {\n  give Cursor[T, S](state, cursor.pull).\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/iterator",
+        "path": "std/iterator.iv",
+        "summary": "Defines explicit, state-carrying iteration for user-defined sources.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "create",
+            "declaration": "public function create[T, S](state S, pull function taking (S) giving failable Step[T, S]) giving Cursor[T, S].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "done",
+            "declaration": "public function done[T, S](state S) giving Step[T, S].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "item",
+            "declaration": "public function item[T, S](value T, state S) giving Step[T, S].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "move",
+            "declaration": "public function move[T, S](cursor Cursor[T, S], state S) giving Cursor[T, S].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "next",
+            "declaration": "public function next[T, S](cursor Cursor[T, S]) giving failable Step[T, S].",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Cursor",
+            "declaration": "public define Cursor[T, S] as record {\n  state of type S.\n  pull of type function taking (S) giving failable Step[T, S].\n}.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Step",
+            "declaration": "public define Step[T, S] as record {\n  finished of type boolean.\n  value of type optional T.\n  state of type S.\n}.",
+            "documentation": "Defines explicit, state-carrying iteration for user-defined sources."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/file",
+  "version": "0.5.0",
+  "description": "Opens files, transfers their contents, creates directories, and joins paths.",
+  "category": "standard library",
+  "tags": [
+    "file",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use file.",
+  "dependencies": [],
+  "readme": [
+    "Opens files, transfers their contents, creates directories, and joins paths.",
+    "Import this module with use file."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "1275d1a5e79368c8d84e68f875e3304783ef6c7bd6143a114c506a87b55e60d3",
+    "files": [
+      {
+        "path": "std/file.iv",
+        "content": "-- Opens files, transfers their contents, creates directories, and joins paths.\nuse io as streams.\npublic use \"fs\" function open(path text, mode text) giving failable pointer to streams.Stream.\npublic use \"fs\" function read(path text) giving failable text.\npublic use \"fs\" function write(path text, content text) giving failable nothing.\npublic use \"fs\" function directory(path text) giving failable nothing.\npublic use \"fs\" function join(left text, right text) giving failable text.\n-- Advanced stream controls. Offsets are byte offsets; origin is start, current, or end.\npublic use \"fs\" function flush(stream pointer to streams.Stream) giving failable nothing.\npublic use \"fs\" function seek(stream pointer to streams.Stream, offset integer, origin text) giving failable nothing.\npublic use \"fs\" function position(stream pointer to streams.Stream) giving failable unsigned.\npublic use \"fs\" function size(stream pointer to streams.Stream) giving failable unsigned.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/file",
+        "path": "std/file.iv",
+        "summary": "Opens files, transfers their contents, creates directories, and joins paths.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "directory",
+            "declaration": "public use \"fs\" function directory(path text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "flush",
+            "declaration": "public use \"fs\" function flush(stream pointer to streams.Stream) giving failable nothing.",
+            "documentation": "Advanced stream controls. Offsets are byte offsets; origin is start, current, or end."
+          },
+          {
+            "kind": "function",
+            "name": "join",
+            "declaration": "public use \"fs\" function join(left text, right text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "open",
+            "declaration": "public use \"fs\" function open(path text, mode text) giving failable pointer to streams.Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "position",
+            "declaration": "public use \"fs\" function position(stream pointer to streams.Stream) giving failable unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "read",
+            "declaration": "public use \"fs\" function read(path text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "seek",
+            "declaration": "public use \"fs\" function seek(stream pointer to streams.Stream, offset integer, origin text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "size",
+            "declaration": "public use \"fs\" function size(stream pointer to streams.Stream) giving failable unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "write",
+            "declaration": "public use \"fs\" function write(path text, content text) giving failable nothing.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

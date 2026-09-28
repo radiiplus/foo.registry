@@ -1,0 +1,95 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/text",
+  "version": "0.5.0",
+  "description": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "text"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use text.",
+  "dependencies": [],
+  "readme": [
+    "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
+    "Import this module with use text."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "b85eeccddbca656cbd2028a36ef658659ceca30515227693cb897e840b92fa44",
+    "files": [
+      {
+        "path": "std/text.iv",
+        "content": "-- Combines, trims, and splits text using byte offsets and ASCII whitespace.\nuse sequence as items.\nuse \"sequence\" function sized[T](length unsigned) giving failable sequence of T.\npublic use \"text\" function concatenate(left text, right text) giving failable text.\npublic use \"text\" function trim(content text) giving failable text.\npublic use \"text\" function length(content text) giving unsigned.\npublic use \"text\" function slice(content text, first unsigned, last unsigned) giving failable text.\npublic use \"text\" function find(content text, value text) giving optional unsigned.\npublic use \"text\" function release(content text) giving failable nothing.\npublic function split(content text, separator text) giving failable sequence of text {\n  constant separatorLength is length(separator).\n  constant contentLength is length(content).\n  when separatorLength is 0 {\n    give fail(Error.EmptySeparator).\n  }\n  dynamic count of type unsigned is 1.\n  dynamic cursor of type unsigned is 0.\n  while cursor plus separatorLength less than or equal to contentLength {\n    dynamic matches is true.\n    dynamic index of type unsigned is 0.\n    while index less than separatorLength {\n      when content at (cursor plus index) is not separator at index {\n        set matches to false.\n        stop.\n      }\n      set index to index plus 1.\n    }\n    when matches {\n      set count to count plus 1.\n      set cursor to cursor plus separatorLength.\n    } otherwise {\n      set cursor to cursor plus 1.\n    }\n  }\n  dynamic result is sized[text](count) try.\n  after error {\n    for each part in result {\n      release(part) fallback nothing.\n    }\n    items.release[text](result) fallback nothing.\n  }\n  dynamic first of type unsigned is 0.\n  set cursor to 0.\n  dynamic resultIndex of type unsigned is 0.\n  while cursor plus separatorLength less than or equal to contentLength {\n    dynamic matches is true.\n    dynamic index of type unsigned is 0.\n    while index less than separatorLength {\n      when content at (cursor plus index) is not separator at index {\n        set matches to false.\n        stop.\n      }\n      set index to index plus 1.\n    }\n    when matches {\n      constant part is slice(content, first, cursor) try.\n      set result at resultIndex to part.\n      set resultIndex to resultIndex plus 1.\n      set cursor to cursor plus separatorLength.\n      set first to cursor.\n    } otherwise {\n      set cursor to cursor plus 1.\n    }\n  }\n  set result at resultIndex to slice(content, first, contentLength) try.\n  give result.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/text",
+        "path": "std/text.iv",
+        "summary": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "concatenate",
+            "declaration": "public use \"text\" function concatenate(left text, right text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "find",
+            "declaration": "public use \"text\" function find(content text, value text) giving optional unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "declaration": "public use \"text\" function length(content text) giving unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "declaration": "public use \"text\" function release(content text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "slice",
+            "declaration": "public use \"text\" function slice(content text, first unsigned, last unsigned) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "split",
+            "declaration": "public function split(content text, separator text) giving failable sequence of text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "trim",
+            "declaration": "public use \"text\" function trim(content text) giving failable text.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

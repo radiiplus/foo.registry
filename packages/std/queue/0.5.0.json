@@ -1,0 +1,95 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/queue",
+  "version": "0.5.0",
+  "description": "Stores typed values in first-in, first-out order.",
+  "category": "standard library",
+  "tags": [
+    "queue",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use queue.",
+  "dependencies": [],
+  "readme": [
+    "Stores typed values in first-in, first-out order.",
+    "Import this module with use queue."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "3945b1dd2018bf21e68c6ed67190d1109cd8dada33d010a5ba73ca2dfc670a71",
+    "files": [
+      {
+        "path": "std/queue.iv",
+        "content": "-- Stores typed values in first-in, first-out order.\nuse sequence as items.\npublic define Queue[T] as record {\n  values of type sequence of T.\n}.\npublic function create[T]() giving Queue[T] {\n  give Queue[T](items.create[T]()).\n}\npublic function length[T](collection Queue[T]) giving unsigned {\n  give items.length[T](collection.values).\n}\npublic function append[T](collection Queue[T], value T) giving failable Queue[T] {\n  give Queue[T](items.append[T](collection.values, value) try).\n}\npublic function first[T](collection Queue[T]) giving failable T {\n  when length[T](collection) is 0 {\n    give fail(Error.EmptyCollection).\n  }\n  give collection.values at 0.\n}\npublic function remove[T](collection Queue[T]) giving failable Queue[T] {\n  give Queue[T](items.remove[T](collection.values, 0) try).\n}\npublic function release[T](collection Queue[T]) giving failable nothing {\n  items.release[T](collection.values) try.\n  give nothing.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/queue",
+        "path": "std/queue.iv",
+        "summary": "Stores typed values in first-in, first-out order.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "append",
+            "declaration": "public function append[T](collection Queue[T], value T) giving failable Queue[T].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "declaration": "public function create[T]() giving Queue[T].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "first",
+            "declaration": "public function first[T](collection Queue[T]) giving failable T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "declaration": "public function length[T](collection Queue[T]) giving unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "declaration": "public function release[T](collection Queue[T]) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "remove",
+            "declaration": "public function remove[T](collection Queue[T]) giving failable Queue[T].",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Queue",
+            "declaration": "public define Queue[T] as record {\n  values of type sequence of T.\n}.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

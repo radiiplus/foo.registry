@@ -1,0 +1,101 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/table",
+  "version": "0.5.0",
+  "description": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "table"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use table.",
+  "dependencies": [],
+  "readme": [
+    "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
+    "Import this module with use table."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "31e7e9ca0cd271aad01a7a7cd0dbe3fa36aee01458c66a9d9bbaf31e58c5842a",
+    "files": [
+      {
+        "path": "std/table.iv",
+        "content": "-- Mutable open-addressed maps for hot text-keyed lookup paths.\n-- Values are shallow-copied into backend-owned storage.\npublic define Table as opaque.\npublic use \"table\" function create[V]() giving failable pointer to Table.\npublic use \"table\" function put[V](collection pointer to Table, key text, value V) giving failable nothing.\npublic use \"table\" function get[V](collection pointer to Table, key text) giving failable V.\npublic use \"table\" function contains[V](collection pointer to Table, key text) giving failable boolean.\npublic use \"table\" function remove[V](collection pointer to Table, key text) giving failable boolean.\npublic use \"table\" function length[V](collection pointer to Table) giving failable unsigned.\npublic use \"table\" function close[V](collection pointer to Table) giving failable nothing.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/table",
+        "path": "std/table.iv",
+        "summary": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "close",
+            "declaration": "public use \"table\" function close[V](collection pointer to Table) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "contains",
+            "declaration": "public use \"table\" function contains[V](collection pointer to Table, key text) giving failable boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "declaration": "public use \"table\" function create[V]() giving failable pointer to Table.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "get",
+            "declaration": "public use \"table\" function get[V](collection pointer to Table, key text) giving failable V.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "declaration": "public use \"table\" function length[V](collection pointer to Table) giving failable unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "put",
+            "declaration": "public use \"table\" function put[V](collection pointer to Table, key text, value V) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "remove",
+            "declaration": "public use \"table\" function remove[V](collection pointer to Table, key text) giving failable boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Table",
+            "declaration": "public define Table as opaque.",
+            "documentation": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage."
+          }
+        ]
+      }
+    ]
+  }
+}

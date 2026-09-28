@@ -1,0 +1,107 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/crypto",
+  "version": "0.5.0",
+  "description": "Declares cryptography and secure random operations.",
+  "category": "standard library",
+  "tags": [
+    "crypto",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-28",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "b6ad331c300f7fb3b69f6121acc9a183b115ade6",
+  "install": "use crypto.",
+  "dependencies": [],
+  "readme": [
+    "Declares cryptography and secure random operations.",
+    "Import this module with use crypto."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "604e588c3721a5ac7d95b117a5e1cfa818e96bf50c16e3c4827133f35b4385db",
+    "files": [
+      {
+        "path": "std/crypto.iv",
+        "content": "-- Declares cryptography and secure random operations.\npublic use \"crypto\" function hash(value text) giving failable text.\npublic use \"crypto\" function random(size unsigned 32) giving failable text.\npublic use \"crypto\" function seal(value text, secret text, nonce text, extra text) giving failable text.\npublic use \"crypto\" function open(value text, secret text, nonce text, extra text) giving failable text.\npublic use \"crypto\" function key(seed text) giving failable text.\npublic use \"crypto\" function sign(value text, seed text) giving failable text.\npublic use \"crypto\" function verify(value text, signature text, signer text) giving boolean.\npublic use \"crypto\" function password(value text) giving failable text.\npublic use \"crypto\" function confirm(value text, encoded text) giving failable boolean.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/crypto",
+        "path": "std/crypto.iv",
+        "summary": "Declares cryptography and secure random operations.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "confirm",
+            "declaration": "public use \"crypto\" function confirm(value text, encoded text) giving failable boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "hash",
+            "declaration": "public use \"crypto\" function hash(value text) giving failable text.",
+            "documentation": "Declares cryptography and secure random operations."
+          },
+          {
+            "kind": "function",
+            "name": "key",
+            "declaration": "public use \"crypto\" function key(seed text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "open",
+            "declaration": "public use \"crypto\" function open(value text, secret text, nonce text, extra text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "password",
+            "declaration": "public use \"crypto\" function password(value text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "random",
+            "declaration": "public use \"crypto\" function random(size unsigned 32) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "seal",
+            "declaration": "public use \"crypto\" function seal(value text, secret text, nonce text, extra text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "sign",
+            "declaration": "public use \"crypto\" function sign(value text, seed text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "verify",
+            "declaration": "public use \"crypto\" function verify(value text, signature text, signer text) giving boolean.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -6,8 +6,11 @@ import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repository = resolve(here, "..");
-const workspace = resolve(repository, "..", "..");
-const standardRoot = resolve(process.argv[2] ?? join(workspace, "std"));
+const defaultWorkspace = resolve(repository, "..", "..");
+const standardRoot = resolve(process.argv[2] ?? join(defaultWorkspace, "std"));
+const workspace = process.argv[2]
+  ? execFileSync("git", ["-C", standardRoot, "rev-parse", "--show-toplevel"], { encoding: "utf8" }).trim()
+  : defaultWorkspace;
 const version = JSON.parse(await readFile(join(workspace, "package.json"), "utf8")).version;
 const revision = execFileSync("git", ["-C", workspace, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
 const updated = execFileSync("git", ["-C", workspace, "log", "-1", "--format=%cs", "--", "std"], { encoding: "utf8" }).trim();
@@ -77,7 +80,7 @@ function declarations(source) {
   for (let index = 0; index < lines.length; index += 1) {
     const trimmed = lines[index].trim();
     if (trimmed.startsWith("--")) {
-      const comment = trimmed.replace(/^---?!?\s?/, "").trim();
+      const comment = commentText(trimmed);
       if (comment) comments.push(comment);
       continue;
     }
@@ -125,10 +128,15 @@ function summary(source) {
       continue;
     }
     if (!trimmed.startsWith("--")) break;
-    const value = trimmed.replace(/^---?!?\s?/, "").trim();
+    if (trimmed.startsWith("---") && lines.length) break;
+    const value = commentText(trimmed);
     if (value) lines.push(value);
   }
   return lines.join(" ");
+}
+
+function commentText(value) {
+  return value.replace(/^---?!?\s?/, "").replace(/\s*---$/, "").trim();
 }
 
 function bundle(files) {
