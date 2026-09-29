@@ -1,0 +1,71 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/state",
+  "version": "0.6.0",
+  "description": "Applies application-defined transitions without adding state-machine syntax.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "state"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-29",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "24e003c28940d20edc2ff74e759e5854fb8cf4cc",
+  "install": "use state.",
+  "dependencies": [],
+  "readme": [
+    "Applies application-defined transitions without adding state-machine syntax.",
+    "Import this module with use state."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "5ed498313c0cb3c6a028bd30c804901a1367052374aef01b6819f8366c7c1afd",
+    "files": [
+      {
+        "path": "std/state.iv",
+        "content": "-- Applies application-defined transitions without adding state-machine syntax.\npublic define Machine[S, E] as record {\n  value of type S.\n  change of type function taking (S, E) giving failable S.\n}.\npublic function create[S, E](value S, change function taking (S, E) giving failable S) giving Machine[S, E] {\n  give Machine[S, E](value, change).\n}\npublic function step[S, E](machine Machine[S, E], event E) giving failable Machine[S, E] {\n  constant value is machine.change(machine.value, event) try.\n  give Machine[S, E](value, machine.change).\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/state",
+        "path": "std/state.iv",
+        "summary": "Applies application-defined transitions without adding state-machine syntax.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "create",
+            "declaration": "public function create[S, E](value S, change function taking (S, E) giving failable S) giving Machine[S, E].",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "step",
+            "declaration": "public function step[S, E](machine Machine[S, E], event E) giving failable Machine[S, E].",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Machine",
+            "declaration": "public define Machine[S, E] as record {\n  value of type S.\n  change of type function taking (S, E) giving failable S.\n}.",
+            "documentation": "Applies application-defined transitions without adding state-machine syntax."
+          }
+        ]
+      }
+    ]
+  }
+}

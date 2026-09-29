@@ -1,0 +1,65 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/transaction",
+  "version": "0.6.0",
+  "description": "Coordinates one-process transactions with rollback on propagated failure.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "transaction"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-29",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "24e003c28940d20edc2ff74e759e5854fb8cf4cc",
+  "install": "use transaction.",
+  "dependencies": [],
+  "readme": [
+    "Coordinates one-process transactions with rollback on propagated failure.",
+    "Import this module with use transaction."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "cb68408513a423df55336b6d295d4d472e26ad5eec67964b0660c375ed5f7429",
+    "files": [
+      {
+        "path": "std/transaction.iv",
+        "content": "-- Coordinates one-process transactions with rollback on propagated failure.\npublic define Participant as record {\n  prepare of type function giving failable nothing.\n  commit of type function giving failable nothing.\n  rollback of type function giving nothing.\n}.\npublic function execute(participant Participant, work function giving failable nothing) giving failable nothing {\n  constant Participant(prepare, commit, rollback) is participant.\n  prepare try.\n  after error {\n    rollback.\n  }\n  work try.\n  commit try.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/transaction",
+        "path": "std/transaction.iv",
+        "summary": "Coordinates one-process transactions with rollback on propagated failure.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "execute",
+            "declaration": "public function execute(participant Participant, work function giving failable nothing) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Participant",
+            "declaration": "public define Participant as record {\n  prepare of type function giving failable nothing.\n  commit of type function giving failable nothing.\n  rollback of type function giving nothing.\n}.",
+            "documentation": "Coordinates one-process transactions with rollback on propagated failure."
+          }
+        ]
+      }
+    ]
+  }
+}

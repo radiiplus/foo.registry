@@ -1,12 +1,12 @@
 {
   "schema": "foo.standard/v1",
-  "revision": "1278076eafc5c5ced4ad73690ae05a21fdc23539273e089560a89005491fade7",
-  "count": 47,
+  "revision": "52488ab64b90ffc57fa3748e5620c537278a63d8117dc07cbf8d36a5d9701580",
+  "count": 35,
   "packages": [
     {
       "kind": "standard",
       "name": "std/arch",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares guarded CPU intrinsics.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -30,13 +30,13 @@
               {
                 "kind": "function",
                 "name": "pause",
-                "declaration": "public use \"arch\" function pause() giving nothing.",
+                "declaration": "public use \"arch\" function pause giving nothing.",
                 "documentation": ""
               },
               {
                 "kind": "function",
                 "name": "ticks",
-                "declaration": "public use \"arch\" function ticks() giving unsigned.",
+                "declaration": "public use \"arch\" function ticks giving unsigned.",
                 "documentation": ""
               }
             ]
@@ -47,7 +47,7 @@
     {
       "kind": "standard",
       "name": "std/atomic",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares atomic values and memory ordering operations.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -117,61 +117,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/bits",
-      "version": "0.5.0",
-      "description": "Provides bit operations.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use bits.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/bits",
-            "path": "std/bits.iv",
-            "summary": "Provides bit operations.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "create",
-                "declaration": "public function create(size integer).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "disable",
-                "declaration": "public function disable(collection Bits, index integer).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "enable",
-                "declaration": "public function enable(collection Bits, index integer).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "enabled",
-                "declaration": "public function enabled(collection Bits, index integer).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Bits",
-                "declaration": "public define Bits as record {\n  data of type pointer to byte.\n  length of type integer.\n}.",
-                "documentation": "Provides bit operations. Bitset collection Efficient bit-level storage"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
       "name": "std/buffer",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares owned byte buffers.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -212,7 +159,7 @@
     {
       "kind": "standard",
       "name": "std/calendar",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Provides validated Gregorian dates and fixed UTC offsets.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -283,7 +230,7 @@
     {
       "kind": "standard",
       "name": "std/codec",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Defines explicit, reusable conversions between a value and text.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -324,7 +271,7 @@
     {
       "kind": "standard",
       "name": "std/compress",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares zlib and gzip compression.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -359,7 +306,7 @@
     {
       "kind": "standard",
       "name": "std/contract",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Checks application invariants with the runtime assertion mechanism.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -400,7 +347,7 @@
     {
       "kind": "standard",
       "name": "std/crypto",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares cryptography and secure random operations.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -476,143 +423,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/deque",
-      "version": "0.5.0",
-      "description": "Defines double-ended collections.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use deque.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/deque",
-            "path": "std/deque.iv",
-            "summary": "Defines double-ended collections.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "back",
-                "declaration": "public function back(collection Deque, value pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "create",
-                "declaration": "public function create().",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "front",
-                "declaration": "public function front(collection Deque, value pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "pop",
-                "declaration": "public function pop(collection Deque).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "shift",
-                "declaration": "public function shift(collection Deque).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Deque",
-                "declaration": "public define Deque as record {\n  data of type pointer to byte.\n  length of type integer.\n}.",
-                "documentation": "Defines double-ended collections. Double-ended queue Efficient insertion/removal at both ends"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
-      "name": "std/dl",
-      "version": "0.5.0",
-      "description": "Declares dynamic library loading.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use dl.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/dl",
-            "path": "std/dl.iv",
-            "summary": "Declares dynamic library loading.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "open",
-                "declaration": "public function open(path pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "symbol",
-                "declaration": "public function symbol(library pointer to Library, name pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "unload",
-                "declaration": "public function unload(library pointer to Library).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Library",
-                "declaration": "public define Library as opaque.",
-                "documentation": "Declares dynamic library loading. Portable dynamic library handles."
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
-      "name": "std/env",
-      "version": "0.5.0",
-      "description": "Provides environment access.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use env.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/env",
-            "path": "std/env.iv",
-            "summary": "Provides environment access.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "variable",
-                "declaration": "public function variable(key pointer to byte).",
-                "documentation": "Provides environment access. Environment variables Provides access to process environment"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
       "name": "std/file",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Opens files, transfers their contents, creates directories, and joins paths.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -629,20 +441,38 @@
             "items": [
               {
                 "kind": "function",
+                "name": "copy",
+                "declaration": "public use \"fs\" function copy(source text, destination text) giving failable nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
                 "name": "directory",
                 "declaration": "public use \"fs\" function directory(path text) giving failable nothing.",
                 "documentation": ""
               },
               {
                 "kind": "function",
+                "name": "exists",
+                "declaration": "public use \"fs\" function exists(path text) giving failable boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
                 "name": "flush",
                 "declaration": "public use \"fs\" function flush(stream pointer to streams.Stream) giving failable nothing.",
-                "documentation": "Advanced stream controls. Offsets are byte offsets; origin is start, current, or end."
+                "documentation": "Advanced stream controls. flush empties process buffers; sync also requests stable storage."
               },
               {
                 "kind": "function",
                 "name": "join",
                 "declaration": "public use \"fs\" function join(left text, right text) giving failable text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "kind",
+                "declaration": "public use \"fs\" function kind(path text) giving failable text.",
                 "documentation": ""
               },
               {
@@ -665,6 +495,30 @@
               },
               {
                 "kind": "function",
+                "name": "readbytes",
+                "declaration": "public use \"fs\" function readbytes(path text) giving failable sequence of byte.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "releasebytes",
+                "declaration": "public use \"fs\" function releasebytes(content sequence of byte) giving failable nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "remove",
+                "declaration": "public use \"fs\" function remove(path text) giving failable nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "replace",
+                "declaration": "public use \"fs\" function replace(source text, destination text) giving failable nothing.",
+                "documentation": "Replaces destination atomically on the same filesystem and makes the directory update durable."
+              },
+              {
+                "kind": "function",
                 "name": "seek",
                 "declaration": "public use \"fs\" function seek(stream pointer to streams.Stream, offset integer, origin text) giving failable nothing.",
                 "documentation": ""
@@ -677,97 +531,27 @@
               },
               {
                 "kind": "function",
+                "name": "sync",
+                "declaration": "public use \"fs\" function sync(stream pointer to streams.Stream) giving failable nothing.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "working",
+                "declaration": "public use \"fs\" function working giving failable text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
                 "name": "write",
                 "declaration": "public use \"fs\" function write(path text, content text) giving failable nothing.",
                 "documentation": ""
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
-      "name": "std/format",
-      "version": "0.5.0",
-      "description": "Provides text formatting.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use format.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/format",
-            "path": "std/format.iv",
-            "summary": "Provides text formatting.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "format",
-                "declaration": "public function format(buffer pointer to byte, size integer, template pointer to byte).",
-                "documentation": "Provides text formatting. Formatting and parsing Type-safe string formatting"
               },
               {
                 "kind": "function",
-                "name": "parse",
-                "declaration": "public function parse(content pointer to byte).",
+                "name": "writebytes",
+                "declaration": "public use \"fs\" function writebytes(path text, content sequence of byte) giving failable nothing.",
                 "documentation": ""
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
-      "name": "std/heap",
-      "version": "0.5.0",
-      "description": "Provides heap allocation.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use heap.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/heap",
-            "path": "std/heap.iv",
-            "summary": "Provides heap allocation.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "create",
-                "declaration": "public function create().",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "extract",
-                "declaration": "public function extract(collection Heap).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "insert",
-                "declaration": "public function insert(collection Heap, value pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "peek",
-                "declaration": "public function peek(collection Heap).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Heap",
-                "declaration": "public define Heap as record {\n  data of type pointer to byte.\n  length of type integer.\n}.",
-                "documentation": "Provides heap allocation. Priority queue (heap) Efficient priority-based retrieval"
               }
             ]
           }
@@ -777,7 +561,7 @@
     {
       "kind": "standard",
       "name": "std/http",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares HTTP clients and servers.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -819,7 +603,7 @@
               {
                 "kind": "function",
                 "name": "client",
-                "declaration": "public use \"http\" function client() giving failable pointer to Client.",
+                "declaration": "public use \"http\" function client giving failable pointer to Client.",
                 "documentation": ""
               },
               {
@@ -949,61 +733,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/index",
-      "version": "0.5.0",
-      "description": "Exports standard library modules.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use index.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/index",
-            "path": "std/index.iv",
-            "summary": "Exports standard library modules.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "create",
-                "declaration": "public function create().",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "known",
-                "declaration": "public function known(collection Index, key pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "lookup",
-                "declaration": "public function lookup(collection Index, key pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "register",
-                "declaration": "public function register(collection Index, key pointer to byte, value pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Index",
-                "declaration": "public define Index as record {\n  data of type pointer to byte.\n  size of type integer.\n}.",
-                "documentation": "Exports standard library modules. String-keyed map Fast text-based lookup"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
       "name": "std/io",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Reads and writes text through standard streams and open files.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1039,7 +770,7 @@
               {
                 "kind": "function",
                 "name": "input",
-                "declaration": "public use \"io\" function input() giving pointer to Stream.",
+                "declaration": "public use \"io\" function input giving pointer to Stream.",
                 "documentation": ""
               },
               {
@@ -1051,7 +782,7 @@
               {
                 "kind": "function",
                 "name": "output",
-                "declaration": "public use \"io\" function output() giving pointer to Stream.",
+                "declaration": "public use \"io\" function output giving pointer to Stream.",
                 "documentation": ""
               },
               {
@@ -1063,7 +794,7 @@
               {
                 "kind": "function",
                 "name": "report",
-                "declaration": "public use \"io\" function report() giving pointer to Stream.",
+                "declaration": "public use \"io\" function report giving pointer to Stream.",
                 "documentation": ""
               },
               {
@@ -1086,7 +817,7 @@
     {
       "kind": "standard",
       "name": "std/iterator",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Defines explicit, state-carrying iteration for user-defined sources.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1151,7 +882,7 @@
     {
       "kind": "standard",
       "name": "std/json",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares JSON trees and streaming tokens.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1247,7 +978,7 @@
               {
                 "kind": "function",
                 "name": "stream",
-                "declaration": "public use \"json\" function stream() giving failable pointer to Stream.",
+                "declaration": "public use \"json\" function stream giving failable pointer to Stream.",
                 "documentation": ""
               },
               {
@@ -1276,7 +1007,7 @@
     {
       "kind": "standard",
       "name": "std/list",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares growable lists of borrowed byte pointers.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1300,7 +1031,7 @@
               {
                 "kind": "function",
                 "name": "create",
-                "declaration": "public use \"list\" function create() giving failable pointer to List.",
+                "declaration": "public use \"list\" function create giving failable pointer to List.",
                 "documentation": ""
               },
               {
@@ -1335,7 +1066,7 @@
     {
       "kind": "standard",
       "name": "std/log",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Writes application messages and errors to the diagnostic stream.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1382,7 +1113,7 @@
     {
       "kind": "standard",
       "name": "std/map",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Stores typed key/value pairs with equality-based lookup.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1406,13 +1137,19 @@
               {
                 "kind": "function",
                 "name": "create",
-                "declaration": "public function create[K, V]() giving Map[K, V].",
+                "declaration": "public function create[K, V] giving Map[K, V].",
                 "documentation": ""
               },
               {
                 "kind": "function",
                 "name": "get",
                 "declaration": "public function get[K, V](collection Map[K, V], key K) giving failable V where K is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "keys",
+                "declaration": "public function keys[K, V](collection Map[K, V]) giving failable sequence of K.",
                 "documentation": ""
               },
               {
@@ -1440,6 +1177,12 @@
                 "documentation": ""
               },
               {
+                "kind": "function",
+                "name": "values",
+                "declaration": "public function values[K, V](collection Map[K, V]) giving failable sequence of V.",
+                "documentation": ""
+              },
+              {
                 "kind": "type",
                 "name": "Entry",
                 "declaration": "public define Entry[K, V] as record {\n  key of type K.\n  value of type V.\n}.",
@@ -1459,7 +1202,7 @@
     {
       "kind": "standard",
       "name": "std/memory",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares owned allocations and grouped arena lifetimes.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1483,7 +1226,7 @@
               {
                 "kind": "function",
                 "name": "arena",
-                "declaration": "public use \"memory\" function arena() giving failable pointer to Allocator.",
+                "declaration": "public use \"memory\" function arena giving failable pointer to Allocator.",
                 "documentation": ""
               },
               {
@@ -1531,7 +1274,7 @@
               {
                 "kind": "function",
                 "name": "system",
-                "declaration": "public use \"memory\" function system() giving pointer to Allocator.",
+                "declaration": "public use \"memory\" function system giving pointer to Allocator.",
                 "documentation": ""
               },
               {
@@ -1560,7 +1303,7 @@
     {
       "kind": "standard",
       "name": "std/net",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Opens TCP connections and transfers bytes with explicit connection lifetimes.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1654,192 +1397,9 @@
     },
     {
       "kind": "standard",
-      "name": "std/os/unix",
-      "version": "0.5.0",
-      "description": "Declares Unix platform operations.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use \"os/unix\".",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/os/unix",
-            "path": "std/os/unix.iv",
-            "summary": "Declares Unix platform operations.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "mmap",
-                "declaration": "public function mmap(size integer).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "munmap",
-                "declaration": "public function munmap(mapping pointer to Map).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "pipe",
-                "declaration": "public function pipe().",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "signal",
-                "declaration": "public function signal(number integer 32).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Map",
-                "declaration": "public define Map as opaque.",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Pipe",
-                "declaration": "public define Pipe as opaque.",
-                "documentation": "Declares Unix platform operations. Unix pipes, signals, and memory mapping handles."
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
-      "name": "std/os/windows",
-      "version": "0.5.0",
-      "description": "Declares Windows platform operations.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use \"os/windows\".",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/os/windows",
-            "path": "std/os/windows.iv",
-            "summary": "Declares Windows platform operations.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "handle",
-                "declaration": "public function handle().",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "process",
-                "declaration": "public function process(command pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "registry",
-                "declaration": "public function registry(path pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "release",
-                "declaration": "public function release(handle pointer to Handle).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "winrt",
-                "declaration": "public function winrt(class pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Handle",
-                "declaration": "public define Handle as opaque.",
-                "documentation": "Declares Windows platform operations. Windows-only handles with portable FOO names."
-              },
-              {
-                "kind": "type",
-                "name": "Registry",
-                "declaration": "public define Registry as opaque.",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Winrt",
-                "declaration": "public define Winrt as opaque.",
-                "documentation": ""
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
-      "name": "std/path",
-      "version": "0.5.0",
-      "description": "Provides filesystem path operations.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use path.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/path",
-            "path": "std/path.iv",
-            "summary": "Provides filesystem path operations.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "absolute",
-                "declaration": "public function absolute(path pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "merge",
-                "declaration": "public function merge(first pointer to byte, second pointer to byte).",
-                "documentation": "Provides filesystem path operations."
-              },
-              {
-                "kind": "function",
-                "name": "name",
-                "declaration": "public function name(path pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "parent",
-                "declaration": "public function parent(path pointer to byte).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "suffix",
-                "declaration": "public function suffix(path pointer to byte).",
-                "documentation": ""
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
       "name": "std/process",
-      "version": "0.5.0",
-      "description": "Runs shell commands and reads process arguments and environment values.",
+      "version": "0.6.0",
+      "description": "Executes programs, runs shell commands, and reads arguments and environment values.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
         "login": "radiiplus"
@@ -1851,7 +1411,7 @@
           {
             "name": "std/process",
             "path": "std/process.iv",
-            "summary": "Runs shell commands and reads process arguments and environment values.",
+            "summary": "Executes programs, runs shell commands, and reads arguments and environment values.",
             "items": [
               {
                 "kind": "function",
@@ -1862,7 +1422,7 @@
               {
                 "kind": "function",
                 "name": "count",
-                "declaration": "public use \"process\" function count() giving unsigned.",
+                "declaration": "public use \"process\" function count giving unsigned.",
                 "documentation": ""
               },
               {
@@ -1873,9 +1433,15 @@
               },
               {
                 "kind": "function",
+                "name": "execute",
+                "declaration": "public use \"process\" function execute(program text, arguments sequence of text) giving failable unsigned.",
+                "documentation": "Executes a program directly. Each sequence item is passed as one argument."
+              },
+              {
+                "kind": "function",
                 "name": "run",
                 "declaration": "public use \"process\" function run(command text) giving failable unsigned.",
-                "documentation": "Runs shell commands and reads process arguments and environment values."
+                "documentation": "Executes programs, runs shell commands, and reads arguments and environment values."
               }
             ]
           }
@@ -1885,7 +1451,7 @@
     {
       "kind": "standard",
       "name": "std/queue",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Stores typed values in first-in, first-out order.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1909,7 +1475,7 @@
               {
                 "kind": "function",
                 "name": "create",
-                "declaration": "public function create[T]() giving Queue[T].",
+                "declaration": "public function create[T] giving Queue[T].",
                 "documentation": ""
               },
               {
@@ -1949,55 +1515,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/random",
-      "version": "0.5.0",
-      "description": "Provides random values.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use random.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/random",
-            "path": "std/random.iv",
-            "summary": "Provides random values.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "bytes",
-                "declaration": "public function bytes(rng Random, buffer pointer to byte, size integer).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "default",
-                "declaration": "public function default().",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "number",
-                "declaration": "public function number(rng Random, minimum integer, maximum integer).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Random",
-                "declaration": "public define Random as record {\n  state of type pointer to byte.\n}.",
-                "documentation": "Provides random values. Random number generation OS-backed and PRNG implementations"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
       "name": "std/sequence",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Builds typed sequences and applies ordering, searching, and transformations.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2014,6 +1533,18 @@
             "items": [
               {
                 "kind": "function",
+                "name": "all",
+                "declaration": "public function all[T](items sequence of T, predicate function taking (T) giving boolean) giving boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "any",
+                "declaration": "public function any[T](items sequence of T, predicate function taking (T) giving boolean) giving boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
                 "name": "append",
                 "declaration": "public use \"sequence\" function append[T](items sequence of T, value T) giving failable sequence of T.",
                 "documentation": ""
@@ -2027,7 +1558,7 @@
               {
                 "kind": "function",
                 "name": "create",
-                "declaration": "public use \"sequence\" function create[T]() giving sequence of T.",
+                "declaration": "public use \"sequence\" function create[T] giving sequence of T.",
                 "documentation": "Builds typed sequences and applies ordering, searching, and transformations."
               },
               {
@@ -2044,6 +1575,12 @@
               },
               {
                 "kind": "function",
+                "name": "drop",
+                "declaration": "public function drop[T](items sequence of T, count unsigned) giving failable sequence of T.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
                 "name": "filter",
                 "declaration": "public function filter[T](items sequence of T, predicate function taking (T) giving boolean) giving failable sequence of T.",
                 "documentation": ""
@@ -2052,6 +1589,12 @@
                 "kind": "function",
                 "name": "find",
                 "declaration": "public function find[T](items sequence of T, value T) giving optional unsigned where T is Equatable.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "fold",
+                "declaration": "public function fold[T, U](items sequence of T, initial U, combine function taking (U, T) giving U) giving U.",
                 "documentation": ""
               },
               {
@@ -2080,6 +1623,12 @@
               },
               {
                 "kind": "function",
+                "name": "reverse",
+                "declaration": "public function reverse[T](items sequence of T) giving failable sequence of T.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
                 "name": "sized",
                 "declaration": "public use \"sequence\" function sized[T](length unsigned) giving failable sequence of T.",
                 "documentation": ""
@@ -2088,6 +1637,12 @@
                 "kind": "function",
                 "name": "sort",
                 "declaration": "public function sort[T](items sequence of T) giving failable sequence of T where T is Ord.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "take",
+                "declaration": "public function take[T](items sequence of T, count unsigned) giving failable sequence of T.",
                 "documentation": ""
               }
             ]
@@ -2098,7 +1653,7 @@
     {
       "kind": "standard",
       "name": "std/set",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Keeps each typed value once using equality-based membership.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2122,7 +1677,7 @@
               {
                 "kind": "function",
                 "name": "create",
-                "declaration": "public function create[T]() giving Set[T].",
+                "declaration": "public function create[T] giving Set[T].",
                 "documentation": ""
               },
               {
@@ -2163,7 +1718,7 @@
     {
       "kind": "standard",
       "name": "std/stack",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Stores typed values in last-in, first-out order.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2181,7 +1736,7 @@
               {
                 "kind": "function",
                 "name": "create",
-                "declaration": "public function create[T]() giving Stack[T].",
+                "declaration": "public function create[T] giving Stack[T].",
                 "documentation": ""
               },
               {
@@ -2228,7 +1783,7 @@
     {
       "kind": "standard",
       "name": "std/state",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Applies application-defined transitions without adding state-machine syntax.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2269,7 +1824,7 @@
     {
       "kind": "standard",
       "name": "std/stream",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares length-aware input, output and diagnostic streams.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2293,13 +1848,13 @@
               {
                 "kind": "function",
                 "name": "input",
-                "declaration": "public use \"stream\" function input() giving pointer to Stream.",
+                "declaration": "public use \"stream\" function input giving pointer to Stream.",
                 "documentation": ""
               },
               {
                 "kind": "function",
                 "name": "output",
-                "declaration": "public use \"stream\" function output() giving pointer to Stream.",
+                "declaration": "public use \"stream\" function output giving pointer to Stream.",
                 "documentation": ""
               },
               {
@@ -2317,7 +1872,7 @@
               {
                 "kind": "function",
                 "name": "report",
-                "declaration": "public use \"stream\" function report() giving pointer to Stream.",
+                "declaration": "public use \"stream\" function report giving pointer to Stream.",
                 "documentation": ""
               },
               {
@@ -2339,79 +1894,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/sync",
-      "version": "0.5.0",
-      "description": "Provides synchronization primitives.",
-      "owner": {
-        "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
-        "login": "radiiplus"
-      },
-      "install": "use sync.",
-      "api": {
-        "schema": "foo.api/v1",
-        "modules": [
-          {
-            "name": "std/sync",
-            "path": "std/sync.iv",
-            "summary": "Provides synchronization primitives.",
-            "items": [
-              {
-                "kind": "function",
-                "name": "lock",
-                "declaration": "public function lock(handle Mutex).",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "mutex",
-                "declaration": "public function mutex().",
-                "documentation": ""
-              },
-              {
-                "kind": "function",
-                "name": "unlock",
-                "declaration": "public function unlock(handle Mutex).",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Condition",
-                "declaration": "public define Condition as record {\n  handle of type pointer to byte.\n}.",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Group",
-                "declaration": "public define Group as record {\n  handle of type pointer to byte.\n}.",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Mutex",
-                "declaration": "public define Mutex as record {\n  handle of type pointer to byte.\n}.",
-                "documentation": "Provides synchronization primitives. Synchronization primitives Mutexes, condition variables, semaphores"
-              },
-              {
-                "kind": "type",
-                "name": "Once",
-                "declaration": "public define Once as record {\n  handle of type pointer to byte.\n}.",
-                "documentation": ""
-              },
-              {
-                "kind": "type",
-                "name": "Semaphore",
-                "declaration": "public define Semaphore as record {\n  handle of type pointer to byte.\n}.",
-                "documentation": ""
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "kind": "standard",
       "name": "std/system",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares host system information.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2429,19 +1913,19 @@
               {
                 "kind": "function",
                 "name": "cores",
-                "declaration": "public use \"system\" function cores() giving failable unsigned 32.",
+                "declaration": "public use \"system\" function cores giving failable unsigned 32.",
                 "documentation": "Declares host system information."
               },
               {
                 "kind": "function",
                 "name": "host",
-                "declaration": "public use \"system\" function host() giving failable text.",
+                "declaration": "public use \"system\" function host giving failable text.",
                 "documentation": ""
               },
               {
                 "kind": "function",
                 "name": "page",
-                "declaration": "public use \"system\" function page() giving unsigned.",
+                "declaration": "public use \"system\" function page giving unsigned.",
                 "documentation": ""
               }
             ]
@@ -2452,7 +1936,7 @@
     {
       "kind": "standard",
       "name": "std/table",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2482,7 +1966,7 @@
               {
                 "kind": "function",
                 "name": "create",
-                "declaration": "public use \"table\" function create[V]() giving failable pointer to Table.",
+                "declaration": "public use \"table\" function create[V] giving failable pointer to Table.",
                 "documentation": ""
               },
               {
@@ -2523,7 +2007,7 @@
     {
       "kind": "standard",
       "name": "std/task",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares task execution and networking.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2547,19 +2031,19 @@
               {
                 "kind": "function",
                 "name": "backend",
-                "declaration": "public use \"task\" function backend() giving integer 8.",
+                "declaration": "public use \"task\" function backend giving integer 8.",
                 "documentation": ""
               },
               {
                 "kind": "function",
                 "name": "block",
-                "declaration": "public use \"task\" function block(callback function taking () giving nothing for c) giving nothing.",
+                "declaration": "public use \"task\" function block(callback function giving nothing for c) giving nothing.",
                 "documentation": ""
               },
               {
                 "kind": "function",
                 "name": "channel",
-                "declaration": "public use \"task\" function channel() giving failable pointer to Channel.",
+                "declaration": "public use \"task\" function channel giving failable pointer to Channel.",
                 "documentation": ""
               },
               {
@@ -2571,7 +2055,7 @@
               {
                 "kind": "function",
                 "name": "executor",
-                "declaration": "public use \"task\" function executor() giving failable pointer to Executor.",
+                "declaration": "public use \"task\" function executor giving failable pointer to Executor.",
                 "documentation": ""
               },
               {
@@ -2613,7 +2097,7 @@
               {
                 "kind": "function",
                 "name": "pool",
-                "declaration": "public use \"task\" function pool() giving failable pointer to Pool.",
+                "declaration": "public use \"task\" function pool giving failable pointer to Pool.",
                 "documentation": ""
               },
               {
@@ -2637,7 +2121,7 @@
               {
                 "kind": "function",
                 "name": "scope",
-                "declaration": "public use \"task\" function scope() giving failable pointer to Scope.",
+                "declaration": "public use \"task\" function scope giving failable pointer to Scope.",
                 "documentation": ""
               },
               {
@@ -2661,7 +2145,7 @@
               {
                 "kind": "function",
                 "name": "which",
-                "declaration": "public use \"task\" function which() giving pointer to byte.",
+                "declaration": "public use \"task\" function which giving pointer to byte.",
                 "documentation": ""
               },
               {
@@ -2708,7 +2192,7 @@
     {
       "kind": "standard",
       "name": "std/testing",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares executable test assertions.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2785,7 +2269,7 @@
     {
       "kind": "standard",
       "name": "std/text",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2804,6 +2288,18 @@
                 "kind": "function",
                 "name": "concatenate",
                 "declaration": "public use \"text\" function concatenate(left text, right text) giving failable text.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "contains",
+                "declaration": "public function contains(content text, value text) giving boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "ends",
+                "declaration": "public function ends(content text, suffix text) giving boolean.",
                 "documentation": ""
               },
               {
@@ -2838,6 +2334,12 @@
               },
               {
                 "kind": "function",
+                "name": "starts",
+                "declaration": "public function starts(content text, prefix text) giving boolean.",
+                "documentation": ""
+              },
+              {
+                "kind": "function",
                 "name": "trim",
                 "declaration": "public use \"text\" function trim(content text) giving failable text.",
                 "documentation": ""
@@ -2850,7 +2352,7 @@
     {
       "kind": "standard",
       "name": "std/thread",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Runs function-valued tasks and coordinates shared work with locks and conditions.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2874,7 +2376,7 @@
               {
                 "kind": "function",
                 "name": "condition",
-                "declaration": "public use \"thread\" function condition() giving failable pointer to Condition.",
+                "declaration": "public use \"thread\" function condition giving failable pointer to Condition.",
                 "documentation": ""
               },
               {
@@ -2886,7 +2388,7 @@
               {
                 "kind": "function",
                 "name": "mutex",
-                "declaration": "public use \"thread\" function mutex() giving failable pointer to Mutex.",
+                "declaration": "public use \"thread\" function mutex giving failable pointer to Mutex.",
                 "documentation": ""
               },
               {
@@ -2904,7 +2406,7 @@
               {
                 "kind": "function",
                 "name": "spawn",
-                "declaration": "public use \"thread\" function spawn(task function taking () giving nothing) giving failable pointer to Thread.",
+                "declaration": "public use \"thread\" function spawn(task function giving nothing) giving failable pointer to Thread.",
                 "documentation": ""
               },
               {
@@ -2945,7 +2447,7 @@
     {
       "kind": "standard",
       "name": "std/time",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Measures elapsed time using a monotonic nanosecond clock.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2963,7 +2465,7 @@
               {
                 "kind": "function",
                 "name": "current",
-                "declaration": "public use \"time\" function current() giving failable unsigned.",
+                "declaration": "public use \"time\" function current giving failable unsigned.",
                 "documentation": ""
               },
               {
@@ -2975,7 +2477,7 @@
               {
                 "kind": "function",
                 "name": "measure",
-                "declaration": "public function measure(task function taking () giving nothing) giving failable unsigned.",
+                "declaration": "public function measure(task function giving nothing) giving failable unsigned.",
                 "documentation": ""
               },
               {
@@ -2993,7 +2495,7 @@
               {
                 "kind": "function",
                 "name": "now",
-                "declaration": "public function now() giving failable Instant.",
+                "declaration": "public function now giving failable Instant.",
                 "documentation": ""
               },
               {
@@ -3034,7 +2536,7 @@
     {
       "kind": "standard",
       "name": "std/transaction",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Coordinates one-process transactions with rollback on propagated failure.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -3052,13 +2554,13 @@
               {
                 "kind": "function",
                 "name": "execute",
-                "declaration": "public function execute(participant Participant, work function taking () giving failable nothing) giving failable nothing.",
+                "declaration": "public function execute(participant Participant, work function giving failable nothing) giving failable nothing.",
                 "documentation": ""
               },
               {
                 "kind": "type",
                 "name": "Participant",
-                "declaration": "public define Participant as record {\n  prepare of type function taking () giving failable nothing.\n  commit of type function taking () giving failable nothing.\n  rollback of type function taking () giving nothing.\n}.",
+                "declaration": "public define Participant as record {\n  prepare of type function giving failable nothing.\n  commit of type function giving failable nothing.\n  rollback of type function giving nothing.\n}.",
                 "documentation": "Coordinates one-process transactions with rollback on propagated failure."
               }
             ]
@@ -3069,7 +2571,7 @@
     {
       "kind": "standard",
       "name": "std/unicode",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Declares Unicode validation and conversion.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -3140,7 +2642,7 @@
     {
       "kind": "standard",
       "name": "std/units",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "Keeps values from unrelated physical dimensions in distinct generic types.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",

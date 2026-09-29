@@ -1,0 +1,167 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/sequence",
+  "version": "0.6.0",
+  "description": "Builds typed sequences and applies ordering, searching, and transformations.",
+  "category": "standard library",
+  "tags": [
+    "sequence",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-29",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "24e003c28940d20edc2ff74e759e5854fb8cf4cc",
+  "install": "use sequence.",
+  "dependencies": [],
+  "readme": [
+    "Builds typed sequences and applies ordering, searching, and transformations.",
+    "Import this module with use sequence."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "83eef81bfd8d51282742c96f1c834a01258536f6a67b470e856d37bb3fc3bfa3",
+    "files": [
+      {
+        "path": "std/sequence.iv",
+        "content": "-- Builds typed sequences and applies ordering, searching, and transformations.\npublic use \"sequence\" function create[T] giving sequence of T.\npublic use \"sequence\" function append[T](items sequence of T, value T) giving failable sequence of T.\npublic use \"sequence\" function remove[T](items sequence of T, index unsigned) giving failable sequence of T.\npublic use \"sequence\" function copy[T](items sequence of T) giving failable sequence of T.\npublic use \"sequence\" function length[T](items sequence of T) giving unsigned.\npublic use \"sequence\" function release[T](items sequence of T) giving failable nothing.\npublic use \"sequence\" function sized[T](length unsigned) giving failable sequence of T.\nuse \"sequence\" function compact[T](items sequence of T, length unsigned) giving failable sequence of T.\npublic function find[T](items sequence of T, value T) giving optional unsigned where T is Equatable {\n  dynamic index of type unsigned is 0.\n  for each item in items {\n    when item is value {\n      give index.\n    }\n    set index to index plus 1.\n  }\n  give null.\n}\npublic function sort[T](items sequence of T) giving failable sequence of T where T is Ord {\n  dynamic result is copy[T](items) try.\n  dynamic index of type unsigned is 1.\n  while index less than length[T](result) {\n    constant value is result at index.\n    dynamic cursor is index.\n    while cursor greater than 0 {\n      when result at (cursor subtract 1) greater than value {\n        set result at cursor to result at (cursor subtract 1).\n        set cursor to cursor subtract 1.\n      } otherwise {\n        stop.\n      }\n    }\n    set result at cursor to value.\n    set index to index plus 1.\n  }\n  give result.\n}\npublic function filter[T](items sequence of T, predicate function taking (T) giving boolean) giving failable sequence of T {\n  dynamic result is sized[T](length[T](items)) try.\n  after error {\n    release[T](result) fallback nothing.\n  }\n  dynamic count of type unsigned is 0.\n  for each item in items {\n    when predicate(item) {\n      set result at count to item.\n      set count to count plus 1.\n    }\n  }\n  give compact[T](result, count) try.\n}\npublic function map[T, U](items sequence of T, transform function taking (T) giving U) giving failable sequence of U {\n  dynamic result is sized[U](length[T](items)) try.\n  after error {\n    release[U](result) fallback nothing.\n  }\n  dynamic index is 0.\n  for each item in items {\n    set result at index to transform(item).\n    set index to index plus 1.\n  }\n  give result.\n}\npublic function reverse[T](items sequence of T) giving failable sequence of T {\n  constant count is length[T](items).\n  dynamic result is sized[T](count) try.\n  after error { release[T](result) fallback nothing. }\n  dynamic index of type unsigned is 0.\n  while index less than count {\n    set result at index to items at (count subtract index subtract 1).\n    increase index by 1.\n  }\n  give result.\n}\npublic function any[T](items sequence of T, predicate function taking (T) giving boolean) giving boolean {\n  for each item in items {\n    when predicate(item) { give true. }\n  }\n  give false.\n}\npublic function all[T](items sequence of T, predicate function taking (T) giving boolean) giving boolean {\n  for each item in items {\n    when not predicate(item) { give false. }\n  }\n  give true.\n}\npublic function fold[T, U](items sequence of T, initial U, combine function taking (U, T) giving U) giving U {\n  dynamic result is initial.\n  for each item in items {\n    set result to combine(result, item).\n  }\n  give result.\n}\npublic function take[T](items sequence of T, count unsigned) giving failable sequence of T {\n  when count greater than length[T](items) { give fail(Error.Bounds). }\n  dynamic result is sized[T](count) try.\n  after error { release[T](result) fallback nothing. }\n  dynamic index of type unsigned is 0.\n  while index less than count {\n    set result at index to items at index.\n    increase index by 1.\n  }\n  give result.\n}\npublic function drop[T](items sequence of T, count unsigned) giving failable sequence of T {\n  when count greater than length[T](items) { give fail(Error.Bounds). }\n  constant remaining is length[T](items) subtract count.\n  dynamic result is sized[T](remaining) try.\n  after error { release[T](result) fallback nothing. }\n  dynamic index of type unsigned is 0.\n  while index less than remaining {\n    set result at index to items at (count plus index).\n    increase index by 1.\n  }\n  give result.\n}\npublic function deduplicate[T](items sequence of T) giving failable sequence of T where T is Equatable {\n  dynamic result is sized[T](length[T](items)) try.\n  after error {\n    release[T](result) fallback nothing.\n  }\n  dynamic count of type unsigned is 0.\n  for each item in items {\n    dynamic present is false.\n    dynamic cursor of type unsigned is 0.\n    while cursor less than count {\n      when result at cursor is item {\n        set present to true.\n        stop.\n      }\n      set cursor to cursor plus 1.\n    }\n    when not present {\n      set result at count to item.\n      set count to count plus 1.\n    }\n  }\n  give compact[T](result, count) try.\n}\npublic function dedup[T](items sequence of T) giving failable sequence of T where T is Equatable {\n  give deduplicate[T](items) try.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/sequence",
+        "path": "std/sequence.iv",
+        "summary": "Builds typed sequences and applies ordering, searching, and transformations.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "all",
+            "declaration": "public function all[T](items sequence of T, predicate function taking (T) giving boolean) giving boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "any",
+            "declaration": "public function any[T](items sequence of T, predicate function taking (T) giving boolean) giving boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "append",
+            "declaration": "public use \"sequence\" function append[T](items sequence of T, value T) giving failable sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "copy",
+            "declaration": "public use \"sequence\" function copy[T](items sequence of T) giving failable sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "declaration": "public use \"sequence\" function create[T] giving sequence of T.",
+            "documentation": "Builds typed sequences and applies ordering, searching, and transformations."
+          },
+          {
+            "kind": "function",
+            "name": "dedup",
+            "declaration": "public function dedup[T](items sequence of T) giving failable sequence of T where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "deduplicate",
+            "declaration": "public function deduplicate[T](items sequence of T) giving failable sequence of T where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "drop",
+            "declaration": "public function drop[T](items sequence of T, count unsigned) giving failable sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "filter",
+            "declaration": "public function filter[T](items sequence of T, predicate function taking (T) giving boolean) giving failable sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "find",
+            "declaration": "public function find[T](items sequence of T, value T) giving optional unsigned where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "fold",
+            "declaration": "public function fold[T, U](items sequence of T, initial U, combine function taking (U, T) giving U) giving U.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "declaration": "public use \"sequence\" function length[T](items sequence of T) giving unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "map",
+            "declaration": "public function map[T, U](items sequence of T, transform function taking (T) giving U) giving failable sequence of U.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "declaration": "public use \"sequence\" function release[T](items sequence of T) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "remove",
+            "declaration": "public use \"sequence\" function remove[T](items sequence of T, index unsigned) giving failable sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "reverse",
+            "declaration": "public function reverse[T](items sequence of T) giving failable sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "sized",
+            "declaration": "public use \"sequence\" function sized[T](length unsigned) giving failable sequence of T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "sort",
+            "declaration": "public function sort[T](items sequence of T) giving failable sequence of T where T is Ord.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "take",
+            "declaration": "public function take[T](items sequence of T, count unsigned) giving failable sequence of T.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

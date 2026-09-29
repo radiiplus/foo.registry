@@ -1,7 +1,7 @@
 {
   "schema": "foo.registry/v1",
-  "revision": "2935765a40fd0ab2a2e6160cfa3925a1014bf935fdb6f05bc27552dd6b4e007f",
-  "count": 47,
+  "revision": "7a7b1e8eed0d4702ed5a54db9b3a15c7115c19dc3a57a8250f49044f42458e3c",
+  "count": 35,
   "order": [
     "category",
     "name"
@@ -10,7 +10,7 @@
   "shards": [
     {
       "path": "indexes/index-000001.jsonl",
-      "count": 47,
+      "count": 35,
       "first": {
         "category": "standard library",
         "name": "std/arch"

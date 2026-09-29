@@ -1,0 +1,89 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/list",
+  "version": "0.6.0",
+  "description": "Declares growable lists of borrowed byte pointers.",
+  "category": "standard library",
+  "tags": [
+    "list",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-29",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "24e003c28940d20edc2ff74e759e5854fb8cf4cc",
+  "install": "use list.",
+  "dependencies": [],
+  "readme": [
+    "Declares growable lists of borrowed byte pointers.",
+    "Import this module with use list."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "02ae36905a5cd98e0130ce2faaf6e7c106b64ab7bbff30c452e63c9879779a70",
+    "files": [
+      {
+        "path": "std/list.iv",
+        "content": "-- Declares growable lists of borrowed byte pointers.\npublic define List as opaque.\npublic use \"list\" function create giving failable pointer to List.\npublic use \"list\" function push(collection pointer to List, item pointer to byte) giving failable nothing.\npublic use \"list\" function get(collection pointer to List, index unsigned) giving failable pointer to byte.\npublic use \"list\" function length(collection pointer to List) giving failable unsigned.\npublic use \"list\" function close(collection pointer to List) giving failable nothing.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/list",
+        "path": "std/list.iv",
+        "summary": "Declares growable lists of borrowed byte pointers.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "close",
+            "declaration": "public use \"list\" function close(collection pointer to List) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "create",
+            "declaration": "public use \"list\" function create giving failable pointer to List.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "get",
+            "declaration": "public use \"list\" function get(collection pointer to List, index unsigned) giving failable pointer to byte.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "length",
+            "declaration": "public use \"list\" function length(collection pointer to List) giving failable unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "push",
+            "declaration": "public use \"list\" function push(collection pointer to List, item pointer to byte) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "List",
+            "declaration": "public define List as opaque.",
+            "documentation": "Declares growable lists of borrowed byte pointers."
+          }
+        ]
+      }
+    ]
+  }
+}

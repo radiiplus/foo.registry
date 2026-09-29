@@ -1,0 +1,77 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/log",
+  "version": "0.6.0",
+  "description": "Writes application messages and errors to the diagnostic stream.",
+  "category": "standard library",
+  "tags": [
+    "log",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-29",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "24e003c28940d20edc2ff74e759e5854fb8cf4cc",
+  "install": "use log.",
+  "dependencies": [],
+  "readme": [
+    "Writes application messages and errors to the diagnostic stream.",
+    "Import this module with use log."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "bd47df528435298b98d5253c6cd50e73357f6bd9274995d7f4b89b27add2fd3d",
+    "files": [
+      {
+        "path": "std/log.iv",
+        "content": "-- Writes application messages and errors to the diagnostic stream.\nuse io as output.\npublic function message(content text) giving failable nothing {\n  output.write(output.report, \"INFO  \" plus content plus newline) try.\n  give nothing.\n}\npublic function error(content text) giving failable nothing {\n  output.write(output.report, \"ERROR \" plus content plus newline) try.\n  give nothing.\n}\npublic function note(content text) giving nothing {\n  output.write(output.report, \"INFO  \" plus content plus newline) fallback nothing.\n}\npublic function alert(content text) giving nothing {\n  output.write(output.report, \"ERROR \" plus content plus newline) fallback nothing.\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/log",
+        "path": "std/log.iv",
+        "summary": "Writes application messages and errors to the diagnostic stream.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "alert",
+            "declaration": "public function alert(content text) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "error",
+            "declaration": "public function error(content text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "message",
+            "declaration": "public function message(content text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "note",
+            "declaration": "public function note(content text) giving nothing.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

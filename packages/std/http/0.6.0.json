@@ -1,0 +1,203 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/http",
+  "version": "0.6.0",
+  "description": "Declares HTTP clients and servers.",
+  "category": "standard library",
+  "tags": [
+    "http",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-29",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "24e003c28940d20edc2ff74e759e5854fb8cf4cc",
+  "install": "use http.",
+  "dependencies": [],
+  "readme": [
+    "Declares HTTP clients and servers.",
+    "Import this module with use http."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "7a641ad46cf2e5d3fe78150ccd0ad694a87f7724b3cb7037cc1998445add9d88",
+    "files": [
+      {
+        "path": "std/http.iv",
+        "content": "-- Declares HTTP clients and servers.\npublic define Client as opaque.\npublic define Response as opaque.\npublic define Server as opaque.\npublic define Peer as opaque.\npublic use \"http\" function client giving failable pointer to Client.\npublic use \"http\" function trust(value pointer to Client, certificate text) giving failable nothing.\n-- Advanced client controls. Attached headers persist until clear is called.\npublic use \"http\" function attach(value pointer to Client, name text, content text) giving failable nothing.\npublic use \"http\" function clear(value pointer to Client) giving nothing.\npublic use \"http\" function redirects(value pointer to Client, limit unsigned 16) giving failable nothing.\npublic use \"http\" function reuse(value pointer to Client, enabled boolean) giving nothing.\npublic use \"http\" function request(value pointer to Client, url text, method text, content text, limit unsigned 32) giving failable pointer to Response.\npublic use \"http\" function status(value pointer to Response) giving unsigned 16.\npublic use \"http\" function body(value pointer to Response) giving failable text.\npublic use \"http\" function release(value pointer to Response) giving nothing.\npublic use \"http\" function close(value pointer to Client) giving nothing.\npublic use \"http\" function listen(host text, port unsigned 16) giving failable pointer to Server.\npublic use \"http\" function port(value pointer to Server) giving unsigned 16.\npublic use \"http\" function shutdown(value pointer to Server) giving nothing.\npublic use \"http\" function accept(value pointer to Server) giving failable pointer to Peer.\npublic use \"http\" function receive(value pointer to Peer) giving failable text.\npublic use \"http\" function method(value pointer to Peer) giving failable text.\npublic use \"http\" function header(value pointer to Peer, name text) giving failable text.\npublic use \"http\" function read(value pointer to Peer, limit unsigned 32) giving failable text.\npublic use \"http\" function reply(value pointer to Peer, status unsigned 16, content text, reuse boolean) giving failable nothing.\npublic use \"http\" function disconnect(value pointer to Peer) giving nothing.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/http",
+        "path": "std/http.iv",
+        "summary": "Declares HTTP clients and servers.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "accept",
+            "declaration": "public use \"http\" function accept(value pointer to Server) giving failable pointer to Peer.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "attach",
+            "declaration": "public use \"http\" function attach(value pointer to Client, name text, content text) giving failable nothing.",
+            "documentation": "Advanced client controls. Attached headers persist until clear is called."
+          },
+          {
+            "kind": "function",
+            "name": "body",
+            "declaration": "public use \"http\" function body(value pointer to Response) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "clear",
+            "declaration": "public use \"http\" function clear(value pointer to Client) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "client",
+            "declaration": "public use \"http\" function client giving failable pointer to Client.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "close",
+            "declaration": "public use \"http\" function close(value pointer to Client) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "disconnect",
+            "declaration": "public use \"http\" function disconnect(value pointer to Peer) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "header",
+            "declaration": "public use \"http\" function header(value pointer to Peer, name text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "listen",
+            "declaration": "public use \"http\" function listen(host text, port unsigned 16) giving failable pointer to Server.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "method",
+            "declaration": "public use \"http\" function method(value pointer to Peer) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "port",
+            "declaration": "public use \"http\" function port(value pointer to Server) giving unsigned 16.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "read",
+            "declaration": "public use \"http\" function read(value pointer to Peer, limit unsigned 32) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "receive",
+            "declaration": "public use \"http\" function receive(value pointer to Peer) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "redirects",
+            "declaration": "public use \"http\" function redirects(value pointer to Client, limit unsigned 16) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "declaration": "public use \"http\" function release(value pointer to Response) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "reply",
+            "declaration": "public use \"http\" function reply(value pointer to Peer, status unsigned 16, content text, reuse boolean) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "request",
+            "declaration": "public use \"http\" function request(value pointer to Client, url text, method text, content text, limit unsigned 32) giving failable pointer to Response.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "reuse",
+            "declaration": "public use \"http\" function reuse(value pointer to Client, enabled boolean) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "shutdown",
+            "declaration": "public use \"http\" function shutdown(value pointer to Server) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "status",
+            "declaration": "public use \"http\" function status(value pointer to Response) giving unsigned 16.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "trust",
+            "declaration": "public use \"http\" function trust(value pointer to Client, certificate text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Client",
+            "declaration": "public define Client as opaque.",
+            "documentation": "Declares HTTP clients and servers."
+          },
+          {
+            "kind": "type",
+            "name": "Peer",
+            "declaration": "public define Peer as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Response",
+            "declaration": "public define Response as opaque.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Server",
+            "declaration": "public define Server as opaque.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

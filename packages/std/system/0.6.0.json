@@ -1,0 +1,71 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "std/system",
+  "version": "0.6.0",
+  "description": "Declares host system information.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "system"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-09-29",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "24e003c28940d20edc2ff74e759e5854fb8cf4cc",
+  "install": "use system.",
+  "dependencies": [],
+  "readme": [
+    "Declares host system information.",
+    "Import this module with use system."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "83972a3351512a1080707cf85100fcca1b884caa6fa4cc0b9c40fc94fb05dc56",
+    "files": [
+      {
+        "path": "std/system.iv",
+        "content": "-- Declares host system information.\npublic use \"system\" function cores giving failable unsigned 32.\npublic use \"system\" function host giving failable text.\npublic use \"system\" function page giving unsigned.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "std/system",
+        "path": "std/system.iv",
+        "summary": "Declares host system information.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "cores",
+            "declaration": "public use \"system\" function cores giving failable unsigned 32.",
+            "documentation": "Declares host system information."
+          },
+          {
+            "kind": "function",
+            "name": "host",
+            "declaration": "public use \"system\" function host giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "page",
+            "declaration": "public use \"system\" function page giving unsigned.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}
