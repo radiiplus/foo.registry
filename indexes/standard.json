@@ -1,12 +1,12 @@
 {
   "schema": "foo.standard/v1",
-  "revision": "52488ab64b90ffc57fa3748e5620c537278a63d8117dc07cbf8d36a5d9701580",
+  "revision": "d814ec9595e68dd28c91be8f9b6e1b2e6dec0e0f4ee59c62dd27e5bcf2d6597f",
   "count": 35,
   "packages": [
     {
       "kind": "standard",
-      "name": "std/arch",
-      "version": "0.6.0",
+      "name": "lib/arch",
+      "version": "0.7.0",
       "description": "Declares guarded CPU intrinsics.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -17,8 +17,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/arch",
-            "path": "std/arch.iv",
+            "name": "lib/arch",
+            "path": "lib/arch.iv",
             "summary": "Declares guarded CPU intrinsics.",
             "items": [
               {
@@ -46,8 +46,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/atomic",
-      "version": "0.6.0",
+      "name": "lib/atomic",
+      "version": "0.7.0",
       "description": "Declares atomic values and memory ordering operations.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -58,8 +58,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/atomic",
-            "path": "std/atomic.iv",
+            "name": "lib/atomic",
+            "path": "lib/atomic.iv",
             "summary": "Declares atomic values and memory ordering operations.",
             "items": [
               {
@@ -117,8 +117,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/buffer",
-      "version": "0.6.0",
+      "name": "lib/buffer",
+      "version": "0.7.0",
       "description": "Declares owned byte buffers.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -129,8 +129,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/buffer",
-            "path": "std/buffer.iv",
+            "name": "lib/buffer",
+            "path": "lib/buffer.iv",
             "summary": "Declares owned byte buffers.",
             "items": [
               {
@@ -158,8 +158,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/calendar",
-      "version": "0.6.0",
+      "name": "lib/calendar",
+      "version": "0.7.0",
       "description": "Provides validated Gregorian dates and fixed UTC offsets.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -170,8 +170,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/calendar",
-            "path": "std/calendar.iv",
+            "name": "lib/calendar",
+            "path": "lib/calendar.iv",
             "summary": "Provides validated Gregorian dates and fixed UTC offsets.",
             "items": [
               {
@@ -229,8 +229,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/codec",
-      "version": "0.6.0",
+      "name": "lib/codec",
+      "version": "0.7.0",
       "description": "Defines explicit, reusable conversions between a value and text.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -241,8 +241,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/codec",
-            "path": "std/codec.iv",
+            "name": "lib/codec",
+            "path": "lib/codec.iv",
             "summary": "Defines explicit, reusable conversions between a value and text.",
             "items": [
               {
@@ -270,8 +270,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/compress",
-      "version": "0.6.0",
+      "name": "lib/compress",
+      "version": "0.7.0",
       "description": "Declares zlib and gzip compression.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -282,8 +282,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/compress",
-            "path": "std/compress.iv",
+            "name": "lib/compress",
+            "path": "lib/compress.iv",
             "summary": "Declares zlib and gzip compression.",
             "items": [
               {
@@ -305,8 +305,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/contract",
-      "version": "0.6.0",
+      "name": "lib/contract",
+      "version": "0.7.0",
       "description": "Checks application invariants with the runtime assertion mechanism.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -317,8 +317,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/contract",
-            "path": "std/contract.iv",
+            "name": "lib/contract",
+            "path": "lib/contract.iv",
             "summary": "Checks application invariants with the runtime assertion mechanism.",
             "items": [
               {
@@ -346,8 +346,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/crypto",
-      "version": "0.6.0",
+      "name": "lib/crypto",
+      "version": "0.7.0",
       "description": "Declares cryptography and secure random operations.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -358,8 +358,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/crypto",
-            "path": "std/crypto.iv",
+            "name": "lib/crypto",
+            "path": "lib/crypto.iv",
             "summary": "Declares cryptography and secure random operations.",
             "items": [
               {
@@ -423,8 +423,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/file",
-      "version": "0.6.0",
+      "name": "lib/file",
+      "version": "0.7.0",
       "description": "Opens files, transfers their contents, creates directories, and joins paths.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -435,8 +435,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/file",
-            "path": "std/file.iv",
+            "name": "lib/file",
+            "path": "lib/file.iv",
             "summary": "Opens files, transfers their contents, creates directories, and joins paths.",
             "items": [
               {
@@ -461,7 +461,13 @@
                 "kind": "function",
                 "name": "flush",
                 "declaration": "public use \"fs\" function flush(stream pointer to streams.Stream) giving failable nothing.",
-                "documentation": "Advanced stream controls. flush empties process buffers; sync also requests stable storage."
+                "documentation": "Advanced stream controls. flush empties process buffers; sync also requests stable storage from the host."
+              },
+              {
+                "kind": "function",
+                "name": "handle",
+                "declaration": "public use \"fs\" function handle(stream pointer to streams.Stream) giving failable unsigned.",
+                "documentation": "Borrows the platform's native handle. It is valid only while the stream stays open."
               },
               {
                 "kind": "function",
@@ -515,7 +521,7 @@
                 "kind": "function",
                 "name": "replace",
                 "declaration": "public use \"fs\" function replace(source text, destination text) giving failable nothing.",
-                "documentation": "Replaces destination atomically on the same filesystem and makes the directory update durable."
+                "documentation": "Replaces destination on one filesystem and requests durable directory publication where supported."
               },
               {
                 "kind": "function",
@@ -560,8 +566,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/http",
-      "version": "0.6.0",
+      "name": "lib/http",
+      "version": "0.7.0",
       "description": "Declares HTTP clients and servers.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -572,8 +578,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/http",
-            "path": "std/http.iv",
+            "name": "lib/http",
+            "path": "lib/http.iv",
             "summary": "Declares HTTP clients and servers.",
             "items": [
               {
@@ -733,8 +739,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/io",
-      "version": "0.6.0",
+      "name": "lib/io",
+      "version": "0.7.0",
       "description": "Reads and writes text through standard streams and open files.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -745,8 +751,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/io",
-            "path": "std/io.iv",
+            "name": "lib/io",
+            "path": "lib/io.iv",
             "summary": "Reads and writes text through standard streams and open files.",
             "items": [
               {
@@ -816,8 +822,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/iterator",
-      "version": "0.6.0",
+      "name": "lib/iterator",
+      "version": "0.7.0",
       "description": "Defines explicit, state-carrying iteration for user-defined sources.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -828,8 +834,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/iterator",
-            "path": "std/iterator.iv",
+            "name": "lib/iterator",
+            "path": "lib/iterator.iv",
             "summary": "Defines explicit, state-carrying iteration for user-defined sources.",
             "items": [
               {
@@ -881,8 +887,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/json",
-      "version": "0.6.0",
+      "name": "lib/json",
+      "version": "0.7.0",
       "description": "Declares JSON trees and streaming tokens.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -893,8 +899,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/json",
-            "path": "std/json.iv",
+            "name": "lib/json",
+            "path": "lib/json.iv",
             "summary": "Declares JSON trees and streaming tokens.",
             "items": [
               {
@@ -1006,8 +1012,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/list",
-      "version": "0.6.0",
+      "name": "lib/list",
+      "version": "0.7.0",
       "description": "Declares growable lists of borrowed byte pointers.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1018,8 +1024,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/list",
-            "path": "std/list.iv",
+            "name": "lib/list",
+            "path": "lib/list.iv",
             "summary": "Declares growable lists of borrowed byte pointers.",
             "items": [
               {
@@ -1065,8 +1071,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/log",
-      "version": "0.6.0",
+      "name": "lib/log",
+      "version": "0.7.0",
       "description": "Writes application messages and errors to the diagnostic stream.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1077,8 +1083,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/log",
-            "path": "std/log.iv",
+            "name": "lib/log",
+            "path": "lib/log.iv",
             "summary": "Writes application messages and errors to the diagnostic stream.",
             "items": [
               {
@@ -1112,8 +1118,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/map",
-      "version": "0.6.0",
+      "name": "lib/map",
+      "version": "0.7.0",
       "description": "Stores typed key/value pairs with equality-based lookup.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1124,8 +1130,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/map",
-            "path": "std/map.iv",
+            "name": "lib/map",
+            "path": "lib/map.iv",
             "summary": "Stores typed key/value pairs with equality-based lookup.",
             "items": [
               {
@@ -1201,8 +1207,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/memory",
-      "version": "0.6.0",
+      "name": "lib/memory",
+      "version": "0.7.0",
       "description": "Declares owned allocations and grouped arena lifetimes.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1213,8 +1219,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/memory",
-            "path": "std/memory.iv",
+            "name": "lib/memory",
+            "path": "lib/memory.iv",
             "summary": "Declares owned allocations and grouped arena lifetimes.",
             "items": [
               {
@@ -1302,8 +1308,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/net",
-      "version": "0.6.0",
+      "name": "lib/net",
+      "version": "0.7.0",
       "description": "Opens TCP connections and transfers bytes with explicit connection lifetimes.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1314,8 +1320,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/net",
-            "path": "std/net.iv",
+            "name": "lib/net",
+            "path": "lib/net.iv",
             "summary": "Opens TCP connections and transfers bytes with explicit connection lifetimes.",
             "items": [
               {
@@ -1335,6 +1341,12 @@
                 "name": "connect",
                 "declaration": "public use \"net\" function connect(host text, port unsigned) giving failable pointer to Connection.",
                 "documentation": ""
+              },
+              {
+                "kind": "function",
+                "name": "handle",
+                "declaration": "public use \"net\" function handle(connection pointer to Connection) giving failable unsigned.",
+                "documentation": "Borrows the platform's native socket. It is valid only while the connection stays open."
               },
               {
                 "kind": "function",
@@ -1397,8 +1409,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/process",
-      "version": "0.6.0",
+      "name": "lib/process",
+      "version": "0.7.0",
       "description": "Executes programs, runs shell commands, and reads arguments and environment values.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1409,8 +1421,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/process",
-            "path": "std/process.iv",
+            "name": "lib/process",
+            "path": "lib/process.iv",
             "summary": "Executes programs, runs shell commands, and reads arguments and environment values.",
             "items": [
               {
@@ -1450,8 +1462,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/queue",
-      "version": "0.6.0",
+      "name": "lib/queue",
+      "version": "0.7.0",
       "description": "Stores typed values in first-in, first-out order.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1462,8 +1474,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/queue",
-            "path": "std/queue.iv",
+            "name": "lib/queue",
+            "path": "lib/queue.iv",
             "summary": "Stores typed values in first-in, first-out order.",
             "items": [
               {
@@ -1515,8 +1527,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/sequence",
-      "version": "0.6.0",
+      "name": "lib/sequence",
+      "version": "0.7.0",
       "description": "Builds typed sequences and applies ordering, searching, and transformations.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1527,8 +1539,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/sequence",
-            "path": "std/sequence.iv",
+            "name": "lib/sequence",
+            "path": "lib/sequence.iv",
             "summary": "Builds typed sequences and applies ordering, searching, and transformations.",
             "items": [
               {
@@ -1652,8 +1664,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/set",
-      "version": "0.6.0",
+      "name": "lib/set",
+      "version": "0.7.0",
       "description": "Keeps each typed value once using equality-based membership.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1664,8 +1676,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/set",
-            "path": "std/set.iv",
+            "name": "lib/set",
+            "path": "lib/set.iv",
             "summary": "Keeps each typed value once using equality-based membership.",
             "items": [
               {
@@ -1717,8 +1729,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/stack",
-      "version": "0.6.0",
+      "name": "lib/stack",
+      "version": "0.7.0",
       "description": "Stores typed values in last-in, first-out order.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1729,8 +1741,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/stack",
-            "path": "std/stack.iv",
+            "name": "lib/stack",
+            "path": "lib/stack.iv",
             "summary": "Stores typed values in last-in, first-out order.",
             "items": [
               {
@@ -1782,8 +1794,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/state",
-      "version": "0.6.0",
+      "name": "lib/state",
+      "version": "0.7.0",
       "description": "Applies application-defined transitions without adding state-machine syntax.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1794,8 +1806,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/state",
-            "path": "std/state.iv",
+            "name": "lib/state",
+            "path": "lib/state.iv",
             "summary": "Applies application-defined transitions without adding state-machine syntax.",
             "items": [
               {
@@ -1823,8 +1835,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/stream",
-      "version": "0.6.0",
+      "name": "lib/stream",
+      "version": "0.7.0",
       "description": "Declares length-aware input, output and diagnostic streams.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1835,8 +1847,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/stream",
-            "path": "std/stream.iv",
+            "name": "lib/stream",
+            "path": "lib/stream.iv",
             "summary": "Declares length-aware input, output and diagnostic streams.",
             "items": [
               {
@@ -1894,8 +1906,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/system",
-      "version": "0.6.0",
+      "name": "lib/system",
+      "version": "0.7.0",
       "description": "Declares host system information.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1906,8 +1918,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/system",
-            "path": "std/system.iv",
+            "name": "lib/system",
+            "path": "lib/system.iv",
             "summary": "Declares host system information.",
             "items": [
               {
@@ -1935,8 +1947,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/table",
-      "version": "0.6.0",
+      "name": "lib/table",
+      "version": "0.7.0",
       "description": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -1947,8 +1959,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/table",
-            "path": "std/table.iv",
+            "name": "lib/table",
+            "path": "lib/table.iv",
             "summary": "Mutable open-addressed maps for hot text-keyed lookup paths. Values are shallow-copied into backend-owned storage.",
             "items": [
               {
@@ -2006,8 +2018,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/task",
-      "version": "0.6.0",
+      "name": "lib/task",
+      "version": "0.7.0",
       "description": "Declares task execution and networking.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2018,8 +2030,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/task",
-            "path": "std/task.iv",
+            "name": "lib/task",
+            "path": "lib/task.iv",
             "summary": "Declares task execution and networking.",
             "items": [
               {
@@ -2191,8 +2203,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/testing",
-      "version": "0.6.0",
+      "name": "lib/testing",
+      "version": "0.7.0",
       "description": "Declares executable test assertions.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2203,8 +2215,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/testing",
-            "path": "std/testing.iv",
+            "name": "lib/testing",
+            "path": "lib/testing.iv",
             "summary": "Declares executable test assertions.",
             "items": [
               {
@@ -2268,8 +2280,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/text",
-      "version": "0.6.0",
+      "name": "lib/text",
+      "version": "0.7.0",
       "description": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2280,8 +2292,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/text",
-            "path": "std/text.iv",
+            "name": "lib/text",
+            "path": "lib/text.iv",
             "summary": "Combines, trims, and splits text using byte offsets and ASCII whitespace.",
             "items": [
               {
@@ -2351,8 +2363,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/thread",
-      "version": "0.6.0",
+      "name": "lib/thread",
+      "version": "0.7.0",
       "description": "Runs function-valued tasks and coordinates shared work with locks and conditions.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2363,8 +2375,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/thread",
-            "path": "std/thread.iv",
+            "name": "lib/thread",
+            "path": "lib/thread.iv",
             "summary": "Runs function-valued tasks and coordinates shared work with locks and conditions.",
             "items": [
               {
@@ -2446,8 +2458,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/time",
-      "version": "0.6.0",
+      "name": "lib/time",
+      "version": "0.7.0",
       "description": "Measures elapsed time using a monotonic nanosecond clock.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2458,8 +2470,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/time",
-            "path": "std/time.iv",
+            "name": "lib/time",
+            "path": "lib/time.iv",
             "summary": "Measures elapsed time using a monotonic nanosecond clock.",
             "items": [
               {
@@ -2535,8 +2547,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/transaction",
-      "version": "0.6.0",
+      "name": "lib/transaction",
+      "version": "0.7.0",
       "description": "Coordinates one-process transactions with rollback on propagated failure.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2547,8 +2559,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/transaction",
-            "path": "std/transaction.iv",
+            "name": "lib/transaction",
+            "path": "lib/transaction.iv",
             "summary": "Coordinates one-process transactions with rollback on propagated failure.",
             "items": [
               {
@@ -2570,8 +2582,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/unicode",
-      "version": "0.6.0",
+      "name": "lib/unicode",
+      "version": "0.7.0",
       "description": "Declares Unicode validation and conversion.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2582,8 +2594,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/unicode",
-            "path": "std/unicode.iv",
+            "name": "lib/unicode",
+            "path": "lib/unicode.iv",
             "summary": "Declares Unicode validation and conversion.",
             "items": [
               {
@@ -2641,8 +2653,8 @@
     },
     {
       "kind": "standard",
-      "name": "std/units",
-      "version": "0.6.0",
+      "name": "lib/units",
+      "version": "0.7.0",
       "description": "Keeps values from unrelated physical dimensions in distinct generic types.",
       "owner": {
         "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
@@ -2653,8 +2665,8 @@
         "schema": "foo.api/v1",
         "modules": [
           {
-            "name": "std/units",
-            "path": "std/units.iv",
+            "name": "lib/units",
+            "path": "lib/units.iv",
             "summary": "Keeps values from unrelated physical dimensions in distinct generic types.",
             "items": [
               {

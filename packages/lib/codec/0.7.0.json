@@ -1,0 +1,71 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "lib/codec",
+  "version": "0.7.0",
+  "description": "Defines explicit, reusable conversions between a value and text.",
+  "category": "standard library",
+  "tags": [
+    "codec",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-10-02",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "346cea6b50fe38bd2f2867db5e10da37d7b40069",
+  "install": "use codec.",
+  "dependencies": [],
+  "readme": [
+    "Defines explicit, reusable conversions between a value and text.",
+    "Import this module with use codec."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "e48d24030135a453671266673c14fd313966678f8354f6d7902ea97cb3ff9d74",
+    "files": [
+      {
+        "path": "lib/codec.iv",
+        "content": "-- Defines explicit, reusable conversions between a value and text.\npublic define Codec[T] as record {\n  encode of type function taking (T) giving failable text.\n  decode of type function taking (text) giving failable T.\n}.\npublic use \"codec\" function encode[T](value T) giving failable text.\npublic use \"codec\" function decode[T](source text) giving failable T.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "lib/codec",
+        "path": "lib/codec.iv",
+        "summary": "Defines explicit, reusable conversions between a value and text.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "decode",
+            "declaration": "public use \"codec\" function decode[T](source text) giving failable T.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "encode",
+            "declaration": "public use \"codec\" function encode[T](value T) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Codec",
+            "declaration": "public define Codec[T] as record {\n  encode of type function taking (T) giving failable text.\n  decode of type function taking (text) giving failable T.\n}.",
+            "documentation": "Defines explicit, reusable conversions between a value and text."
+          }
+        ]
+      }
+    ]
+  }
+}

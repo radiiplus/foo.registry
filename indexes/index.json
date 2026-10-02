@@ -1,6 +1,6 @@
 {
   "schema": "foo.registry/v1",
-  "revision": "7a7b1e8eed0d4702ed5a54db9b3a15c7115c19dc3a57a8250f49044f42458e3c",
+  "revision": "23bab90472f0c8446f3454165190156037362c1b7ae6915054c195fbc2705f1a",
   "count": 35,
   "order": [
     "category",
@@ -13,11 +13,11 @@
       "count": 35,
       "first": {
         "category": "standard library",
-        "name": "std/arch"
+        "name": "lib/arch"
       },
       "last": {
         "category": "standard library",
-        "name": "std/units"
+        "name": "lib/units"
       }
     }
   ]

@@ -12,9 +12,12 @@ Find a package:
 
 ```sh
 foo search http
-foo info std/json
+foo info lib/json
 foo info package-name
 ```
+
+Bundled FOO modules use the reserved `lib/` namespace. For example, the
+registry record for `use json.` is `lib/json`.
 
 Add and install a package:
 

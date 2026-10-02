@@ -1,0 +1,173 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "lib/file",
+  "version": "0.7.0",
+  "description": "Opens files, transfers their contents, creates directories, and joins paths.",
+  "category": "standard library",
+  "tags": [
+    "file",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-10-02",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "346cea6b50fe38bd2f2867db5e10da37d7b40069",
+  "install": "use file.",
+  "dependencies": [],
+  "readme": [
+    "Opens files, transfers their contents, creates directories, and joins paths.",
+    "Import this module with use file."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "370b4efd55a28bdf85d1a2c9443d7f8398ce254e4ded86e87d19980173b00830",
+    "files": [
+      {
+        "path": "lib/file.iv",
+        "content": "-- Opens files, transfers their contents, creates directories, and joins paths.\nuse io as streams.\npublic use \"fs\" function open(path text, mode text) giving failable pointer to streams.Stream.\npublic use \"fs\" function read(path text) giving failable text.\npublic use \"fs\" function write(path text, content text) giving failable nothing.\npublic use \"fs\" function readbytes(path text) giving failable sequence of byte.\npublic use \"fs\" function writebytes(path text, content sequence of byte) giving failable nothing.\npublic use \"fs\" function releasebytes(content sequence of byte) giving failable nothing.\npublic use \"fs\" function directory(path text) giving failable nothing.\npublic use \"fs\" function join(left text, right text) giving failable text.\npublic use \"fs\" function exists(path text) giving failable boolean.\npublic use \"fs\" function kind(path text) giving failable text.\npublic use \"fs\" function copy(source text, destination text) giving failable nothing.\npublic use \"fs\" function working giving failable text.\npublic use \"fs\" function remove(path text) giving failable nothing.\n-- Replaces destination on one filesystem and requests durable directory publication where supported.\npublic use \"fs\" function replace(source text, destination text) giving failable nothing.\n-- Advanced stream controls. flush empties process buffers; sync also requests stable storage from the host.\npublic use \"fs\" function flush(stream pointer to streams.Stream) giving failable nothing.\npublic use \"fs\" function sync(stream pointer to streams.Stream) giving failable nothing.\npublic use \"fs\" function seek(stream pointer to streams.Stream, offset integer, origin text) giving failable nothing.\npublic use \"fs\" function position(stream pointer to streams.Stream) giving failable unsigned.\npublic use \"fs\" function size(stream pointer to streams.Stream) giving failable unsigned.\n-- Borrows the platform's native handle. It is valid only while the stream stays open.\npublic use \"fs\" function handle(stream pointer to streams.Stream) giving failable unsigned.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "lib/file",
+        "path": "lib/file.iv",
+        "summary": "Opens files, transfers their contents, creates directories, and joins paths.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "copy",
+            "declaration": "public use \"fs\" function copy(source text, destination text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "directory",
+            "declaration": "public use \"fs\" function directory(path text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "exists",
+            "declaration": "public use \"fs\" function exists(path text) giving failable boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "flush",
+            "declaration": "public use \"fs\" function flush(stream pointer to streams.Stream) giving failable nothing.",
+            "documentation": "Advanced stream controls. flush empties process buffers; sync also requests stable storage from the host."
+          },
+          {
+            "kind": "function",
+            "name": "handle",
+            "declaration": "public use \"fs\" function handle(stream pointer to streams.Stream) giving failable unsigned.",
+            "documentation": "Borrows the platform's native handle. It is valid only while the stream stays open."
+          },
+          {
+            "kind": "function",
+            "name": "join",
+            "declaration": "public use \"fs\" function join(left text, right text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "kind",
+            "declaration": "public use \"fs\" function kind(path text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "open",
+            "declaration": "public use \"fs\" function open(path text, mode text) giving failable pointer to streams.Stream.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "position",
+            "declaration": "public use \"fs\" function position(stream pointer to streams.Stream) giving failable unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "read",
+            "declaration": "public use \"fs\" function read(path text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "readbytes",
+            "declaration": "public use \"fs\" function readbytes(path text) giving failable sequence of byte.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "releasebytes",
+            "declaration": "public use \"fs\" function releasebytes(content sequence of byte) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "remove",
+            "declaration": "public use \"fs\" function remove(path text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "replace",
+            "declaration": "public use \"fs\" function replace(source text, destination text) giving failable nothing.",
+            "documentation": "Replaces destination on one filesystem and requests durable directory publication where supported."
+          },
+          {
+            "kind": "function",
+            "name": "seek",
+            "declaration": "public use \"fs\" function seek(stream pointer to streams.Stream, offset integer, origin text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "size",
+            "declaration": "public use \"fs\" function size(stream pointer to streams.Stream) giving failable unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "sync",
+            "declaration": "public use \"fs\" function sync(stream pointer to streams.Stream) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "working",
+            "declaration": "public use \"fs\" function working giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "write",
+            "declaration": "public use \"fs\" function write(path text, content text) giving failable nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "writebytes",
+            "declaration": "public use \"fs\" function writebytes(path text, content sequence of byte) giving failable nothing.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

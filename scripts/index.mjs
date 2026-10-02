@@ -7,7 +7,7 @@ export const limit = 100_000;
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
-const packagePattern = /^(?:@[a-z0-9][a-z0-9-]{0,38}\/[a-z][a-z0-9-]{0,63}|std\/[a-z][a-z0-9-]{0,63}(?:\/[a-z][a-z0-9-]{0,63})*|[a-z][a-z0-9-]{0,63})$/;
+const packagePattern = /^(?:@[a-z0-9][a-z0-9-]{0,38}\/[a-z][a-z0-9-]{0,63}|lib\/[a-z][a-z0-9-]{0,63}(?:\/[a-z][a-z0-9-]{0,63})*|[a-z][a-z0-9-]{0,63})$/;
 const tokenPattern = /^[a-z0-9][a-z0-9-]{0,31}$/;
 const versionPattern = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z.-]+))?$/;
 const constraintPattern = /^(?:\^|~)?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)$/;
@@ -34,8 +34,8 @@ export function normalizePackage(value) {
   if (!packagePattern.test(name)) throw new TypeError("invalid package name");
   const kind = value.kind ?? "package";
   if (!new Set(["package", "standard"]).has(kind)) throw new TypeError("invalid package kind");
-  if (kind === "standard" && !name.startsWith("std/")) throw new TypeError("standard names must use the std/ namespace");
-  if (kind === "package" && name.startsWith("std/")) throw new TypeError("the std/ namespace is reserved");
+  if (kind === "standard" && !name.startsWith("lib/")) throw new TypeError("standard names must use the lib/ namespace");
+  if (kind === "package" && name.startsWith("lib/")) throw new TypeError("the lib/ namespace is reserved");
   const version = requiredString(value.version, "version").trim();
   if (!versionPattern.test(version)) throw new TypeError("invalid package version");
   const description = requiredString(value.description, "description").trim();

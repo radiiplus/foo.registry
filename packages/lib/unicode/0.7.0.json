@@ -1,0 +1,101 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "lib/unicode",
+  "version": "0.7.0",
+  "description": "Declares Unicode validation and conversion.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "unicode"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-10-02",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "346cea6b50fe38bd2f2867db5e10da37d7b40069",
+  "install": "use unicode.",
+  "dependencies": [],
+  "readme": [
+    "Declares Unicode validation and conversion.",
+    "Import this module with use unicode."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "8be6189891503ff1c4f0ef938b487296ce8bd327338b2403c6f1928665753898",
+    "files": [
+      {
+        "path": "lib/unicode.iv",
+        "content": "-- Declares Unicode validation and conversion.\npublic define Cursor as opaque.\npublic use \"unicode\" function scan(value text) giving failable pointer to Cursor.\npublic use \"unicode\" function next(value pointer to Cursor) giving optional unsigned 32.\npublic use \"unicode\" function release(value pointer to Cursor) giving nothing.\npublic use \"unicode\" function valid(value text) giving boolean.\npublic use \"unicode\" function points(value text) giving failable sequence of unsigned 32.\npublic use \"unicode\" function wide(value text) giving failable sequence of unsigned 16.\npublic use \"unicode\" function narrow(value sequence of unsigned 16) giving failable text.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "lib/unicode",
+        "path": "lib/unicode.iv",
+        "summary": "Declares Unicode validation and conversion.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "narrow",
+            "declaration": "public use \"unicode\" function narrow(value sequence of unsigned 16) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "next",
+            "declaration": "public use \"unicode\" function next(value pointer to Cursor) giving optional unsigned 32.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "points",
+            "declaration": "public use \"unicode\" function points(value text) giving failable sequence of unsigned 32.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "release",
+            "declaration": "public use \"unicode\" function release(value pointer to Cursor) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "scan",
+            "declaration": "public use \"unicode\" function scan(value text) giving failable pointer to Cursor.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "valid",
+            "declaration": "public use \"unicode\" function valid(value text) giving boolean.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "wide",
+            "declaration": "public use \"unicode\" function wide(value text) giving failable sequence of unsigned 16.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Cursor",
+            "declaration": "public define Cursor as opaque.",
+            "documentation": "Declares Unicode validation and conversion."
+          }
+        ]
+      }
+    ]
+  }
+}

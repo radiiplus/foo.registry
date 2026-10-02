@@ -7,37 +7,47 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const repository = resolve(here, "..");
 const defaultWorkspace = resolve(repository, "..", "..");
-const standardRoot = resolve(process.argv[2] ?? join(defaultWorkspace, "std"));
+const libraryRoot = resolve(process.argv[2] ?? join(defaultWorkspace, "lib"));
 const workspace = process.argv[2]
-  ? execFileSync("git", ["-C", standardRoot, "rev-parse", "--show-toplevel"], { encoding: "utf8" }).trim()
+  ? execFileSync("git", ["-C", libraryRoot, "rev-parse", "--show-toplevel"], { encoding: "utf8" }).trim()
   : defaultWorkspace;
 const version = JSON.parse(await readFile(join(workspace, "package.json"), "utf8")).version;
 const revision = execFileSync("git", ["-C", workspace, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
-const updated = execFileSync("git", ["-C", workspace, "log", "-1", "--format=%cs", "--", "std"], { encoding: "utf8" }).trim();
+const committed = execFileSync("git", ["-C", workspace, "log", "-1", "--format=%cs", "--", "lib"], { encoding: "utf8" }).trim();
+const updated = committed || new Date().toISOString().slice(0, 10);
 const ownershipSecret = process.env.OWNERSHIP_SECRET;
-if (!ownershipSecret || ownershipSecret.length < 32) throw new Error("OWNERSHIP_SECRET must contain at least 32 characters");
+if (ownershipSecret && ownershipSecret.length < 32) throw new Error("OWNERSHIP_SECRET must contain at least 32 characters");
 
-for (const path of await jsonFiles(join(repository, "packages"))) {
-  if (path.includes(`${sep}packages${sep}std${sep}`)) continue;
+const packagePaths = await jsonFiles(join(repository, "packages"));
+const previousStandard = await existingOwner(packagePaths);
+const standardOwner = ownershipSecret ? owner(152736140, "radiiplus") : previousStandard;
+if (!standardOwner) throw new Error("OWNERSHIP_SECRET is required when no signed bundled package exists");
+
+for (const path of packagePaths) {
+  if (path.includes(`${sep}packages${sep}lib${sep}`) || path.includes(`${sep}packages${sep}std${sep}`)) continue;
   const record = JSON.parse(await readFile(path, "utf8"));
   record.kind = "package";
-  if (Number.isSafeInteger(record.owner?.id)) record.owner = owner(record.owner.id, record.owner.login);
+  if (Number.isSafeInteger(record.owner?.id)) {
+    if (!ownershipSecret) throw new Error("OWNERSHIP_SECRET is required to sign legacy package owners");
+    record.owner = owner(record.owner.id, record.owner.login);
+  }
   record.api = api(record.source);
   await writeFile(path, `${JSON.stringify(record, null, 2)}\n`);
 }
 
-const destination = join(repository, "packages", "std");
+await rm(join(repository, "packages", "std"), { recursive: true, force: true });
+const destination = join(repository, "packages", "lib");
 await rm(destination, { recursive: true, force: true });
-for (const path of await sourceFiles(standardRoot)) {
-  const module = relative(standardRoot, path).split(sep).join("/").replace(/\.iv$/, "");
+for (const path of await sourceFiles(libraryRoot)) {
+  const module = relative(libraryRoot, path).split(sep).join("/").replace(/\.iv$/, "");
   const content = (await readFile(path, "utf8")).replace(/\r\n?/g, "\n");
-  const sourcePath = `std/${module}.iv`;
+  const sourcePath = `lib/${module}.iv`;
   const source = bundle([{ path: sourcePath, content }]);
   const description = summary(content) || `Foo standard library module ${module}.`;
   const record = {
     schema: "foo.package/v1",
     kind: "standard",
-    name: `std/${module}`,
+    name: `lib/${module}`,
     version,
     description,
     category: "standard library",
@@ -47,7 +57,7 @@ for (const path of await sourceFiles(standardRoot)) {
     deprecated: "",
     platforms: module === "os/windows" ? ["windows"] : module === "os/unix" ? ["linux", "macos"] : ["all"],
     updated,
-    owner: owner(152736140, "radiiplus"),
+    owner: standardOwner,
     repository: "https://github.com/radiiplus/foo",
     revision,
     install: module.includes("/") ? `use "${module}".` : `use ${module}.`,
@@ -148,6 +158,17 @@ function bundle(files) {
 function owner(id, login) {
   const digest = createHmac("sha256", ownershipSecret).update(`github:${id}`).digest("base64url");
   return { signature: `v1.${digest}`, login };
+}
+
+async function existingOwner(paths) {
+  for (const path of paths) {
+    const record = JSON.parse(await readFile(path, "utf8"));
+    if (record.kind === "standard" && record.owner?.login === "radiiplus" &&
+        /^v1\.[A-Za-z0-9_-]{43}$/.test(record.owner.signature ?? "")) {
+      return record.owner;
+    }
+  }
+  return undefined;
 }
 
 async function sourceFiles(root) {

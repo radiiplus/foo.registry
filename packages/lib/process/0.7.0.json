@@ -1,0 +1,83 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "lib/process",
+  "version": "0.7.0",
+  "description": "Executes programs, runs shell commands, and reads arguments and environment values.",
+  "category": "standard library",
+  "tags": [
+    "process",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-10-02",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "346cea6b50fe38bd2f2867db5e10da37d7b40069",
+  "install": "use process.",
+  "dependencies": [],
+  "readme": [
+    "Executes programs, runs shell commands, and reads arguments and environment values.",
+    "Import this module with use process."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "9510dc738600ddf48e411da459adb6a5a37c7a85badbd69fc45f2ad9d8ba84d4",
+    "files": [
+      {
+        "path": "lib/process.iv",
+        "content": "-- Executes programs, runs shell commands, and reads arguments and environment values.\npublic use \"process\" function run(command text) giving failable unsigned.\n-- Executes a program directly. Each sequence item is passed as one argument.\npublic use \"process\" function execute(program text, arguments sequence of text) giving failable unsigned.\npublic use \"process\" function count giving unsigned.\npublic use \"process\" function argument(index unsigned) giving failable text.\npublic use \"process\" function environment(name text) giving failable text.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "lib/process",
+        "path": "lib/process.iv",
+        "summary": "Executes programs, runs shell commands, and reads arguments and environment values.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "argument",
+            "declaration": "public use \"process\" function argument(index unsigned) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "count",
+            "declaration": "public use \"process\" function count giving unsigned.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "environment",
+            "declaration": "public use \"process\" function environment(name text) giving failable text.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "execute",
+            "declaration": "public use \"process\" function execute(program text, arguments sequence of text) giving failable unsigned.",
+            "documentation": "Executes a program directly. Each sequence item is passed as one argument."
+          },
+          {
+            "kind": "function",
+            "name": "run",
+            "declaration": "public use \"process\" function run(command text) giving failable unsigned.",
+            "documentation": "Executes programs, runs shell commands, and reads arguments and environment values."
+          }
+        ]
+      }
+    ]
+  }
+}

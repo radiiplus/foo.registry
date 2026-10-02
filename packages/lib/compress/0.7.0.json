@@ -1,0 +1,65 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "lib/compress",
+  "version": "0.7.0",
+  "description": "Declares zlib and gzip compression.",
+  "category": "standard library",
+  "tags": [
+    "compress",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-10-02",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "346cea6b50fe38bd2f2867db5e10da37d7b40069",
+  "install": "use compress.",
+  "dependencies": [],
+  "readme": [
+    "Declares zlib and gzip compression.",
+    "Import this module with use compress."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "391da8dfe45045041fd7a2a89fa7be2b1e747f1ee4a1a353bdba5feff144046e",
+    "files": [
+      {
+        "path": "lib/compress.iv",
+        "content": "-- Declares zlib and gzip compression.\npublic use \"compress\" function pack(value text, format text) giving failable text.\npublic use \"compress\" function unpack(value text, format text, limit unsigned 32) giving failable text.\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "lib/compress",
+        "path": "lib/compress.iv",
+        "summary": "Declares zlib and gzip compression.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "pack",
+            "declaration": "public use \"compress\" function pack(value text, format text) giving failable text.",
+            "documentation": "Declares zlib and gzip compression."
+          },
+          {
+            "kind": "function",
+            "name": "unpack",
+            "declaration": "public use \"compress\" function unpack(value text, format text, limit unsigned 32) giving failable text.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

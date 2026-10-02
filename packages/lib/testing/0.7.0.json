@@ -1,0 +1,107 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "lib/testing",
+  "version": "0.7.0",
+  "description": "Declares executable test assertions.",
+  "category": "standard library",
+  "tags": [
+    "standard",
+    "testing"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-10-02",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "346cea6b50fe38bd2f2867db5e10da37d7b40069",
+  "install": "use testing.",
+  "dependencies": [],
+  "readme": [
+    "Declares executable test assertions.",
+    "Import this module with use testing."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "8587c5c079414c6ef06dd1111c32ce41ed15a3a1990d045437807291ce6712a9",
+    "files": [
+      {
+        "path": "lib/testing.iv",
+        "content": "-- Declares executable test assertions.\npublic use \"testing\" function expect(value boolean) giving nothing.\npublic use \"testing\" function number(actual unsigned, expected unsigned) giving nothing.\npublic use \"testing\" function positive(value unsigned) giving nothing.\npublic use \"testing\" function real(actual decimal, expected decimal) giving nothing.\npublic use \"testing\" function point(actual optional unsigned 32, expected unsigned 32) giving nothing.\npublic function same[T](actual T, expected T) giving nothing where T is Equatable {\n  expect(actual is expected).\n}\npublic define Generator[T] as record {\n  sample of type function taking (unsigned) giving T.\n}.\npublic function generate[T](count unsigned, generator Generator[T], property function taking (T) giving boolean) giving nothing {\n  constant produce is generator.sample.\n  dynamic index of type unsigned is 0.\n  while index less than count {\n    expect(property(produce(index))).\n    set index to index plus 1.\n  }\n}\npublic function every(count unsigned, property function taking (unsigned) giving boolean) giving nothing {\n  dynamic index of type unsigned is 0.\n  while index less than count {\n    expect(property(index)).\n    set index to index plus 1.\n  }\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "lib/testing",
+        "path": "lib/testing.iv",
+        "summary": "Declares executable test assertions.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "every",
+            "declaration": "public function every(count unsigned, property function taking (unsigned) giving boolean) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "expect",
+            "declaration": "public use \"testing\" function expect(value boolean) giving nothing.",
+            "documentation": "Declares executable test assertions."
+          },
+          {
+            "kind": "function",
+            "name": "generate",
+            "declaration": "public function generate[T](count unsigned, generator Generator[T], property function taking (T) giving boolean) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "number",
+            "declaration": "public use \"testing\" function number(actual unsigned, expected unsigned) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "point",
+            "declaration": "public use \"testing\" function point(actual optional unsigned 32, expected unsigned 32) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "positive",
+            "declaration": "public use \"testing\" function positive(value unsigned) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "real",
+            "declaration": "public use \"testing\" function real(actual decimal, expected decimal) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "same",
+            "declaration": "public function same[T](actual T, expected T) giving nothing where T is Equatable.",
+            "documentation": ""
+          },
+          {
+            "kind": "type",
+            "name": "Generator",
+            "declaration": "public define Generator[T] as record {\n  sample of type function taking (unsigned) giving T.\n}.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

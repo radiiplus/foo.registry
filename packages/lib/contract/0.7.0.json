@@ -1,0 +1,71 @@
+{
+  "schema": "foo.package/v1",
+  "kind": "standard",
+  "name": "lib/contract",
+  "version": "0.7.0",
+  "description": "Checks application invariants with the runtime assertion mechanism.",
+  "category": "standard library",
+  "tags": [
+    "contract",
+    "standard"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "compatible": true,
+  "deprecated": "",
+  "platforms": [
+    "all"
+  ],
+  "updated": "2026-10-02",
+  "owner": {
+    "signature": "v1.m8QuzQNcvsKITl_Jyz0qn5dA9ExcXMyPzLgup9CRrU4",
+    "login": "radiiplus"
+  },
+  "repository": "https://github.com/radiiplus/foo",
+  "revision": "346cea6b50fe38bd2f2867db5e10da37d7b40069",
+  "install": "use contract.",
+  "dependencies": [],
+  "readme": [
+    "Checks application invariants with the runtime assertion mechanism.",
+    "Import this module with use contract."
+  ],
+  "source": {
+    "format": "foo.source/v1",
+    "digest": "303795ee91d7f3218a57ee3475dc94940be8070fe90ffbe298e677be9ebdb65e",
+    "files": [
+      {
+        "path": "lib/contract.iv",
+        "content": "-- Checks application invariants with the runtime assertion mechanism.\nuse testing as checks.\npublic function require(condition boolean) giving nothing {\n  checks.expect(condition).\n}\npublic function ensure(condition boolean) giving nothing {\n  checks.expect(condition).\n}\npublic function invariant(condition boolean) giving nothing {\n  checks.expect(condition).\n}\n"
+      }
+    ]
+  },
+  "api": {
+    "schema": "foo.api/v1",
+    "modules": [
+      {
+        "name": "lib/contract",
+        "path": "lib/contract.iv",
+        "summary": "Checks application invariants with the runtime assertion mechanism.",
+        "items": [
+          {
+            "kind": "function",
+            "name": "ensure",
+            "declaration": "public function ensure(condition boolean) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "invariant",
+            "declaration": "public function invariant(condition boolean) giving nothing.",
+            "documentation": ""
+          },
+          {
+            "kind": "function",
+            "name": "require",
+            "declaration": "public function require(condition boolean) giving nothing.",
+            "documentation": ""
+          }
+        ]
+      }
+    ]
+  }
+}

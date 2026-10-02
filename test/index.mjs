@@ -9,7 +9,7 @@ import { build, entries, limit, normalizeCategory, normalizePackage, shards } fr
 
 const temporary = [];
 const repository = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const standardRoot = resolve(process.argv[2] ?? join(repository, "..", "..", "std"));
+const libraryRoot = resolve(process.argv[2] ?? join(repository, "..", "..", "lib"));
 
 afterEach(async () => {
   await Promise.all(temporary.splice(0).map((path) => rm(path, { recursive: true, force: true })));
@@ -74,14 +74,14 @@ test("writes canonical records and deterministic six-digit shards", async () => 
 });
 
 test("indexes every standard module and its public surface", async () => {
-  const sources = await sourceNames(standardRoot);
-  const records = await sourceNames(join(repository, "packages", "std"), ".json");
+  const sources = await sourceNames(libraryRoot);
+  const records = await sourceNames(join(repository, "packages", "lib"), ".json");
   assert.equal(records.length, sources.length);
   let publicItems = 0;
   for (const path of records) {
     const record = JSON.parse(await readFile(path, "utf8"));
     assert.equal(record.kind, "standard");
-    assert.match(record.name, /^std\//);
+    assert.match(record.name, /^lib\//);
     assert.equal(record.api.schema, "foo.api/v1");
     publicItems += record.api.modules.flatMap((module) => module.items).length;
   }
@@ -90,7 +90,7 @@ test("indexes every standard module and its public surface", async () => {
   assert.equal(reference.schema, "foo.standard/v1");
   assert.equal(reference.count, sources.length);
   assert.match(reference.packages[0].owner.signature, /^v1\.[A-Za-z0-9_-]{43}$/);
-  assert.ok(reference.packages.some((entry) => entry.name === "std/json" && entry.api.modules[0].items.some((item) => item.name === "parse")));
+  assert.ok(reference.packages.some((entry) => entry.name === "lib/json" && entry.api.modules[0].items.some((item) => item.name === "parse")));
 });
 
 function fixture(name, category) {
