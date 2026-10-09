@@ -1,24 +1,11 @@
 {
   "schema": "foo.registry/v1",
-  "revision": "23bab90472f0c8446f3454165190156037362c1b7ae6915054c195fbc2705f1a",
-  "count": 35,
+  "revision": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "count": 0,
   "order": [
     "category",
     "name"
   ],
   "limit": 100000,
-  "shards": [
-    {
-      "path": "indexes/index-000001.jsonl",
-      "count": 35,
-      "first": {
-        "category": "standard library",
-        "name": "lib/arch"
-      },
-      "last": {
-        "category": "standard library",
-        "name": "lib/units"
-      }
-    }
-  ]
+  "shards": []
 }

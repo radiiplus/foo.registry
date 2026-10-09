@@ -7,7 +7,7 @@ export const limit = 100_000;
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
-const packagePattern = /^(?:@[a-z0-9][a-z0-9-]{0,38}\/[a-z][a-z0-9-]{0,63}|lib\/[a-z][a-z0-9-]{0,63}(?:\/[a-z][a-z0-9-]{0,63})*|[a-z][a-z0-9-]{0,63})$/;
+const packagePattern = /^(?:@[a-z0-9][a-z0-9-]{0,38}\/[a-z][a-z0-9-]{0,63}|[a-z][a-z0-9-]{0,63})$/;
 const tokenPattern = /^[a-z0-9][a-z0-9-]{0,31}$/;
 const versionPattern = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z.-]+))?$/;
 const constraintPattern = /^(?:\^|~)?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)$/;
@@ -33,9 +33,7 @@ export function normalizePackage(value) {
   const name = requiredString(value.name, "name").trim().toLowerCase();
   if (!packagePattern.test(name)) throw new TypeError("invalid package name");
   const kind = value.kind ?? "package";
-  if (!new Set(["package", "standard"]).has(kind)) throw new TypeError("invalid package kind");
-  if (kind === "standard" && !name.startsWith("lib/")) throw new TypeError("standard names must use the lib/ namespace");
-  if (kind === "package" && name.startsWith("lib/")) throw new TypeError("the lib/ namespace is reserved");
+  if (kind !== "package") throw new TypeError("standard modules are indexed from the FOO repository");
   const version = requiredString(value.version, "version").trim();
   if (!versionPattern.test(version)) throw new TypeError("invalid package version");
   const description = requiredString(value.description, "description").trim();
@@ -181,24 +179,6 @@ export async function build(records, destination = root, size = limit) {
   }
 
   const revision = createHash("sha256").update(JSON.stringify(indexed)).digest("hex");
-  const standardPackages = indexed.filter((entry) => entry.kind === "standard").map((entry) => {
-    const release = normalized.find((candidate) => candidate.name === entry.name && candidate.version === entry.version);
-    return {
-      kind: release.kind,
-      name: release.name,
-      version: release.version,
-      description: release.description,
-      owner: release.owner,
-      install: release.install,
-      api: release.api,
-    };
-  });
-  await writeJson(join(indexRoot, "standard.json"), {
-    schema: "foo.standard/v1",
-    revision: createHash("sha256").update(JSON.stringify(standardPackages)).digest("hex"),
-    count: standardPackages.length,
-    packages: standardPackages,
-  });
   const manifest = {
     schema: "foo.registry/v1",
     revision,

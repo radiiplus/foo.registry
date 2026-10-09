@@ -1,15 +1,12 @@
 import assert from "node:assert/strict";
 import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { dirname, join, resolve } from "node:path";
+import { join } from "node:path";
 import { afterEach, test } from "node:test";
-import { fileURLToPath } from "node:url";
 
 import { build, entries, limit, normalizeCategory, normalizePackage, shards } from "../scripts/index.mjs";
 
 const temporary = [];
-const repository = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const libraryRoot = resolve(process.argv[2] ?? join(repository, "..", "..", "lib"));
 
 afterEach(async () => {
   await Promise.all(temporary.splice(0).map((path) => rm(path, { recursive: true, force: true })));
@@ -68,29 +65,12 @@ test("writes canonical records and deterministic six-digit shards", async () => 
   assert.deepEqual(lines.map((line) => JSON.parse(line).name), ["alpha"]);
   assert.equal(lines.length, 1);
   assert.match(await readFile(join(destination, "packages", "alpha", "1.0.0.json"), "utf8"), /\n  "name"/);
-  const standard = JSON.parse(await readFile(join(destination, "indexes", "standard.json"), "utf8"));
-  assert.equal(standard.schema, "foo.standard/v1");
-  assert.equal(standard.count, 0);
+  await assert.rejects(readFile(join(destination, "indexes", "standard.json"), "utf8"), { code: "ENOENT" });
 });
 
-test("indexes every standard module and its public surface", async () => {
-  const sources = await sourceNames(libraryRoot);
-  const records = await sourceNames(join(repository, "packages", "lib"), ".json");
-  assert.equal(records.length, sources.length);
-  let publicItems = 0;
-  for (const path of records) {
-    const record = JSON.parse(await readFile(path, "utf8"));
-    assert.equal(record.kind, "standard");
-    assert.match(record.name, /^lib\//);
-    assert.equal(record.api.schema, "foo.api/v1");
-    publicItems += record.api.modules.flatMap((module) => module.items).length;
-  }
-  assert.ok(publicItems >= 300);
-  const reference = JSON.parse(await readFile(join(repository, "indexes", "standard.json"), "utf8"));
-  assert.equal(reference.schema, "foo.standard/v1");
-  assert.equal(reference.count, sources.length);
-  assert.match(reference.packages[0].owner.signature, /^v1\.[A-Za-z0-9_-]{43}$/);
-  assert.ok(reference.packages.some((entry) => entry.name === "lib/json" && entry.api.modules[0].items.some((item) => item.name === "parse")));
+test("reserves the standard namespace for the FOO source catalog", () => {
+  assert.throws(() => normalizePackage({ ...fixture("lib/json", "standard library"), kind: "package" }), /invalid package name|reserved/);
+  assert.throws(() => normalizePackage({ ...fixture("json", "standard library"), kind: "standard" }), /standard modules/);
 });
 
 function fixture(name, category) {
@@ -136,16 +116,6 @@ async function snapshot(destination) {
     for (const file of (await readdir(join(destination, directory))).sort()) {
       paths.push([`${directory}/${file}`, await readFile(join(destination, directory, file), "utf8")]);
     }
-  }
-  return paths;
-}
-
-async function sourceNames(directory, suffix = ".iv") {
-  const paths = [];
-  for (const entry of await readdir(directory, { withFileTypes: true })) {
-    const path = join(directory, entry.name);
-    if (entry.isDirectory()) paths.push(...await sourceNames(path, suffix));
-    else if (entry.isFile() && entry.name.endsWith(suffix)) paths.push(path);
   }
   return paths;
 }

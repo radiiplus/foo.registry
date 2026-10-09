@@ -2,7 +2,7 @@
 
 The official package catalog for the [FOO programming language](https://github.com/radiiplus/foo).
 
-This repository is where FOO's standard library and published community packages are made available. Use it to discover libraries, review what they provide, and install them in your FOO projects.
+This repository stores published community packages. The registry reads bundled standard modules from the [FOO source catalog](https://github.com/radiiplus/foo/blob/main/registry/standard.json), generated from `lib/*.iv` in the FOO repository. Standard modules are not published here.
 
 New to the language? Visit the [main FOO repository](https://github.com/radiiplus/foo) for installation, documentation, examples, and releases.
 
@@ -17,7 +17,7 @@ foo info package-name
 ```
 
 Bundled FOO modules use the reserved `lib/` namespace. For example, the
-registry record for `use json.` is `lib/json`.
+standard catalog record for `use json.` is `lib/json`.
 
 Add and install a package:
 
